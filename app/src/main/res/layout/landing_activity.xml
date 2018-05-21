@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background_2"
+    tools:context=".Landing.LandingActivity"
+    android:id="@+id/linear_layout_LA">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraint_layout_LA"
+        android:layout_width="match_parent"
+        android:layout_height="202dp"
+        android:layout_gravity="center"
+        android:elevation="0dp">
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_layout_LA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabGravity="fill"
+        app:tabMode="fixed"
+        app:tabIndicatorColor="@color/colorTransparent"
+        app:tabTextColor="@color/colorDark"
+        app:tabSelectedTextColor="@color/colorLight"
+        app:background="@color/colorTransparent"
+        app:tabBackground = "@android:color/transparent"
+        ></android.support.design.widget.TabLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager_LA"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
