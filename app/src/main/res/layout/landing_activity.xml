@@ -12,43 +12,44 @@
     android:id="@+id/linear_layout_LA">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar_layout_LA"
         android:layout_width="match_parent"
         android:layout_height="202dp"
-        android:gravity="center"
         android:background="@color/colorTransparent"
-        app:elevation="0dp" >
+        android:gravity="center"
+        app:elevation="0dp">
 
         <TextView
             android:id="@+id/kronikle_LA"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/big_jhon"
+            android:fontFamily="@font/poppins"
             android:text="@string/app_name_upper"
             android:textAlignment="center"
             android:textColor="@color/colorLight"
-            android:textSize="50sp" />
+            android:textSize="60sp"
+            android:typeface="normal" />
 
         <TextView
             android:id="@+id/moto_LA"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/big_jhon"
-            android:text="Your personal"
+            android:fontFamily="@font/hype"
+            android:text="@string/your_personal"
             android:textAlignment="center"
             android:textColor="@color/colorLight"
-            android:textSize="30sp" />
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/moto_individual_LA"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:fontFamily="@font/big_jhon"
+            android:fontFamily="@font/hype"
             android:text="Habit Tracker"
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
-            android:textSize="30sp" />
+            android:textSize="25sp" />
     </android.support.design.widget.AppBarLayout>
 
     <android.support.design.widget.TabLayout
