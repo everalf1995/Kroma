@@ -11,31 +11,45 @@
     tools:context=".Landing.LandingActivity"
     android:id="@+id/linear_layout_LA">
 
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraint_layout_LA"
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="202dp"
-        android:layout_gravity="center"
-        android:elevation="0dp">
+        android:gravity="center"
+        android:background="@color/colorTransparent"
+        app:elevation="0dp" >
 
         <TextView
             android:id="@+id/kronikle_LA"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp"
-            android:fontFamily="@font/kano"
+            android:fontFamily="@font/big_jhon"
             android:text="@string/app_name_upper"
             android:textAlignment="center"
             android:textColor="@color/colorLight"
-            android:textSize="50sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textSize="50sp" />
 
-    </android.support.constraint.ConstraintLayout>
+        <TextView
+            android:id="@+id/moto_LA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/big_jhon"
+            android:text="Your personal"
+            android:textAlignment="center"
+            android:textColor="@color/colorLight"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/moto_individual_LA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/big_jhon"
+            android:text="Habit Tracker"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="30sp" />
+    </android.support.design.widget.AppBarLayout>
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tab_layout_LA"
