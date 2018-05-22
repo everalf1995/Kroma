@@ -14,7 +14,7 @@
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar_layout_LA"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_height="wrap_content"
         android:background="@color/colorTransparent"
         android:gravity="center"
         app:elevation="0dp">
@@ -44,6 +44,7 @@
             android:id="@+id/moto_individual_LA"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:layout_marginTop="2dp"
             android:fontFamily="@font/hype"
             android:text="@string/string_6"
