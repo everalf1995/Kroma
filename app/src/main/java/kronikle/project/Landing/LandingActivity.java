@@ -1,6 +1,5 @@
 package kronikle.project.Landing;
 
-import android.graphics.Typeface;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +7,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import kronikle.project.R;
-import kronikle.project.ViewPagerAdapter;
+import kronikle.project.Adapters.ViewPagerAdapter;
 
 public class LandingActivity extends AppCompatActivity {
 
