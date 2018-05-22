@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#202A3C</color>
-    <color name="colorPrimaryDark">#929FB5</color>
-    <color name="colorAccent">#FE636B</color>
+    <color name="colorBase">#202A3C</color>
+    <color name="colorBaseLight">#929FB5</color>
+    <color name="colorComplement">#FE636B</color>
+    <color name="colorComplementLight">#FECBCD</color>
 
     <color name="colorLight">#ffffff</color>
     <color name="colorDark">#B6BFCD</color>

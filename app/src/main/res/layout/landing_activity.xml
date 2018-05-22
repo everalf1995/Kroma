@@ -14,7 +14,7 @@
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar_layout_LA"
         android:layout_width="match_parent"
-        android:layout_height="202dp"
+        android:layout_height="180dp"
         android:background="@color/colorTransparent"
         android:gravity="center"
         app:elevation="0dp">
@@ -23,7 +23,7 @@
             android:id="@+id/kronikle_LA"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins"
+            android:fontFamily="@font/poppins_bold"
             android:text="@string/app_name_upper"
             android:textAlignment="center"
             android:textColor="@color/colorLight"
@@ -48,7 +48,7 @@
             android:fontFamily="@font/hype"
             android:text="@string/string_6"
             android:textAlignment="center"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/colorComplement"
             android:textSize="25sp" />
     </android.support.design.widget.AppBarLayout>
 
@@ -63,6 +63,12 @@
         app:tabSelectedTextColor="@color/colorLight"
         app:background="@color/colorTransparent"
         app:tabBackground="@android:color/transparent" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorBaseLight" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/view_pager_LA"

@@ -4,6 +4,184 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorTransparent"
     tools:context=".Landing.SignInFragment">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/text_input_layout_email_SIF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/text_input_layout_password_SIF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/edit_text_email_SIF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/icon_email_selected"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/roboto"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/text_input_layout_password_SIF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_sign_in_SIF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_email_SIF">
+
+        <EditText
+            android:id="@+id/edit_text_password_SIF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/icon_password_selected"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/roboto"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/button_sign_in_SIF"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:background="@color/colorComplement"
+        android:fontFamily="@font/roboto"
+        android:text="@string/sign_in"
+        android:textColor="@color/colorLight"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_view_forgot_SIF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_password_SIF" />
+
+    <TextView
+        android:id="@+id/text_view_forgot_SIF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="@string/forgot_password"
+        android:textColor="@color/colorComplement"
+        app:layout_constraintBottom_toTopOf="@+id/text_view_or_SIF"
+        app:layout_constraintEnd_toStartOf="@+id/text_view_offline_SIF"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_sign_in_SIF" />
+
+    <TextView
+        android:id="@+id/text_view_offline_SIF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/guest"
+        android:textColor="@color/colorComplement"
+        app:layout_constraintBottom_toBottomOf="@+id/text_view_forgot_SIF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/text_view_forgot_SIF"
+        app:layout_constraintTop_toTopOf="@+id/text_view_forgot_SIF"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <View
+        android:id="@+id/view_1_SIF"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorBaseLight"
+        app:layout_constraintBottom_toBottomOf="@+id/text_view_or_SIF"
+        app:layout_constraintEnd_toStartOf="@+id/text_view_or_SIF"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/text_view_or_SIF" />
+
+    <TextView
+        android:id="@+id/text_view_or_SIF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/or_sign_in_with"
+        android:textColor="@color/colorBaseLight"
+        app:layout_constraintBottom_toTopOf="@+id/button_facebook_SIF"
+        app:layout_constraintEnd_toStartOf="@+id/view_2_SIF"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/view_1_SIF"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_forgot_SIF" />
+
+    <View
+        android:id="@+id/view_2_SIF"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorBaseLight"
+        app:layout_constraintBottom_toBottomOf="@+id/text_view_or_SIF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/text_view_or_SIF"
+        app:layout_constraintTop_toTopOf="@+id/text_view_or_SIF" />
+
+    <Button
+        android:id="@+id/button_facebook_SIF"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="20dp"
+        android:background="@color/colorComplement"
+        android:fontFamily="@font/roboto"
+        android:text="@string/facebook"
+        android:textAllCaps="false"
+        android:textColor="@color/colorLight"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_google_SIF"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_or_SIF" />
+
+    <Button
+        android:id="@+id/button_google_SIF"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorComplement"
+        android:fontFamily="@font/roboto"
+        android:text="@string/google"
+        android:textAllCaps="false"
+        android:textColor="@color/colorLight"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/button_facebook_SIF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_facebook_SIF"
+        app:layout_constraintTop_toTopOf="@+id/button_facebook_SIF"
+        app:layout_constraintVertical_bias="1.0" />
 
 </android.support.constraint.ConstraintLayout>
