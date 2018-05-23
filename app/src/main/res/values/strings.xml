@@ -21,5 +21,9 @@
     <string name="facebook">Facebook</string>
     <string name="google">Google</string>
 
+    <string name="name">NAME</string>
+    <string name="last_name">LAST NAME</string>
+    <string name="confirm_password">CONFIRM PASSWORD</string>
+
 
 </resources>

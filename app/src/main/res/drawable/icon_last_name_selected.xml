@@ -1,0 +1,10 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:state_focused="false"
+        android:drawable="@drawable/icon_last_name_not_focused"
+        />
+    <item
+        android:state_focused="true"
+        android:drawable="@drawable/icon_last_name_focused"
+        />
+</selector>
