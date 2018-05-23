@@ -2,6 +2,7 @@
 <resources>
     <color name="colorBase">#202A3C</color>
     <color name="colorBaseLight">#929FB5</color>
+
     <color name="colorComplement">#FE636B</color>
     <color name="colorComplementLight">#FECBCD</color>
 
