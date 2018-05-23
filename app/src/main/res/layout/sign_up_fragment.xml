@@ -8,7 +8,7 @@
     tools:context=".Landing.SignUpFragment">
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/text_input_layout_name_SUF"
+        android:id="@+id/text_input_layout_first_name_SUF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
@@ -20,16 +20,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/edit_text_name_SUF"
+            android:id="@+id/edit_text_first_name_SUF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawablePadding="10dp"
             android:drawableStart="@drawable/icon_name_selected"
-            android:fontFamily="@font/roboto"
-            android:hint="@string/name"
+            android:hint="@string/first_name"
             android:inputType="textCapWords"
             android:maxLines="1"
-            android:textColor="@android:color/white"
             android:textSize="16sp" />
     </android.support.design.widget.TextInputLayout>
 
@@ -43,7 +41,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_name_SUF">
+        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_first_name_SUF">
 
         <EditText
             android:id="@+id/edit_text_last_name_SUF"
@@ -51,11 +49,9 @@
             android:layout_height="wrap_content"
             android:drawablePadding="10dp"
             android:drawableStart="@drawable/icon_last_name_selected"
-            android:fontFamily="@font/roboto"
             android:hint="@string/last_name"
             android:inputType="textCapWords"
             android:maxLines="1"
-            android:textColor="@android:color/white"
             android:textSize="16sp" />
     </android.support.design.widget.TextInputLayout>
 
@@ -78,11 +74,9 @@
             android:layout_height="wrap_content"
             android:drawablePadding="10dp"
             android:drawableStart="@drawable/icon_email_selected"
-            android:fontFamily="@font/roboto"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:maxLines="1"
-            android:textColor="@android:color/white"
             android:textSize="16sp" />
     </android.support.design.widget.TextInputLayout>
 
@@ -104,11 +98,9 @@
             android:layout_height="wrap_content"
             android:drawablePadding="10dp"
             android:drawableStart="@drawable/icon_password_selected"
-            android:fontFamily="@font/roboto"
             android:hint="@string/password"
             android:inputType="textPassword"
             android:maxLines="1"
-            android:textColor="@android:color/white"
             android:textSize="16sp" />
     </android.support.design.widget.TextInputLayout>
 
@@ -130,12 +122,11 @@
             android:layout_height="wrap_content"
             android:drawablePadding="10dp"
             android:drawableStart="@drawable/icon_confirm_password_selected"
-            android:fontFamily="@font/roboto"
             android:hint="@string/confirm_password"
             android:inputType="textPassword"
             android:maxLines="1"
-            android:textColor="@android:color/white"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:imeOptions="actionDone"/>
     </android.support.design.widget.TextInputLayout>
 
     <Button
@@ -144,10 +135,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
-        android:background="@color/colorComplement"
-        android:fontFamily="@font/roboto"
         android:text="@string/sign_up"
-        android:textColor="@color/colorLight"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -3,7 +3,7 @@
     <style name="MainTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/colorBase</item>
         <item name="colorPrimaryDark">@color/colorBaseLight</item>
-        <item name="colorAccent">@color/colorComplement</item>
+        <item name="colorAccent">@color/colorComplement_1</item>
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
     </style>
@@ -11,8 +11,12 @@
     <style name="NoActionBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorBase</item>
         <item name="colorPrimaryDark">@color/colorBaseLight</item>
-        <item name="colorAccent">@color/colorComplement</item>
+        <item name="colorAccent">@color/colorComplement_1</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/colorTextLight</item>
+        <item name="android:editTextColor">@color/colorTextLight</item>
         <item name="android:textColorHint">@color/colorBaseLight</item>
+        <item name="colorButtonNormal">@color/colorComplement_1</item>
         <item name="colorControlNormal">@color/colorBaseLight</item>
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>

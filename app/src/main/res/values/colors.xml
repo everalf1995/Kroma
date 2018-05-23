@@ -3,11 +3,11 @@
     <color name="colorBase">#202A3C</color>
     <color name="colorBaseLight">#929FB5</color>
 
-    <color name="colorComplement">#FE636B</color>
-    <color name="colorComplementLight">#FECBCD</color>
+    <color name="colorComplement_1">#10e19f</color>
+    <color name="colorComplementLight_1">#FECBCD</color>
 
-    <color name="colorLight">#ffffff</color>
-    <color name="colorDark">#B6BFCD</color>
+    <color name="colorTextLight">#ffffff</color>
+    <color name="colorTextDark">#B6BFCD</color>
 
     <color name="colorTransparent">#00000000</color>
 </resources>
