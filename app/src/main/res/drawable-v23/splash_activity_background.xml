@@ -8,7 +8,6 @@
         android:gravity="center">
 
         <bitmap
-            android:src="@drawable/k_logo"
-            android:gravity="fill_horizontal|fill_vertical" />
+            android:src="@drawable/k_logo" />
     </item>
 </layer-list>
