@@ -2,13 +2,10 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@drawable/background_1" />
 
-    <item
-        android:height="100dp"
-        android:width="100dp"
-        android:gravity="center">
+    <item android:gravity="center">
 
         <bitmap
-            android:src="@drawable/k_logo"
+            android:src="@drawable/k_logo_small"
             android:gravity="fill_horizontal|fill_vertical" />
     </item>
 </layer-list>
