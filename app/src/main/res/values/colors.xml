@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorBase">#202A3C</color>
+    <color name="colorBackground">#2E3A50</color>
     <color name="colorBaseLight">#929FB5</color>
 
-    <color name="colorComplement_1">#10e19f</color>
+    <color name="colorComplement_1">#40DBBE</color>
+    <color name="colorComplement_2">#45EBCC</color>
+    <color name="colorComplement_3">#F2BA4E</color>
+    <color name="colorComplement_4">#FEC756</color>
+    <color name="colorComplement_5">#EE4C82</color>
+    <color name="colorComplement_6">#EF5D86</color>
 
     <color name="colorTextLight">#ffffff</color>
-    <color name="colorTextDark">#B6BFCD</color>
 
     <color name="colorTransparent">#00000000</color>
 </resources>

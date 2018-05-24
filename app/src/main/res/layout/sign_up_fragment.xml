@@ -19,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
+        <android.support.design.widget.TextInputEditText
             android:id="@+id/edit_text_first_name_SUF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_input_layout_first_name_SUF">
 
-        <EditText
+        <android.support.design.widget.TextInputEditText
             android:id="@+id/edit_text_last_name_SUF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_input_layout_last_name_SUF">
 
-        <EditText
+        <android.support.design.widget.TextInputEditText
             android:id="@+id/edit_text_email_SUF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -92,7 +92,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_input_layout_email_SUF">
 
-        <EditText
+        <android.support.design.widget.TextInputEditText
             android:id="@+id/edit_text_password_SUF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -116,7 +116,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_input_layout_password_SUF">
 
-        <EditText
+        <android.support.design.widget.TextInputEditText
             android:id="@+id/edit_text_confirm_password_SUF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
