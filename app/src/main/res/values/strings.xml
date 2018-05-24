@@ -2,6 +2,7 @@
     <string name="app_name">Kronikle</string>
     <string name="app_name_upper">KRONIKLE</string>
 
+    <!--Strings for the apps intro-->
     <string name="your_personal">Your Personal</string>
     <string name="string_1">Task Manager</string>
     <string name="string_2">Habit Tracker</string>
@@ -10,20 +11,25 @@
     <string name="string_5">Project Manager</string>
     <string name="string_6">Imaginary Friend</string>
 
+    <!--Strings to Sign In & Sign Up-->
     <string name="sign_in">Sign In</string>
     <string name="sign_up">Sign Up</string>
 
+    <string name="first_name">FIRST NAME</string>
+    <string name="last_name">LAST NAME</string>
     <string name="email">EMAIL</string>
+    <string name="error_email">Invalid email address</string>
     <string name="password">PASSWORD</string>
+    <string name="error_password">Password must be 8+ characters</string>
+
+    <string name="confirm_password">CONFIRM PASSWORD</string>
     <string name="forgot_password">Forgot Password?</string>
     <string name="guest">Continue as a Guest</string>
     <string name="or_sign_in_with">or sign in with</string>
     <string name="facebook">Facebook</string>
     <string name="google">Google</string>
 
-    <string name="first_name">FIRST NAME</string>
-    <string name="last_name">LAST NAME</string>
-    <string name="confirm_password">CONFIRM PASSWORD</string>
+
 
 
 </resources>
