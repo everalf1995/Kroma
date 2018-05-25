@@ -64,7 +64,7 @@
         app:tabBackground="@android:color/transparent" />
 
     <View
-        android:id="@+id/view"
+        android:id="@+id/view_divider_LA"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="?attr/colorPrimaryDark" />
