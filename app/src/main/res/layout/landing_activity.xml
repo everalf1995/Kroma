@@ -22,7 +22,7 @@
         <TextView
             android:id="@+id/kronikle_LA"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:fontFamily="@font/poppins_bold"
             android:text="@string/app_name_upper"
             android:textAlignment="center"
