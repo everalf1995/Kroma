@@ -121,7 +121,7 @@ public class SignUpFragment extends Fragment {
     private boolean validateFirstName() {
         String firstName = editTextFirstName.getText().toString().trim();
 
-        if (firstName.isEmpty() || !firstName.matches("^[ A-Za-z]+$")) {
+        if (firstName.isEmpty() || !firstName.matches("^[ A-Za-z'-]+$")) {
             textInputLayoutFirstName.setError(getString(R.string.error_first_name_suf));
             return false;
         }
@@ -135,7 +135,7 @@ public class SignUpFragment extends Fragment {
     private boolean validateLastName() {
         String lastName = editTextLastName.getText().toString().trim();
 
-        if (lastName.isEmpty() || !lastName.matches("[a-zA-Z]+")) {
+        if (lastName.isEmpty() || !lastName.matches("^[ A-Za-z'-]+$")) {
             textInputLayoutLastName.setError(getString(R.string.error_last_name_suf));
             return false;
         }
