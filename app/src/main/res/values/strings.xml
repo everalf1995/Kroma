@@ -27,17 +27,15 @@
     <string name="last_name">LAST NAME</string>
     <string name="email">EMAIL</string>
     <string name="password">PASSWORD</string>
-    <string name="confirm_password">CONFIRM PASSWORD</string>
 
     <!--Error Messages for Sign In & Sign Up-->
     <string name="error_email_sif">Enter a valid email address</string>
-    <string name="error_password_sif">Enter a valid password (8+ characters)</string>
+    <string name="error_password_sif">Enter a valid password</string>
 
     <string name="error_first_name_suf">First Name can only be made up of letters</string>
     <string name="error_last_name_suf">Last Name can only be made up of letters</string>
     <string name="error_email_suf">Email must have a valid format</string>
     <string name="error_password_suf">Password must have 8+ characters</string>
-    <string name="error_confirm_password_suf">Both passwords must match</string>
 
 
 

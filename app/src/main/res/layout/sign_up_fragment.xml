@@ -2,15 +2,15 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:focusableInTouchMode="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
     tools:context=".Landing.SignUpFragment">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/text_input_layout_first_name_SUF"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="84dp"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
         app:layout_constraintBottom_toTopOf="@+id/text_input_layout_last_name_SUF"
@@ -34,7 +34,7 @@
     <android.support.design.widget.TextInputLayout
         android:id="@+id/text_input_layout_last_name_SUF"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="84dp"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
         app:layout_constraintBottom_toTopOf="@+id/text_input_layout_email_SUF"
@@ -59,7 +59,7 @@
     <android.support.design.widget.TextInputLayout
         android:id="@+id/text_input_layout_email_SUF"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="84dp"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
         app:layout_constraintBottom_toTopOf="@+id/text_input_layout_password_SUF"
@@ -83,14 +83,16 @@
     <android.support.design.widget.TextInputLayout
         android:id="@+id/text_input_layout_password_SUF"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="84dp"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/text_input_layout_confirm_password_SUF"
+        app:layout_constraintBottom_toTopOf="@+id/button_sign_up_SUF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_email_SUF">
+        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_email_SUF"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="?attr/colorPrimaryDark">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/edit_text_password_SUF"
@@ -102,31 +104,6 @@
             android:inputType="textPassword"
             android:maxLines="1"
             android:textSize="16sp" />
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/text_input_layout_confirm_password_SUF"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_sign_up_SUF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_password_SUF">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/edit_text_confirm_password_SUF"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawablePadding="10dp"
-            android:drawableStart="@drawable/icon_confirm_password_selected"
-            android:hint="@string/confirm_password"
-            android:inputType="textPassword"
-            android:maxLines="1"
-            android:textSize="16sp"
-            android:imeOptions="actionDone"/>
     </android.support.design.widget.TextInputLayout>
 
     <Button
@@ -141,7 +118,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_confirm_password_SUF" />
+        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_password_SUF" />
 
 
 </android.support.constraint.ConstraintLayout>

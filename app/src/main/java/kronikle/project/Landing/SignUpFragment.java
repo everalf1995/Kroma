@@ -35,8 +35,6 @@ public class SignUpFragment extends Fragment {
     TextInputEditText editTextEmail;
     TextInputLayout textInputLayoutPassword;
     TextInputEditText editTextPassword;
-    TextInputLayout textInputLayoutConfirmPassword;
-    TextInputEditText editTextConfirmPassword;
     Button buttonSignUp;
 
     public SignUpFragment() {
@@ -70,8 +68,6 @@ public class SignUpFragment extends Fragment {
         editTextEmail = view.findViewById(R.id.edit_text_email_SUF);
         textInputLayoutPassword = view.findViewById(R.id.text_input_layout_password_SUF);
         editTextPassword = view.findViewById(R.id.edit_text_password_SUF);
-        textInputLayoutConfirmPassword = view.findViewById(R.id.text_input_layout_confirm_password_SUF);
-        editTextConfirmPassword = view.findViewById(R.id.edit_text_confirm_password_SUF);
         buttonSignUp = view.findViewById(R.id.button_sign_up_SUF);
     }
 
@@ -80,7 +76,6 @@ public class SignUpFragment extends Fragment {
         editTextLastName.addTextChangedListener(new SignUpFragment.textWatcher(editTextLastName));
         editTextEmail.addTextChangedListener(new SignUpFragment.textWatcher(editTextEmail));
         editTextPassword.addTextChangedListener(new SignUpFragment.textWatcher(editTextPassword));
-        editTextConfirmPassword.addTextChangedListener(new SignUpFragment.textWatcher(editTextConfirmPassword));
     }
 
     private class textWatcher implements TextWatcher {
@@ -110,9 +105,6 @@ public class SignUpFragment extends Fragment {
                     break;
                 case R.id.edit_text_password_SUF:
                     validatePassword();
-                    break;
-                case R.id.edit_text_confirm_password_SUF:
-                    validateConfirmPassword();
                     break;
             }
         }
@@ -174,20 +166,6 @@ public class SignUpFragment extends Fragment {
         }
     }
 
-    private boolean validateConfirmPassword() {
-        String password = editTextPassword.getText().toString().trim();
-        String confirmPassword = editTextConfirmPassword.getText().toString().trim();
-
-        if (!confirmPassword.equals(password)) {
-            textInputLayoutConfirmPassword.setError(getString(R.string.error_confirm_password_suf));
-            return false;
-        }
-
-        else {
-            textInputLayoutConfirmPassword.setErrorEnabled(false);
-            return true;
-        }
-    }
 
     public void validateInformation() {
 
@@ -205,10 +183,6 @@ public class SignUpFragment extends Fragment {
 
         else if (!validatePassword()) {
             focusEditText(editTextPassword);
-        }
-
-        else if (!validateConfirmPassword()) {
-            focusEditText(editTextConfirmPassword);
         }
 
         else {
