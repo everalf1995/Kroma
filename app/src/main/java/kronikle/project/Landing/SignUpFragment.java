@@ -161,7 +161,7 @@ public class SignUpFragment extends Fragment {
     }
 
     private boolean validatePassword() {
-        String password = editTextPassword.getText().toString().trim();
+        String password = editTextPassword.getText().toString();
 
         if (password.isEmpty() || password.length() < 8) {
             textInputLayoutPassword.setError(getString(R.string.error_password_suf));
@@ -213,7 +213,6 @@ public class SignUpFragment extends Fragment {
 
         else {
             //Code to check if the given email is in the database
-
             Toast.makeText(getContext(), "Welcome to KORNIKLE!", Toast.LENGTH_SHORT).show();
 
             Intent MainActivityIntent = new Intent(getActivity(), MainActivity.class);

@@ -142,7 +142,6 @@ public class SignInFragment extends Fragment {
 
         else {
             //Code to check if the given email is in the database
-
             Toast.makeText(getContext(), "Welcome to KORNIKLE!", Toast.LENGTH_SHORT).show();
 
             Intent MainActivityIntent = new Intent(getActivity(), MainActivity.class);

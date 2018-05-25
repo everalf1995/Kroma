@@ -36,7 +36,7 @@
     <string name="error_first_name_suf">First Name can only be made up of letters</string>
     <string name="error_last_name_suf">Last Name can only be made up of letters</string>
     <string name="error_email_suf">Email must have a valid format</string>
-    <string name="error_password_suf">Password must have 8+ characters, numbers, and letters</string>
+    <string name="error_password_suf">Password must have 8+ characters</string>
     <string name="error_confirm_password_suf">Both passwords must match</string>
 
 
