@@ -2,10 +2,11 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:focusableInTouchMode="true"
+    android:id="@+id/constraint_layout_SIF"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorTransparent"
+    android:focusableInTouchMode="true"
     tools:context=".Landing.SignInFragment">
 
     <android.support.design.widget.TextInputLayout
@@ -52,8 +53,8 @@
             android:layout_height="wrap_content"
             android:drawablePadding="10dp"
             android:drawableStart="@drawable/icon_password_selected"
-            android:imeOptions="actionDone"
             android:hint="@string/password"
+            android:imeOptions="actionDone"
             android:inputType="textPassword"
             android:maxLines="1"
             android:textSize="16sp" />

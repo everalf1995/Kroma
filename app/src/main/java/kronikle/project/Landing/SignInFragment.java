@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
@@ -27,16 +28,16 @@ import kronikle.project.R;
 public class SignInFragment extends Fragment {
 
     View view;
-
+    private ConstraintLayout constraintLayout;
     private TextInputLayout textInputLayoutEmail;
     private TextInputEditText editTextEmail;
     private TextInputLayout textInputLayoutPassword;
     private TextInputEditText editTextPassword;
     private Button buttonSignIn;
-    private Button forgotPassword;
-    private Button continueGuest;
-    private Button facebook;
-    private Button google;
+    private Button buttonForgotPassword;
+    private Button buttonContinueGuest;
+    private Button buttonFacebook;
+    private Button buttonGoogle;
 
     public SignInFragment() {
 
@@ -61,15 +62,16 @@ public class SignInFragment extends Fragment {
     }
 
     private void initializer() {
+        constraintLayout = view.findViewById(R.id.constraint_layout_SIF);
         textInputLayoutEmail = view.findViewById(R.id.text_input_layout_email_SIF);
         editTextEmail = view.findViewById(R.id.edit_text_email_SIF);
         textInputLayoutPassword = view.findViewById(R.id.text_input_layout_password_SIF);
         editTextPassword = view.findViewById(R.id.edit_text_password_SIF);
         buttonSignIn = view.findViewById(R.id.button_sign_in_SIF);
-        forgotPassword = view.findViewById(R.id.button_forgot_password_SIF);
-        continueGuest = view.findViewById(R.id.button_continue_guest_SIF);
-        facebook = view.findViewById(R.id.button_facebook_SIF);
-        google = view.findViewById(R.id.button_google_SIF);
+        buttonForgotPassword = view.findViewById(R.id.button_forgot_password_SIF);
+        buttonContinueGuest = view.findViewById(R.id.button_continue_guest_SIF);
+        buttonFacebook = view.findViewById(R.id.button_facebook_SIF);
+        buttonGoogle = view.findViewById(R.id.button_google_SIF);
     }
 
     public void textChangeListener() {
