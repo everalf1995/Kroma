@@ -97,12 +97,15 @@ public class SignUpFragment extends Fragment {
                 case R.id.edit_text_first_name_SUF:
                     validateFirstName();
                     break;
+
                 case R.id.edit_text_last_name_SUF:
                     validateLastName();
                     break;
+
                 case R.id.edit_text_email_SUF:
                     validateEmail();
                     break;
+
                 case R.id.edit_text_password_SUF:
                     validatePassword();
                     break;
@@ -186,7 +189,7 @@ public class SignUpFragment extends Fragment {
         }
 
         else {
-            //Code to check if the given email is in the database
+            //Code to check if the given email is already in the database
             Toast.makeText(getContext(), "Welcome to KORNIKLE!", Toast.LENGTH_SHORT).show();
 
             Intent MainActivityIntent = new Intent(getActivity(), MainActivity.class);
