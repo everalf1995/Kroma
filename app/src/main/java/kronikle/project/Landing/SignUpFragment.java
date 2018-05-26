@@ -27,15 +27,15 @@ import kronikle.project.R;
 public class SignUpFragment extends Fragment {
 
     View view;
-    TextInputLayout textInputLayoutFirstName;
-    TextInputEditText editTextFirstName;
-    TextInputLayout textInputLayoutLastName;
-    TextInputEditText editTextLastName;
-    TextInputLayout textInputLayoutEmail;
-    TextInputEditText editTextEmail;
-    TextInputLayout textInputLayoutPassword;
-    TextInputEditText editTextPassword;
-    Button buttonSignUp;
+    private TextInputLayout textInputLayoutFirstName;
+    private TextInputEditText editTextFirstName;
+    private TextInputLayout textInputLayoutLastName;
+    private TextInputEditText editTextLastName;
+    private TextInputLayout textInputLayoutEmail;
+    private TextInputEditText editTextEmail;
+    private TextInputLayout textInputLayoutPassword;
+    private TextInputEditText editTextPassword;
+    private Button buttonSignUp;
 
     public SignUpFragment() {
 

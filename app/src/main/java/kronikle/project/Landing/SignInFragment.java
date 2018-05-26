@@ -28,15 +28,15 @@ public class SignInFragment extends Fragment {
 
     View view;
 
-    TextInputLayout textInputLayoutEmail;
-    TextInputEditText editTextEmail;
-    TextInputLayout textInputLayoutPassword;
-    TextInputEditText editTextPassword;
-    Button buttonSignIn;
-    Button forgotPassword;
-    Button continueGuest;
-    Button facebook;
-    Button google;
+    private TextInputLayout textInputLayoutEmail;
+    private TextInputEditText editTextEmail;
+    private TextInputLayout textInputLayoutPassword;
+    private TextInputEditText editTextPassword;
+    private Button buttonSignIn;
+    private Button forgotPassword;
+    private Button continueGuest;
+    private Button facebook;
+    private Button google;
 
     public SignInFragment() {
 
