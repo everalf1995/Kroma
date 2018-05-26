@@ -8,6 +8,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/background_2"
+    android:focusableInTouchMode="true"
     tools:context=".Landing.LandingActivity"
     android:id="@+id/linear_layout_LA">
 

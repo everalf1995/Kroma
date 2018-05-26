@@ -1,5 +1,6 @@
 package kronikle.project.Landing;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Patterns;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
@@ -39,9 +41,7 @@ public class SignInFragment extends Fragment {
     private Button buttonFacebook;
     private Button buttonGoogle;
 
-    public SignInFragment() {
-
-    }
+    public SignInFragment() {}
 
     @Nullable
     @Override
@@ -49,14 +49,9 @@ public class SignInFragment extends Fragment {
         view = inflater.inflate(R.layout.sign_in_fragment, container, false);
 
         initializer();
+        layoutFocus();
+        buttonSignInListener();
         textChangeListener();
-
-        buttonSignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                validateInformation();
-            }
-        });
 
         return view;
     }
@@ -72,6 +67,28 @@ public class SignInFragment extends Fragment {
         buttonContinueGuest = view.findViewById(R.id.button_continue_guest_SIF);
         buttonFacebook = view.findViewById(R.id.button_facebook_SIF);
         buttonGoogle = view.findViewById(R.id.button_google_SIF);
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private void layoutFocus() {
+        constraintLayout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                InputMethodManager inputMethod = (InputMethodManager) Objects.requireNonNull(getActivity()).getSystemService(Context.INPUT_METHOD_SERVICE);
+                assert inputMethod != null;
+                Objects.requireNonNull(inputMethod).hideSoftInputFromWindow(Objects.requireNonNull(getActivity().getCurrentFocus()).getWindowToken(), 0);
+                return true;
+            }
+        });
+    }
+
+    private void buttonSignInListener() {
+        buttonSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                validateInformation();
+            }
+        });
     }
 
     public void textChangeListener() {

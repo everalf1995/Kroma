@@ -28,7 +28,7 @@
             android:drawablePadding="10dp"
             android:drawableStart="@drawable/icon_email_selected"
             android:hint="@string/email"
-            android:inputType="textEmailAddress"
+            android:inputType="textEmailAddress|textNoSuggestions"
             android:maxLines="1"
             android:textSize="16sp" />
     </android.support.design.widget.TextInputLayout>
@@ -55,7 +55,7 @@
             android:drawableStart="@drawable/icon_password_selected"
             android:hint="@string/password"
             android:imeOptions="actionDone"
-            android:inputType="textPassword"
+            android:inputType="textPassword|textNoSuggestions"
             android:maxLines="1"
             android:textSize="16sp" />
     </android.support.design.widget.TextInputLayout>

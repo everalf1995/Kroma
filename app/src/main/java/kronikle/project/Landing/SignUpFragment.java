@@ -1,9 +1,11 @@
 package kronikle.project.Landing;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
@@ -13,6 +15,7 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Patterns;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
@@ -27,6 +30,7 @@ import kronikle.project.R;
 public class SignUpFragment extends Fragment {
 
     View view;
+    private ConstraintLayout constraintLayout;
     private TextInputLayout textInputLayoutFirstName;
     private TextInputEditText editTextFirstName;
     private TextInputLayout textInputLayoutLastName;
@@ -37,9 +41,7 @@ public class SignUpFragment extends Fragment {
     private TextInputEditText editTextPassword;
     private Button buttonSignUp;
 
-    public SignUpFragment() {
-
-    }
+    public SignUpFragment() {}
 
     @Nullable
     @Override
@@ -47,19 +49,15 @@ public class SignUpFragment extends Fragment {
         view = inflater.inflate(R.layout.sign_up_fragment, container, false);
 
         initializer();
+        layoutFocus();
+        buttonSignUpListener();
         textChangeListener();
-
-        buttonSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                validateInformation();
-            }
-        });
 
         return view;
     }
 
     private void initializer() {
+        constraintLayout = view.findViewById(R.id.constraint_layout_SUF);
         textInputLayoutFirstName = view.findViewById(R.id.text_input_layout_first_name_SUF);
         editTextFirstName = view.findViewById(R.id.edit_text_first_name_SUF);
         textInputLayoutLastName = view.findViewById(R.id.text_input_layout_last_name_SUF);
@@ -69,6 +67,28 @@ public class SignUpFragment extends Fragment {
         textInputLayoutPassword = view.findViewById(R.id.text_input_layout_password_SUF);
         editTextPassword = view.findViewById(R.id.edit_text_password_SUF);
         buttonSignUp = view.findViewById(R.id.button_sign_up_SUF);
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private void layoutFocus() {
+        constraintLayout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                InputMethodManager inputMethod = (InputMethodManager) Objects.requireNonNull(getActivity()).getSystemService(Context.INPUT_METHOD_SERVICE);
+                assert inputMethod != null;
+                Objects.requireNonNull(inputMethod).hideSoftInputFromWindow(Objects.requireNonNull(getActivity().getCurrentFocus()).getWindowToken(), 0);
+                return true;
+            }
+        });
+    }
+
+    private void buttonSignUpListener() {
+        buttonSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                validateInformation();
+            }
+        });
     }
 
     public void textChangeListener() {
@@ -168,7 +188,6 @@ public class SignUpFragment extends Fragment {
             return true;
         }
     }
-
 
     public void validateInformation() {
 
