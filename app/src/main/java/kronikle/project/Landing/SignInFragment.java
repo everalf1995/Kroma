@@ -13,6 +13,7 @@ import android.support.annotation.Nullable;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -69,6 +70,23 @@ public class SignInFragment extends Fragment {
         buttonGoogle = view.findViewById(R.id.button_google_SIF);
     }
 
+    // Hides Keyboard when switching fragments when open
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser) {
+            try {
+                InputMethodManager inputMethod = (InputMethodManager) Objects.requireNonNull(getActivity()).getSystemService(Context.INPUT_METHOD_SERVICE);
+                assert inputMethod != null;
+                inputMethod.hideSoftInputFromWindow(Objects.requireNonNull(getView()).getWindowToken(), 0);
+                inputMethod.hideSoftInputFromWindow(Objects.requireNonNull(getActivity().getCurrentFocus()).getWindowToken(), 0);
+            } catch (Exception e) {
+                Log.e("Keyboard fragment", "Changing fragment causes crash");
+            }
+        }
+    }
+
+    // Hides Keyboard when user clicks outside EditText
     @SuppressLint("ClickableViewAccessibility")
     private void layoutFocus() {
         constraintLayout.setOnTouchListener(new View.OnTouchListener() {
@@ -77,6 +95,8 @@ public class SignInFragment extends Fragment {
                 InputMethodManager inputMethod = (InputMethodManager) Objects.requireNonNull(getActivity()).getSystemService(Context.INPUT_METHOD_SERVICE);
                 assert inputMethod != null;
                 Objects.requireNonNull(inputMethod).hideSoftInputFromWindow(Objects.requireNonNull(getActivity().getCurrentFocus()).getWindowToken(), 0);
+                editTextEmail.clearFocus();
+                editTextPassword.clearFocus();
                 return true;
             }
         });
@@ -112,7 +132,6 @@ public class SignInFragment extends Fragment {
 
         public void afterTextChanged(Editable editable) {
             switch (view.getId()) {
-
                 case R.id.edit_text_email_SIF:
                     validateEmail();
                     break;
