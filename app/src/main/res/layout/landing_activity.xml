@@ -23,7 +23,7 @@
         app:elevation="0dp">
 
         <TextView
-            android:id="@+id/kronikle_LA"
+            android:id="@+id/text_view_kronikle_LA"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:fontFamily="@font/poppins_bold"
@@ -33,7 +33,7 @@
             android:typeface="normal" />
 
         <TextView
-            android:id="@+id/moto_LA"
+            android:id="@+id/text_view_your_personal_LA"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/hype"
@@ -42,7 +42,7 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/moto_individual_LA"
+            android:id="@+id/text_view_features_LA"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
