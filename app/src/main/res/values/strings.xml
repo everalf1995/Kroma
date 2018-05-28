@@ -6,10 +6,10 @@
     <string name="your_personal">Your Personal</string>
     <string name="string_1">Task Manager</string>
     <string name="string_2">Habit Tracker</string>
-    <string name="string_3">To-Do List</string>
-    <string name="string_4">Time Manager</string>
+    <string name="string_3">Time Manager</string>
+    <string name="string_4">To-Do List</string>
     <string name="string_5">Project Manager</string>
-    <string name="string_6">Imaginary Friend</string>
+    <string name="string_6">Reminder</string>
 
     <!--Strings for Sign In & Sign Up-->
     <string name="or_sign_in_with">or sign in with</string>

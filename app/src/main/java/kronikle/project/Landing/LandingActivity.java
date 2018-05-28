@@ -78,7 +78,7 @@ public class LandingActivity extends AppCompatActivity {
             public void run() {
                 textViewFeatures.setText(array[i]);
                 i++;
-                if (i ==5) { i = 0; }
+                if (i ==6) { i = 0; }
                 textViewFeatures.postDelayed(this, 2000);
             }
         });
