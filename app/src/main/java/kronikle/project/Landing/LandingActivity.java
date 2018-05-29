@@ -6,7 +6,6 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -36,7 +35,7 @@ public class LandingActivity extends AppCompatActivity {
         initializer();
         tabLayoutInitializer();
         layoutFocus();
-        TextViewFeaturesStrings();
+        textViewFeaturesStrings();
     }
 
     private void  initializer() {
@@ -70,7 +69,7 @@ public class LandingActivity extends AppCompatActivity {
         });
     }
 
-    private void TextViewFeaturesStrings() {
+    private void textViewFeaturesStrings() {
         final int[] array = {R.string.string_1, R.string.string_2, R.string.string_3, R.string.string_4, R.string.string_5, R.string.string_6};
         textViewFeatures.post(new Runnable() {
             int i = 0;

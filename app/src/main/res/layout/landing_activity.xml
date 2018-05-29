@@ -30,7 +30,11 @@
             android:text="@string/app_name_upper"
             android:textAlignment="center"
             android:textSize="50sp"
-            android:typeface="normal" />
+            android:typeface="normal"
+            android:shadowColor="?attr/colorAccent"
+            android:shadowDx="-12"
+            android:shadowDy="-12"
+            android:shadowRadius="1"/>
 
         <TextView
             android:id="@+id/text_view_your_personal_LA"
