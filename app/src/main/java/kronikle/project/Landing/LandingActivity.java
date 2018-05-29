@@ -1,5 +1,7 @@
 package kronikle.project.Landing;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.design.widget.TabLayout;
@@ -78,7 +80,7 @@ public class LandingActivity extends AppCompatActivity {
                 textViewFeatures.setText(array[i]);
                 i++;
                 if (i ==6) { i = 0; }
-                textViewFeatures.postDelayed(this, 2000);
+                textViewFeatures.postDelayed(this, 3000);
             }
         });
     }

@@ -31,9 +31,9 @@
             android:textAlignment="center"
             android:textSize="50sp"
             android:typeface="normal"
-            android:shadowColor="?attr/colorAccent"
-            android:shadowDx="-12"
-            android:shadowDy="-12"
+            android:shadowColor="?attr/colorPrimary"
+            android:shadowDx="-20"
+            android:shadowDy="-20"
             android:shadowRadius="1"/>
 
         <TextView
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:fontFamily="@font/hype"
-            android:text="@string/string_1"
+            android:text="@string/string_6"
             android:textAlignment="center"
             android:textColor="?attr/colorAccent"
             android:textSize="20sp" />
