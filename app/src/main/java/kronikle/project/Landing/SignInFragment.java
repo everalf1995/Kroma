@@ -1,8 +1,11 @@
 package kronikle.project.Landing;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
@@ -38,6 +41,7 @@ public class SignInFragment extends Fragment {
     private TextInputEditText editTextPassword;
     private Button buttonSignIn;
     private Button buttonForgotPassword;
+    private Dialog dialogForgotPassword;
     private Button buttonContinueGuest;
     private Button buttonFacebook;
     private Button buttonGoogle;
@@ -52,7 +56,9 @@ public class SignInFragment extends Fragment {
         initializer();
         layoutFocus();
         buttonSignInListener();
-        textChangeListener();
+        buttonForgotPasswordListener();
+        buttonContinueGuestListener();
+        ediTextChangeListener();
 
         return view;
     }
@@ -65,6 +71,7 @@ public class SignInFragment extends Fragment {
         editTextPassword = view.findViewById(R.id.edit_text_password_SIF);
         buttonSignIn = view.findViewById(R.id.button_sign_in_SIF);
         buttonForgotPassword = view.findViewById(R.id.button_forgot_password_SIF);
+        dialogForgotPassword = new Dialog(Objects.requireNonNull(getContext()));
         buttonContinueGuest = view.findViewById(R.id.button_continue_guest_SIF);
         buttonFacebook = view.findViewById(R.id.button_facebook_SIF);
         buttonGoogle = view.findViewById(R.id.button_google_SIF);
@@ -111,7 +118,34 @@ public class SignInFragment extends Fragment {
         });
     }
 
-    public void textChangeListener() {
+    private void buttonContinueGuestListener() {
+        buttonContinueGuest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent MainActivityIntent = new Intent(getActivity(), MainActivity.class);
+                startActivity(MainActivityIntent);
+                Objects.requireNonNull(getActivity()).overridePendingTransition(R.anim.enter_in_up, R.anim.exit_out_up);
+                getActivity().finish();
+            }
+        });
+    }
+
+    private void buttonForgotPasswordListener() {
+        buttonForgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialogForgotPassword();
+            }
+        });
+    }
+
+    private void showDialogForgotPassword() {
+        dialogForgotPassword.setContentView(R.layout.sign_in_forgot_password_pop_up);
+        Objects.requireNonNull(dialogForgotPassword.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialogForgotPassword.show();
+    }
+
+    public void ediTextChangeListener() {
         editTextEmail.addTextChangedListener(new textWatcher(editTextEmail));
         editTextPassword.addTextChangedListener(new textWatcher(editTextPassword));
     }

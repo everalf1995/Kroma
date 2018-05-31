@@ -52,7 +52,7 @@ public class SignUpFragment extends Fragment {
         initializer();
         layoutFocus();
         buttonSignUpListener();
-        textChangeListener();
+        editTextChangeListener();
 
         return view;
     }
@@ -113,7 +113,7 @@ public class SignUpFragment extends Fragment {
         });
     }
 
-    public void textChangeListener() {
+    public void editTextChangeListener() {
         editTextFirstName.addTextChangedListener(new SignUpFragment.textWatcher(editTextFirstName));
         editTextLastName.addTextChangedListener(new SignUpFragment.textWatcher(editTextLastName));
         editTextEmail.addTextChangedListener(new SignUpFragment.textWatcher(editTextEmail));

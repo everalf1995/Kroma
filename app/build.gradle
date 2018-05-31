@@ -28,4 +28,7 @@ dependencies {
 
     // Added for TabLayout
     implementation 'com.android.support:design:27.1.1'
+
+    // Added for CardView
+    implementation 'com.android.support:cardview-v7:27.1.1'
 }
