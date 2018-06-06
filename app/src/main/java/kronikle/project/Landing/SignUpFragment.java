@@ -25,7 +25,7 @@ import android.widget.Toast;
 
 import java.util.Objects;
 
-import kronikle.project.MainActivity;
+import kronikle.project.Main.MainActivity;
 import kronikle.project.R;
 
 public class SignUpFragment extends Fragment {

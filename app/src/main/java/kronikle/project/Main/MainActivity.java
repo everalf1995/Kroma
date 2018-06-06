@@ -1,7 +1,9 @@
-package kronikle.project;
+package kronikle.project.Main;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import kronikle.project.R;
 
 public class MainActivity extends AppCompatActivity {
 
