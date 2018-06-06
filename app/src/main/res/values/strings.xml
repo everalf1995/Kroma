@@ -37,12 +37,10 @@
     <string name="error_email_suf">Email must have a valid format</string>
     <string name="error_password_suf">Password must have 8+ characters</string>
 
-    <!--Forgot Password Pop-Up-->
-    <string name="forgot_password_pop_up">Please enter your email address below to reset your password</string>
-
-
-
-
+    <!--Forgot Password Dialog-->
+    <string name="forgot_password_dialog">Enter your email address below to reset it</string>
+    <string name="forgot_password_submit">Submit</string>
+    <string name="close">Close</string>
 
 
 </resources>
