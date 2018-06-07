@@ -104,7 +104,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="8dp"
         android:background="@color/colorTransparent"
-        android:text="@string/guest"
+        android:text="@string/continue_guest"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="?attr/colorAccent"

@@ -213,10 +213,8 @@ public class SignInFragment extends Fragment {
         buttonContinueGuest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent MainActivityIntent = new Intent(getActivity(), MainActivity.class);
-                startActivity(MainActivityIntent);
-                Objects.requireNonNull(getActivity()).overridePendingTransition(R.anim.enter_in_up, R.anim.exit_out_up);
-                getActivity().finish();
+                SignInContinueGuestDialog signInContinueGuestDialog = new SignInContinueGuestDialog();
+                signInContinueGuestDialog.show(getChildFragmentManager(), getString(R.string.continue_guest));
             }
         });
     }

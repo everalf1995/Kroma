@@ -21,7 +21,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.Objects;
 
@@ -160,7 +159,7 @@ public class SignInForgotPasswordDialog extends AppCompatDialogFragment {
         else {
             //Code to check if the given email is in the database
             textViewTitle.setText(R.string.email_submitted);
-            textViewMessage.setText(R.string.email_submitted_dialog);
+            textViewMessage.setText(R.string.email_submitted_dialogue);
             imageViewClose.setVisibility(View.GONE);
             textInputLayoutEmail.setVisibility(View.GONE);
             editTextEmail.setVisibility(View.GONE);
