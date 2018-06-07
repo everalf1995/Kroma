@@ -173,7 +173,7 @@ public class SignInForgotPasswordDialog extends AppCompatDialogFragment {
                         getDialog().dismiss();
                     }
                 }
-            }, 5000);
+            }, 6000);
         }
     }
 
