@@ -2,6 +2,10 @@
     <string name="app_name">Kronikle</string>
     <string name="app_name_upper">KRONIKLE</string>
 
+    <!--Shared Strings-->
+    <string name="submit">Submit</string>
+    <string name="close">Close</string>
+
     <!--Strings for the apps intro-->
     <string name="your_personal">Your Personal</string>
     <string name="string_1">Task Manager</string>
@@ -18,6 +22,11 @@
     <string name="sign_in">Sign In</string>
     <string name="sign_up">Sign Up</string>
     <string name="forgot_password">Forgot Your Password?</string>
+    <string name="forgot_password_dialog">Enter your email address below to reset it</string>
+    <string name="email_submitted">Email Submitted</string>
+    <string name="email_submitted_dialog">If your email address is in our database you will get an email to reset your password</string>
+
+
     <string name="guest">Continue as a Guest</string>
     <string name="facebook">Facebook</string>
     <string name="google">Google</string>
@@ -36,11 +45,5 @@
     <string name="error_last_name_suf">Last Name can only be made up of letters</string>
     <string name="error_email_suf">Email must have a valid format</string>
     <string name="error_password_suf">Password must have 8+ characters</string>
-
-    <!--Forgot Password Dialog-->
-    <string name="forgot_password_dialog">Enter your email address below to reset it</string>
-    <string name="forgot_password_submit">Submit</string>
-    <string name="close">Close</string>
-
 
 </resources>

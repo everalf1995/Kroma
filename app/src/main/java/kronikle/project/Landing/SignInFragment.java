@@ -30,7 +30,7 @@ import kronikle.project.R;
 
 public class SignInFragment extends Fragment {
 
-    View view;
+    private View view;
     private ConstraintLayout constraintLayout;
     private TextInputLayout textInputLayoutEmail;
     private TextInputEditText editTextEmail;
@@ -52,9 +52,9 @@ public class SignInFragment extends Fragment {
         initializer();
         layoutFocus();
         buttonSignInListener();
+        ediTextChangeListener();
         buttonForgotPasswordListener();
         buttonContinueGuestListener();
-        ediTextChangeListener();
 
         return view;
     }
@@ -109,28 +109,6 @@ public class SignInFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 validateInformation();
-            }
-        });
-    }
-
-    private void buttonContinueGuestListener() {
-        buttonContinueGuest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent MainActivityIntent = new Intent(getActivity(), MainActivity.class);
-                startActivity(MainActivityIntent);
-                Objects.requireNonNull(getActivity()).overridePendingTransition(R.anim.enter_in_up, R.anim.exit_out_up);
-                getActivity().finish();
-            }
-        });
-    }
-
-    private void buttonForgotPasswordListener() {
-        buttonForgotPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SignInForgotPasswordDialog signInForgotPasswordDialog = new SignInForgotPasswordDialog();
-                signInForgotPasswordDialog.show(getChildFragmentManager(), getString(R.string.forgot_password));
             }
         });
     }
@@ -192,6 +170,7 @@ public class SignInFragment extends Fragment {
         }
     }
 
+    // Modify when having a working database
     public void validateInformation() {
 
         if (!validateEmail()) {
@@ -218,5 +197,27 @@ public class SignInFragment extends Fragment {
         InputMethodManager inputMethod = (InputMethodManager) Objects.requireNonNull(getActivity()).getSystemService(Context.INPUT_METHOD_SERVICE);
         assert inputMethod != null;
         Objects.requireNonNull(inputMethod).showSoftInput(view, InputMethodManager.SHOW_IMPLICIT);
+    }
+
+    private void buttonForgotPasswordListener() {
+        buttonForgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SignInForgotPasswordDialog signInForgotPasswordDialog = new SignInForgotPasswordDialog();
+                signInForgotPasswordDialog.show(getChildFragmentManager(), getString(R.string.forgot_password));
+            }
+        });
+    }
+
+    private void buttonContinueGuestListener() {
+        buttonContinueGuest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent MainActivityIntent = new Intent(getActivity(), MainActivity.class);
+                startActivity(MainActivityIntent);
+                Objects.requireNonNull(getActivity()).overridePendingTransition(R.anim.enter_in_up, R.anim.exit_out_up);
+                getActivity().finish();
+            }
+        });
     }
 }

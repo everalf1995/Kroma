@@ -5,22 +5,17 @@
         <item name="colorPrimaryDark">@color/colorBaseLight</item>
         <item name="colorAccent">@color/colorComplement_1</item>
         <item name="android:windowBackground">@color/colorBackground</item>
-
         <item name="cardBackgroundColor">@color/colorBackground</item>
-
         <item name="android:fontFamily">@font/roboto</item>
         <item name="android:textColor">@color/colorTextLight</item>
         <item name="textColorError">@color/colorComplement_1</item>
         <item name="android:editTextColor">@color/colorTextLight</item>
         <item name="android:textColorHint">@color/colorBaseLight</item>
-
         <item name="colorControlNormal">@color/colorBaseLight</item>
         <item name="colorControlActivated">@color/colorComplement_1</item>
         <item name="android:colorActivatedHighlight">@color/colorComplement_1</item>
         <item name="colorControlHighlight">@color/colorComplement_1</item>
-
         <item name="colorButtonNormal">@color/colorComplement_1</item>
-
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
     </style>
@@ -38,6 +33,11 @@
         <item name="android:windowBackground">@drawable/splash_activity_background</item>
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/enter_in_up</item>
+        <item name="android:windowExitAnimation">@anim/exit_out_down</item>
     </style>
 
 </resources>

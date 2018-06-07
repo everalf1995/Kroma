@@ -30,7 +30,7 @@ import kronikle.project.R;
 
 public class SignUpFragment extends Fragment {
 
-    View view;
+    private View view;
     private ConstraintLayout constraintLayout;
     private TextInputLayout textInputLayoutFirstName;
     private TextInputEditText editTextFirstName;
@@ -211,6 +211,7 @@ public class SignUpFragment extends Fragment {
         }
     }
 
+    // Modify when having a working database
     public void validateInformation() {
 
         if (!validateFirstName()) {
