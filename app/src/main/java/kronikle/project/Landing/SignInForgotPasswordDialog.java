@@ -149,6 +149,10 @@ public class SignInForgotPasswordDialog extends AppCompatDialogFragment {
     // Modify when having a working database
     public void validateInformation() {
 
+        InputMethodManager inputMethod = (InputMethodManager) Objects.requireNonNull(getActivity()).getSystemService(Context.INPUT_METHOD_SERVICE);
+        assert inputMethod != null;
+        Objects.requireNonNull(inputMethod).hideSoftInputFromWindow(Objects.requireNonNull(getDialog().getCurrentFocus()).getWindowToken(), 0);
+
         if (!validateEmail()) {
             focusEditText(editTextEmail);
         }
@@ -165,10 +169,11 @@ public class SignInForgotPasswordDialog extends AppCompatDialogFragment {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    getDialog().dismiss();
+                    if (getDialog() != null && getDialog().isShowing()) {
+                        getDialog().dismiss();
+                    }
                 }
-            }, 5000) ;
-
+            }, 5000);
         }
     }
 
