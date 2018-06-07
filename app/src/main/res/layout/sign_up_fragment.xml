@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawablePadding="10dp"
-            android:drawableStart="@drawable/icon_name_selected"
+            android:drawableStart="@drawable/icon_first_name_selected"
             android:hint="@string/first_name"
             android:inputType="textCapWords|textNoSuggestions"
             android:maxLines="1"
@@ -96,6 +96,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_input_layout_email_SUF"
+        app:passwordToggleDrawable="@drawable/icon_password_visibility_selected"
         app:passwordToggleEnabled="true"
         app:passwordToggleTint="?attr/colorPrimaryDark">
 

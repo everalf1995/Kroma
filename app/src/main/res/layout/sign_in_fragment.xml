@@ -47,6 +47,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_input_layout_email_SIF"
+        app:passwordToggleDrawable="@drawable/icon_password_visibility_selected"
         app:passwordToggleEnabled="true"
         app:passwordToggleTint="?attr/colorPrimaryDark">
 

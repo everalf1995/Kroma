@@ -167,7 +167,7 @@ public class SignInForgotPasswordDialog extends AppCompatDialogFragment {
                 public void run() {
                     getDialog().dismiss();
                 }
-            }, 6000) ;
+            }, 5000) ;
 
         }
     }
