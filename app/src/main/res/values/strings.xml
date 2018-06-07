@@ -28,9 +28,6 @@
     <string name="email_submitted_dialogue">If your email address is in our database you will get an email to reset your password</string>
     <string name="continue_guest">Continue as a Guest</string>
     <string name="continue_guest_dialogue">Your information will be stored locally, if lost you will not be able to recover it unless backed up</string>
-    <string name="welcome">Welcome to Kronikle</string>
-    <string name="welcome_dialogue">Please backup your information!</string>
-
 
     <string name="facebook">Facebook</string>
     <string name="google">Google</string>

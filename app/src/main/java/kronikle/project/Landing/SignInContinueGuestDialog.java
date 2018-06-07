@@ -2,6 +2,7 @@ package kronikle.project.Landing;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 
 import java.util.Objects;
 
+import kronikle.project.Main.MainActivity;
 import kronikle.project.R;
 
 public class SignInContinueGuestDialog extends AppCompatDialogFragment {
@@ -65,24 +67,20 @@ public class SignInContinueGuestDialog extends AppCompatDialogFragment {
         });
     }
 
+    // Modify when database works
     private void buttonContinueListener() {
         buttonContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Code to check if the given email is in the database
-                textViewTitle.setText(R.string.welcome);
-                textViewMessage.setText(R.string.welcome_dialogue);
-                imageViewClose.setVisibility(View.GONE);
-                buttonContinue.setVisibility(View.GONE);
+                //Code to create a local user
 
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (getDialog() != null && getDialog().isShowing()) {
-                            getDialog().dismiss();
-                        }
-                    }
-                }, 6000);            }
+                getDialog().dismiss();
+
+                Intent MainActivityIntent = new Intent(getActivity(), MainActivity.class);
+                startActivity(MainActivityIntent);
+                Objects.requireNonNull(getActivity()).overridePendingTransition(R.anim.enter_in_up, R.anim.exit_out_up);
+                getActivity().finish();
+            }
         });
     }
 }
