@@ -65,7 +65,7 @@
         app:tabMode="fixed"
         app:tabIndicatorColor="@color/colorTransparent"
         app:tabTextColor="?attr/colorPrimaryDark"
-        app:tabSelectedTextColor="@color/colorTextLight"
+        app:tabSelectedTextColor="?attr/android:textColor"
         app:background="@color/colorTransparent"
         app:tabBackground="@android:color/transparent" />
 

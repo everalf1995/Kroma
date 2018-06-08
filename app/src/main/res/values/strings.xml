@@ -47,4 +47,10 @@
     <string name="error_email_suf">Email must have a valid format</string>
     <string name="error_password_suf">Password must have 8+ characters</string>
 
+    <!--Main Activity-->
+    <string name="tasks">Tasks</string>
+    <string name="habits">Habits</string>
+    <string name="timers">Timers</string>
+
+
 </resources>
