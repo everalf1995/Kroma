@@ -52,13 +52,13 @@ public class MainActivity extends AppCompatActivity {
 
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
-
-        Objects.requireNonNull(tabLayout.getTabAt(0)).setIcon(tabLayoutIcons[3]);
-        Objects.requireNonNull(tabLayout.getTabAt(1)).setIcon(tabLayoutIcons[1]);
-        Objects.requireNonNull(tabLayout.getTabAt(2)).setIcon(tabLayoutIcons[2]);
     }
 
     private void tabLayoutSelected() {
+        Objects.requireNonNull(tabLayout.getTabAt(0)).setIcon(tabLayoutIcons[3]);
+        Objects.requireNonNull(tabLayout.getTabAt(1)).setIcon(tabLayoutIcons[1]);
+        Objects.requireNonNull(tabLayout.getTabAt(2)).setIcon(tabLayoutIcons[2]);
+
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {

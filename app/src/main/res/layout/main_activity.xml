@@ -25,7 +25,7 @@
         android:layout_gravity="top"
         app:tabGravity="fill"
         app:tabMode="fixed"
-        app:tabIndicatorColor="?attr/colorPrimaryDark"
+        app:tabIndicatorColor="@color/colorTransparent"
         app:tabTextColor="?attr/colorPrimaryDark"
         app:tabSelectedTextColor="?attr/android:textColor"
         app:background="@color/colorTransparent"
