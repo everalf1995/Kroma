@@ -42,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
     private void toolbarInitializer() {
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
+        Objects.requireNonNull(getSupportActionBar()).setHomeAsUpIndicator(R.drawable.icon_menu);
+
     }
 
     private void tabLayoutInitializer() {
@@ -58,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
         Objects.requireNonNull(tabLayout.getTabAt(0)).setIcon(tabLayoutIcons[3]);
         Objects.requireNonNull(tabLayout.getTabAt(1)).setIcon(tabLayoutIcons[1]);
         Objects.requireNonNull(tabLayout.getTabAt(2)).setIcon(tabLayoutIcons[2]);
+
+
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
