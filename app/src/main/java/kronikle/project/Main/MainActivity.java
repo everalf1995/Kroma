@@ -10,6 +10,9 @@ import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.yarolegovich.slidingrootnav.SlidingRootNav;
+import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
+
 import java.util.Objects;
 
 import kronikle.project.Adapters.ViewPagerAdapter;
@@ -19,13 +22,11 @@ public class MainActivity extends AppCompatActivity {
 
     private LinearLayout linearLayout;
     private Toolbar toolbar;
+    private SlidingRootNav slidingRootNav;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private TextView TasksTabFocused;
     private TextView TasksTab;
-    private TextView HabitsTabFocused;
     private TextView HabitsTab;
-    private TextView TimersTabFocused;
     private TextView TimersTab;
 
 
@@ -36,12 +37,12 @@ public class MainActivity extends AppCompatActivity {
 
         initializer();
         toolbarInitializer();
+        slideMenuInitializer();
         tabLayoutInitializer();
-        tabLayoutOptions();
         tabLayoutSelected();
     }
 
-    private void  initializer() {
+    private void initializer() {
         linearLayout = findViewById(R.id.linear_layout_MA);
         toolbar = findViewById(R.id.toolbar_MA);
         tabLayout = findViewById(R.id.tab_layout_MA);
@@ -52,10 +53,18 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
-        Objects.requireNonNull(getSupportActionBar()).setHomeAsUpIndicator(R.drawable.icon_menu);
-
     }
 
+    private void slideMenuInitializer() {
+        slidingRootNav = new SlidingRootNavBuilder(this)
+                .withToolbarMenuToggle(toolbar)
+                .withMenuOpened(false)
+                .withContentClickableWhenMenuOpened(false)
+                .withMenuLayout(R.layout.menu_drawer)
+                .inject();
+    }
+
+    @SuppressLint("InflateParams")
     private void tabLayoutInitializer() {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.AddFragment(new TasksFragment(), getString(R.string.tasks));
@@ -64,29 +73,27 @@ public class MainActivity extends AppCompatActivity {
 
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
-    }
 
-    @SuppressLint("InflateParams")
-    private void tabLayoutOptions() {
         TasksTab = (TextView) LayoutInflater.from(this).inflate(R.layout.tab_layout_custom_format, null);
         TasksTab.setText(getString(R.string.tasks));
         TasksTab.setTextColor(getResources().getColor(R.color.colorTextLight));
         TasksTab.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_tasks_focused, 0, 0, 0);
+        Objects.requireNonNull(tabLayout.getTabAt(0)).setCustomView(TasksTab);
 
         HabitsTab = (TextView) LayoutInflater.from(this).inflate(R.layout.tab_layout_custom_format, null);
         HabitsTab.setText(getString(R.string.habits));
+        HabitsTab.setTextColor(getResources().getColor(R.color.colorBaseLight));
         HabitsTab.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_habits_not_focused, 0, 0, 0);
+        Objects.requireNonNull(tabLayout.getTabAt(1)).setCustomView(HabitsTab);
 
         TimersTab = (TextView) LayoutInflater.from(this).inflate(R.layout.tab_layout_custom_format, null);
         TimersTab.setText(getString(R.string.timers));
+        TimersTab.setTextColor(getResources().getColor(R.color.colorBaseLight));
         TimersTab.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_timers_not_focused, 0, 0, 0);
+        Objects.requireNonNull(tabLayout.getTabAt(2)).setCustomView(TimersTab);
     }
 
     private void tabLayoutSelected() {
-        Objects.requireNonNull(tabLayout.getTabAt(0)).setCustomView(TasksTab);
-        Objects.requireNonNull(tabLayout.getTabAt(1)).setCustomView(HabitsTab);
-        Objects.requireNonNull(tabLayout.getTabAt(2)).setCustomView(TimersTab);
-
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {

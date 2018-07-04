@@ -51,6 +51,7 @@
     <string name="tasks">Tasks</string>
     <string name="habits">Habits</string>
     <string name="timers">Timers</string>
+    <string name="heart">Heart</string>
 
 
 </resources>

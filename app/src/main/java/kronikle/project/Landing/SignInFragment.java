@@ -205,6 +205,7 @@ public class SignInFragment extends Fragment {
             public void onClick(View v) {
                 SignInForgotPasswordDialog signInForgotPasswordDialog = new SignInForgotPasswordDialog();
                 signInForgotPasswordDialog.show(getChildFragmentManager(), getString(R.string.forgot_password));
+                signInForgotPasswordDialog.setCancelable(false);
             }
         });
     }
@@ -215,6 +216,7 @@ public class SignInFragment extends Fragment {
             public void onClick(View v) {
                 SignInContinueGuestDialog signInContinueGuestDialog = new SignInContinueGuestDialog();
                 signInContinueGuestDialog.show(getChildFragmentManager(), getString(R.string.continue_guest));
+                signInContinueGuestDialog.setCancelable(false);
             }
         });
     }
