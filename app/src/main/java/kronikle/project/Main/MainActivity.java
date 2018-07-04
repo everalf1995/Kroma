@@ -1,11 +1,14 @@
 package kronikle.project.Main;
 
+import android.annotation.SuppressLint;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.Objects;
 
@@ -18,8 +21,13 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private int[] tabLayoutIcons = { R.drawable.icon_tasks_not_focused, R.drawable.icon_habits_not_focused, R.drawable.icon_timers_not_focused,
-                                     R.drawable.icon_tasks_focused, R.drawable.icon_habits_focused, R.drawable.icon_timers_focused};
+    private TextView TasksTabFocused;
+    private TextView TasksTab;
+    private TextView HabitsTabFocused;
+    private TextView HabitsTab;
+    private TextView TimersTabFocused;
+    private TextView TimersTab;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         initializer();
         toolbarInitializer();
         tabLayoutInitializer();
+        tabLayoutOptions();
         tabLayoutSelected();
     }
 
@@ -57,41 +66,61 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
     }
 
+    @SuppressLint("InflateParams")
+    private void tabLayoutOptions() {
+        TasksTab = (TextView) LayoutInflater.from(this).inflate(R.layout.tab_layout_custom_format, null);
+        TasksTab.setText(getString(R.string.tasks));
+        TasksTab.setTextColor(getResources().getColor(R.color.colorTextLight));
+        TasksTab.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_tasks_focused, 0, 0, 0);
+
+        HabitsTab = (TextView) LayoutInflater.from(this).inflate(R.layout.tab_layout_custom_format, null);
+        HabitsTab.setText(getString(R.string.habits));
+        HabitsTab.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_habits_not_focused, 0, 0, 0);
+
+        TimersTab = (TextView) LayoutInflater.from(this).inflate(R.layout.tab_layout_custom_format, null);
+        TimersTab.setText(getString(R.string.timers));
+        TimersTab.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_timers_not_focused, 0, 0, 0);
+    }
+
     private void tabLayoutSelected() {
-        Objects.requireNonNull(tabLayout.getTabAt(0)).setIcon(tabLayoutIcons[3]);
-        Objects.requireNonNull(tabLayout.getTabAt(1)).setIcon(tabLayoutIcons[1]);
-        Objects.requireNonNull(tabLayout.getTabAt(2)).setIcon(tabLayoutIcons[2]);
-
-
+        Objects.requireNonNull(tabLayout.getTabAt(0)).setCustomView(TasksTab);
+        Objects.requireNonNull(tabLayout.getTabAt(1)).setCustomView(HabitsTab);
+        Objects.requireNonNull(tabLayout.getTabAt(2)).setCustomView(TimersTab);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 if (tab.getPosition() == 0) {
-                    tab.setIcon(tabLayoutIcons[3]);
+                    TasksTab.setTextColor(getResources().getColor(R.color.colorTextLight));
+                    TasksTab.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_tasks_focused, 0, 0, 0);
                 }
 
                 else if (tab.getPosition() == 1) {
-                    tab.setIcon(tabLayoutIcons[4]);
+                    HabitsTab.setTextColor(getResources().getColor(R.color.colorTextLight));
+                    HabitsTab.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_habits_focused, 0, 0, 0);
                 }
 
                 else if (tab.getPosition() == 2) {
-                    tab.setIcon(tabLayoutIcons[5]);
+                    TimersTab.setTextColor(getResources().getColor(R.color.colorTextLight));
+                    TimersTab.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_timers_focused, 0, 0, 0);
                 }
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
                 if (tab.getPosition() == 0) {
-                    tab.setIcon(tabLayoutIcons[0]);
+                    TasksTab.setTextColor(getResources().getColor(R.color.colorBaseLight));
+                    TasksTab.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_tasks_not_focused, 0, 0, 0);
                 }
 
                 else if (tab.getPosition() == 1) {
-                    tab.setIcon(tabLayoutIcons[1]);
+                    HabitsTab.setTextColor(getResources().getColor(R.color.colorBaseLight));
+                    HabitsTab.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_habits_not_focused, 0, 0, 0);
                 }
 
                 else if (tab.getPosition() == 2) {
-                    tab.setIcon(tabLayoutIcons[2]);
+                    TimersTab.setTextColor(getResources().getColor(R.color.colorBaseLight));
+                    TimersTab.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_timers_not_focused, 0, 0, 0);
                 }
             }
 

@@ -44,6 +44,12 @@
         app:tabSelectedTextColor="?attr/android:textColor"
         app:tabTextColor="?attr/colorPrimaryDark" />
 
+    <View
+        android:id="@+id/view_divider_LA"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?attr/colorPrimaryDark" />
+
     <android.support.v4.view.ViewPager
         android:id="@+id/view_pager_MA"
         android:layout_width="match_parent"
