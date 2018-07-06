@@ -6,6 +6,7 @@
     <string name="submit">Submit</string>
     <string name="close">Close</string>
     <string name="continue_message">Continue</string>
+    <string name="empty"></string>
 
     <!--Strings for the apps intro-->
     <string name="your_personal">Your Personal</string>
@@ -52,6 +53,14 @@
     <string name="habits">Habits</string>
     <string name="timers">Timers</string>
     <string name="heart">Heart</string>
+
+    <!--Menu-->
+    <string name="dashboard">Dashboard</string>
+    <string name="my_account">My Account</string>
+    <string name="contact">Contact</string>
+    <string name="info">Info</string>
+    <string name="settings">Settings</string>
+    <string name="sign_out">Sign Out</string>
 
 
 </resources>

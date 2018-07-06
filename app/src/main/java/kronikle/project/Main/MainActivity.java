@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 .withToolbarMenuToggle(toolbar)
                 .withMenuOpened(false)
                 .withContentClickableWhenMenuOpened(false)
-                .withMenuLayout(R.layout.menu_drawer)
+                .withMenuLayout(R.layout.drawer_menu)
                 .inject();
     }
 

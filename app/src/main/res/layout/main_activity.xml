@@ -12,26 +12,25 @@
     android:id="@+id/linear_layout_MA">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar_MA"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_gravity="top"
         android:background="?attr/colorPrimary"
         app:theme="@style/NoActionBarTheme"
-        android:elevation="0dp" >
+        android:elevation="0dp"
+        android:id="@+id/toolbar_MA" >
 
         <TextView
-            android:id="@+id/toolbar_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/poppins_bold"
             android:text="@string/app_name_upper"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:id="@+id/toolbar_title_MA" />
 
         <ImageView
-            android:id="@+id/toolbar_heart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
@@ -39,12 +38,11 @@
             android:paddingEnd="16dp"
             android:contentDescription="@string/heart"
             android:src="@drawable/icon_heart"
-            />
+            android:id="@+id/toolbar_heart_MA" />
 
     </android.support.v7.widget.Toolbar>
 
     <android.support.design.widget.TabLayout
-        android:id="@+id/tab_layout_MA"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
@@ -54,16 +52,18 @@
         app:tabIndicatorColor="@color/colorTransparent"
         app:tabMode="fixed"
         app:tabSelectedTextColor="?attr/android:textColor"
-        app:tabTextColor="?attr/colorPrimaryDark" />
+        app:tabTextColor="?attr/colorPrimaryDark"
+        android:id="@+id/tab_layout_MA" />
 
     <View
-        android:id="@+id/view_divider_LA"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="?attr/colorPrimaryDark" />
+        android:background="?attr/colorPrimaryDark"
+        android:id="@+id/view_divider_MA" />
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/view_pager_MA"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:id="@+id/view_pager_MA" />
+
 </LinearLayout>
