@@ -7,6 +7,8 @@
     <string name="close">Close</string>
     <string name="continue_message">Continue</string>
     <string name="empty"></string>
+    <string name="exit_app">Press BACK again to exit.</string>
+
 
     <!--Strings for the apps intro-->
     <string name="your_personal">Your Personal</string>

@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         initializer();
         toolbarInitializer();
-        slideMenuInitializer();
+        drawerMenuInitializer();
         tabLayoutInitializer();
         tabLayoutSelected();
     }
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
     }
 
-    private void slideMenuInitializer() {
+    private void drawerMenuInitializer() {
         slidingRootNav = new SlidingRootNavBuilder(this)
                 .withToolbarMenuToggle(toolbar)
                 .withMenuOpened(false)

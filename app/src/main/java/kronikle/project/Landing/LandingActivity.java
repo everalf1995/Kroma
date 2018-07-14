@@ -1,9 +1,8 @@
 package kronikle.project.Landing;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.CountDownTimer;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +12,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Objects;
 
@@ -27,6 +27,8 @@ public class LandingActivity extends AppCompatActivity {
     private TextView textViewKronikle;
     private TextView textViewYourPersonal;
     private TextView textViewFeatures;
+    private boolean backButtonPressedTwice = false;
+
 
 
     @Override
@@ -83,5 +85,31 @@ public class LandingActivity extends AppCompatActivity {
                 textViewFeatures.postDelayed(this, 3000);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if (backButtonPressedTwice) {
+            super.onBackPressed();
+        }
+
+        else {
+            Toast.makeText(this, getString(R.string.exit_app), Toast.LENGTH_LONG).show();
+
+            backButtonPressedTwice = true;
+            new CountDownTimer(3000, 1000) {
+
+                @Override
+                public void onTick(long l) {
+
+                }
+
+                @Override
+                public void onFinish() {
+                    backButtonPressedTwice = false;
+                }
+            }.start();
+        }
     }
 }

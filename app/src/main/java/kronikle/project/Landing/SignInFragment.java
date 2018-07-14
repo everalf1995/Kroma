@@ -38,9 +38,12 @@ public class SignInFragment extends Fragment {
     private TextInputEditText editTextPassword;
     private Button buttonSignIn;
     private Button buttonForgotPassword;
+    private SignInForgotPasswordDialog signInForgotPasswordDialog;
     private Button buttonContinueGuest;
+    private SignInContinueGuestDialog signInContinueGuestDialog;
     private Button buttonFacebook;
     private Button buttonGoogle;
+
 
     public SignInFragment() {}
 
@@ -203,9 +206,9 @@ public class SignInFragment extends Fragment {
         buttonForgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SignInForgotPasswordDialog signInForgotPasswordDialog = new SignInForgotPasswordDialog();
+                signInForgotPasswordDialog = new SignInForgotPasswordDialog();
                 signInForgotPasswordDialog.show(getChildFragmentManager(), getString(R.string.forgot_password));
-                signInForgotPasswordDialog.setCancelable(false);
+                signInForgotPasswordDialog.setCancelable(true);
             }
         });
     }
@@ -214,9 +217,9 @@ public class SignInFragment extends Fragment {
         buttonContinueGuest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SignInContinueGuestDialog signInContinueGuestDialog = new SignInContinueGuestDialog();
+                signInContinueGuestDialog = new SignInContinueGuestDialog();
                 signInContinueGuestDialog.show(getChildFragmentManager(), getString(R.string.continue_guest));
-                signInContinueGuestDialog.setCancelable(false);
+                signInContinueGuestDialog.setCancelable(true);
             }
         });
     }
