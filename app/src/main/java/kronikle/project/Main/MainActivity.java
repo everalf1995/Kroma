@@ -1,12 +1,15 @@
 package kronikle.project.Main;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -16,7 +19,11 @@ import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 import java.util.Objects;
 
 import kronikle.project.Adapters.ViewPagerAdapter;
+import kronikle.project.Dashboard.DashboardActivity;
+import kronikle.project.Info.InfoActivity;
+import kronikle.project.MyAccount.MyAccountActivity;
 import kronikle.project.R;
+import kronikle.project.Settings.SettingsActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,6 +36,17 @@ public class MainActivity extends AppCompatActivity {
     private TextView HabitsTab;
     private TextView TimersTab;
 
+    private LinearLayout layoutHome;
+    private LinearLayout layoutDashboard;
+    private LinearLayout layoutMyAccount;
+    private LinearLayout layoutContact;
+    private LinearLayout layoutInfo;
+    private LinearLayout layoutSettings;
+    private LinearLayout layoutSignOut;
+
+    private ImageView iconHome;
+    private TextView textViewHome;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         initializer();
         toolbarInitializer();
         drawerMenuInitializer();
+        drawerMenuListener();
         tabLayoutInitializer();
         tabLayoutSelected();
     }
@@ -62,6 +81,75 @@ public class MainActivity extends AppCompatActivity {
                 .withContentClickableWhenMenuOpened(false)
                 .withMenuLayout(R.layout.drawer_menu)
                 .inject();
+
+        layoutHome = findViewById(R.id.layout_home_DM);
+        layoutDashboard = findViewById(R.id.layout_dashboard_DM);
+        layoutMyAccount = findViewById(R.id.layout_my_account_DM);
+        layoutContact = findViewById(R.id.layout_contact_DM);
+        layoutInfo = findViewById(R.id.layout_info_DM);
+        layoutSettings = findViewById(R.id.layout_settings_DM);
+        layoutSignOut = findViewById(R.id.layout_sign_out_DM);
+
+        iconHome = findViewById(R.id.icon_home_DM);
+        textViewHome = findViewById(R.id.text_view_home_DM);
+
+        iconHome.setImageResource(R.drawable.icon_home_focused);
+        textViewHome.setTextColor(getResources().getColor(R.color.colorTextLight));
+    }
+
+    private void drawerMenuListener() {
+        layoutHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                slidingRootNav.closeMenu();
+            }
+        });
+
+        layoutDashboard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent DashboardIntent = new Intent(getBaseContext(), DashboardActivity.class);
+                startActivity(DashboardIntent);
+            }
+        });
+
+        layoutMyAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent MyAccountIntent = new Intent(getBaseContext(), MyAccountActivity.class);
+                startActivity(MyAccountIntent);
+            }
+        });
+
+        layoutContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        layoutInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent InfoIntent = new Intent(getBaseContext(), InfoActivity.class);
+                startActivity(InfoIntent);
+            }
+        });
+
+        layoutSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent SettingsIntent = new Intent(getBaseContext(), SettingsActivity.class);
+                startActivity(SettingsIntent);
+            }
+        });
+
+        layoutSignOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     @SuppressLint("InflateParams")

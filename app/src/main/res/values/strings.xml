@@ -57,6 +57,7 @@
     <string name="heart">Heart</string>
 
     <!--Menu-->
+    <string name="home">Home</string>
     <string name="dashboard">Dashboard</string>
     <string name="my_account">My Account</string>
     <string name="contact">Contact</string>

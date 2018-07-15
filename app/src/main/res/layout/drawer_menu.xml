@@ -1,8 +1,242 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="?attr/android:windowBackground"
+tools:layout_editor_absoluteY="56dp">
+
+<LinearLayout
+    android:id="@+id/layout_top_DM"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?attr/android:windowBackground">
+    android:layout_height="120dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    app:layout_constraintBottom_toTopOf="@+id/layout_home_DM"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"></LinearLayout>
+
+<LinearLayout
+    android:id="@+id/layout_home_DM"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    app:layout_constraintBottom_toTopOf="@+id/layout_dashboard_DM"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/layout_top_DM">
+
+    <ImageView
+        android:id="@+id/icon_home_DM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
+        android:contentDescription="@string/home"
+        android:src="@drawable/icon_home" />
+
+    <TextView
+        android:id="@+id/text_view_home_DM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/home"
+        android:textColor="@color/colorBaseLight" />
+</LinearLayout>
+
+<LinearLayout
+    android:id="@+id/layout_dashboard_DM"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    app:layout_constraintBottom_toTopOf="@+id/layout_my_account_DM"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/layout_home_DM">
+
+    <ImageView
+        android:id="@+id/icon_dashboard_DM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
+        android:contentDescription="@string/dashboard"
+        android:src="@drawable/icon_dashboard" />
+
+    <TextView
+        android:id="@+id/text_view_dashboard_DM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dashboard"
+        android:textColor="@color/colorBaseLight" />
+
+</LinearLayout>
+
+<LinearLayout
+    android:id="@+id/layout_my_account_DM"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    app:layout_constraintBottom_toTopOf="@+id/layout_contact_DM"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/layout_dashboard_DM">
+
+    <ImageView
+        android:id="@+id/icon_my_account_DM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
+        android:contentDescription="@string/my_account"
+        android:src="@drawable/icon_my_account" />
+
+    <TextView
+        android:id="@+id/text_view_my_account_DM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/my_account"
+        android:textColor="@color/colorBaseLight" />
+</LinearLayout>
+
+<LinearLayout
+    android:id="@+id/layout_contact_DM"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    app:layout_constraintBottom_toTopOf="@+id/layout_info_DM"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/layout_my_account_DM">
+
+    <ImageView
+        android:id="@+id/icon_contact_DM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
+        android:contentDescription="@string/contact"
+        android:src="@drawable/icon_contact" />
+
+    <TextView
+        android:id="@+id/text_view_contact_DM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contact"
+        android:textColor="@color/colorBaseLight" />
+</LinearLayout>
+
+<LinearLayout
+    android:id="@+id/layout_info_DM"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    app:layout_constraintBottom_toTopOf="@+id/layout_settings_DM"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/layout_contact_DM">
+
+    <ImageView
+        android:id="@+id/icon_info_DM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
+        android:contentDescription="@string/info"
+        android:src="@drawable/icon_info" />
+
+    <TextView
+        android:id="@+id/text_view_info_DM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/info"
+        android:textColor="@color/colorBaseLight" />
+</LinearLayout>
+
+<LinearLayout
+    android:id="@+id/layout_settings_DM"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    app:layout_constraintBottom_toTopOf="@+id/layout_sign_out_DM"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/layout_info_DM">
+
+    <ImageView
+        android:id="@+id/icon_settings_DM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
+        android:contentDescription="@string/settings"
+        android:src="@drawable/icon_settings" />
+
+    <TextView
+        android:id="@+id/text_view_settings_DM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/settings"
+        android:textColor="@color/colorBaseLight" />
+</LinearLayout>
+
+<LinearLayout
+    android:id="@+id/layout_sign_out_DM"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    app:layout_constraintBottom_toTopOf="@+id/layout_bottom_DM"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/layout_settings_DM">
+
+    <ImageView
+        android:id="@+id/icon_sign_out_DM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
+        android:contentDescription="@string/sign_out"
+        android:src="@drawable/icon_sign_out" />
+
+    <TextView
+        android:id="@+id/text_view_sign_out_DM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_out"
+        android:textColor="@color/colorBaseLight" />
+
+</LinearLayout>
+
+
+<LinearLayout
+    android:id="@+id/layout_bottom_DM"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/layout_sign_out_DM">
+
+</LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
