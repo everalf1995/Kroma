@@ -16,6 +16,7 @@ import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 
 import java.util.Objects;
 
+import kronikle.project.Contact.ContactActivity;
 import kronikle.project.Dashboard.DashboardActivity;
 import kronikle.project.MyAccount.MyAccountActivity;
 import kronikle.project.R;
@@ -122,7 +123,9 @@ public class InfoActivity extends AppCompatActivity {
         layoutContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent ContactIntent = new Intent(getBaseContext(), ContactActivity.class);
+                startActivity(ContactIntent);
+                finish();
             }
         });
 
@@ -148,6 +151,12 @@ public class InfoActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        slidingRootNav.openMenu();
     }
 }
 

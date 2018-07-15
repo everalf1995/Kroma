@@ -1,4 +1,4 @@
-package kronikle.project.Dashboard;
+package kronikle.project.Contact;
 
 import android.content.Intent;
 import android.os.Handler;
@@ -16,13 +16,13 @@ import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 
 import java.util.Objects;
 
-import kronikle.project.Contact.ContactActivity;
+import kronikle.project.Dashboard.DashboardActivity;
 import kronikle.project.Info.InfoActivity;
 import kronikle.project.MyAccount.MyAccountActivity;
 import kronikle.project.R;
 import kronikle.project.Settings.SettingsActivity;
 
-public class DashboardActivity extends AppCompatActivity {
+public class ContactActivity extends AppCompatActivity {
 
     private LinearLayout linearLayout;
     private Toolbar toolbar;
@@ -37,13 +37,13 @@ public class DashboardActivity extends AppCompatActivity {
     private LinearLayout layoutSettings;
     private LinearLayout layoutSignOut;
 
-    private ImageView iconDashboard;
-    private TextView textViewDashboard;
+    private ImageView iconContact;
+    private TextView textViewContact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dashboard_activity);
+        setContentView(R.layout.contact_activity);
 
         initializer();
         toolbarInitializer();
@@ -52,9 +52,9 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
     private void initializer() {
-        linearLayout = findViewById(R.id.linear_layout_DA);
-        toolbar = findViewById(R.id.toolbar_DA);
-        viewPager = findViewById(R.id.view_pager_DA);
+        linearLayout = findViewById(R.id.linear_layout_CA);
+        toolbar = findViewById(R.id.toolbar_CA);
+        viewPager = findViewById(R.id.view_pager_CA);
     }
 
     private void toolbarInitializer() {
@@ -86,11 +86,11 @@ public class DashboardActivity extends AppCompatActivity {
         layoutSettings = findViewById(R.id.layout_settings_DM);
         layoutSignOut = findViewById(R.id.layout_sign_out_DM);
 
-        iconDashboard = findViewById(R.id.icon_dashboard_DM);
-        textViewDashboard = findViewById(R.id.text_view_dashboard_DM);
+        iconContact = findViewById(R.id.icon_contact_DM);
+        textViewContact = findViewById(R.id.text_view_contact_DM);
 
-        iconDashboard.setImageResource(R.drawable.icon_dashboard_focused);
-        textViewDashboard.setTextColor(getResources().getColor(R.color.colorTextLight));
+        iconContact.setImageResource(R.drawable.icon_contact_focused);
+        textViewContact.setTextColor(getResources().getColor(R.color.colorTextLight));
     }
 
     private void drawerMenuListener() {
@@ -104,7 +104,10 @@ public class DashboardActivity extends AppCompatActivity {
         layoutDashboard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                slidingRootNav.closeMenu();
+                Intent DashboardIntent = new Intent(getBaseContext(), DashboardActivity.class);
+                startActivity(DashboardIntent);
+                finish();
+
             }
         });
 
@@ -120,9 +123,7 @@ public class DashboardActivity extends AppCompatActivity {
         layoutContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent ContactIntent = new Intent(getBaseContext(), ContactActivity.class);
-                startActivity(ContactIntent);
-                finish();
+                slidingRootNav.closeMenu();
             }
         });
 

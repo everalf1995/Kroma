@@ -2,6 +2,7 @@ package kronikle.project.Main;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +20,7 @@ import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 import java.util.Objects;
 
 import kronikle.project.Adapters.ViewPagerAdapter;
+import kronikle.project.Contact.ContactActivity;
 import kronikle.project.Dashboard.DashboardActivity;
 import kronikle.project.Info.InfoActivity;
 import kronikle.project.MyAccount.MyAccountActivity;
@@ -124,7 +126,9 @@ public class MainActivity extends AppCompatActivity {
         layoutContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent ContactIntent = new Intent(getBaseContext(), ContactActivity.class);
+                startActivity(ContactIntent);
+                finish();
             }
         });
 
@@ -224,5 +228,17 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                slidingRootNav.closeMenu();
+            }
+        }, 100);
     }
 }

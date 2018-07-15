@@ -32,14 +32,19 @@
             android:name=".Main.MainActivity"
             android:theme="@style/NoActionBarTheme" />
 
+        <!-- Dashboard Activity -->
+        <activity
+            android:name=".Dashboard.DashboardActivity"
+            android:theme="@style/NoActionBarTheme" />
+
         <!-- My Account Activity -->
         <activity
             android:name=".MyAccount.MyAccountActivity"
             android:theme="@style/NoActionBarTheme" />
 
-        <!-- Dashboard Activity -->
+        <!-- Contact Activity -->
         <activity
-            android:name=".Dashboard.DashboardActivity"
+            android:name=".Contact.ContactActivity"
             android:theme="@style/NoActionBarTheme" />
 
         <!-- Info Activity -->
@@ -51,7 +56,6 @@
         <activity
             android:name=".Settings.SettingsActivity"
             android:theme="@style/NoActionBarTheme" />
-
     </application>
 
 </manifest>
