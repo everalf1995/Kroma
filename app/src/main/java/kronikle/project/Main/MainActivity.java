@@ -138,7 +138,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent ContactIntent = new Intent(getBaseContext(), ContactActivity.class);
                 startActivity(ContactIntent);
-                finish();
             }
         });
 
