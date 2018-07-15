@@ -1,7 +1,9 @@
 package kronikle.project.Main;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -13,6 +15,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
@@ -23,6 +26,7 @@ import kronikle.project.Adapters.ViewPagerAdapter;
 import kronikle.project.Contact.ContactActivity;
 import kronikle.project.Dashboard.DashboardActivity;
 import kronikle.project.Info.InfoActivity;
+import kronikle.project.Landing.LandingActivity;
 import kronikle.project.MyAccount.MyAccountActivity;
 import kronikle.project.R;
 import kronikle.project.Settings.SettingsActivity;
@@ -37,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView TasksTab;
     private TextView HabitsTab;
     private TextView TimersTab;
+    private boolean backButtonPressedTwice = false;
 
     private LinearLayout layoutHome;
     private LinearLayout layoutDashboard;
@@ -49,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
     private ImageView iconHome;
     private TextView textViewHome;
 
+    private ImageView iconSignOut;
+    private TextView textViewSignOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +104,9 @@ public class MainActivity extends AppCompatActivity {
 
         iconHome.setImageResource(R.drawable.icon_home_focused);
         textViewHome.setTextColor(getResources().getColor(R.color.colorTextLight));
+
+        iconSignOut = findViewById(R.id.icon_sign_out_DM);
+        textViewSignOut = findViewById(R.id.text_view_sign_out_DM);
     }
 
     private void drawerMenuListener() {
@@ -151,7 +161,23 @@ public class MainActivity extends AppCompatActivity {
         layoutSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                iconHome.setImageResource(R.drawable.icon_home);
+                textViewHome.setTextColor(getResources().getColor(R.color.colorBaseLight));
 
+                iconSignOut.setImageResource(R.drawable.icon_sign_out_focused);
+                textViewSignOut.setTextColor(getResources().getColor(R.color.colorTextLight));
+
+                slidingRootNav.closeMenu();
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    public void run() {
+                        Intent LandingActivityIntent = new Intent(getBaseContext(), LandingActivity.class);
+                        startActivity(LandingActivityIntent);
+                        overridePendingTransition(R.anim.enter_in_down, R.anim.exit_out_down);
+                        finish();
+                    }
+                }, 300);
             }
         });
     }
@@ -240,5 +266,38 @@ public class MainActivity extends AppCompatActivity {
                 slidingRootNav.closeMenu();
             }
         }, 100);
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if (slidingRootNav.isMenuOpened()) {
+            slidingRootNav.closeMenu();
+        }
+
+        else {
+
+            if (backButtonPressedTwice) {
+                super.onBackPressed();
+            }
+
+            else {
+                Toast.makeText(this, getString(R.string.exit_app), Toast.LENGTH_LONG).show();
+
+                backButtonPressedTwice = true;
+                new CountDownTimer(3000, 1000) {
+
+                    @Override
+                    public void onTick(long l) {
+
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        backButtonPressedTwice = false;
+                    }
+                }.start();
+            }
+        }
     }
 }

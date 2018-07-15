@@ -19,6 +19,8 @@ import java.util.Objects;
 import kronikle.project.Contact.ContactActivity;
 import kronikle.project.Dashboard.DashboardActivity;
 import kronikle.project.Info.InfoActivity;
+import kronikle.project.Landing.LandingActivity;
+import kronikle.project.Main.MainActivity;
 import kronikle.project.MyAccount.MyAccountActivity;
 import kronikle.project.R;
 
@@ -39,6 +41,9 @@ public class SettingsActivity extends AppCompatActivity {
 
     private ImageView iconSettings;
     private TextView textViewSettings;
+
+    private ImageView iconSignOut;
+    private TextView textViewSignOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +96,9 @@ public class SettingsActivity extends AppCompatActivity {
 
         iconSettings.setImageResource(R.drawable.icon_settings_focused);
         textViewSettings.setTextColor(getResources().getColor(R.color.colorTextLight));
+
+        iconSignOut = findViewById(R.id.icon_sign_out_DM);
+        textViewSignOut = findViewById(R.id.text_view_sign_out_DM);
     }
 
     private void drawerMenuListener() {
@@ -147,14 +155,37 @@ public class SettingsActivity extends AppCompatActivity {
         layoutSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                iconSettings.setImageResource(R.drawable.icon_settings);
+                textViewSettings.setTextColor(getResources().getColor(R.color.colorBaseLight));
 
+                iconSignOut.setImageResource(R.drawable.icon_sign_out_focused);
+                textViewSignOut.setTextColor(getResources().getColor(R.color.colorTextLight));
+
+                slidingRootNav.closeMenu();
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    public void run() {
+                        Intent LandingActivityIntent = new Intent(getBaseContext(), LandingActivity.class);
+                        startActivity(LandingActivityIntent);
+                        overridePendingTransition(R.anim.enter_in_down, R.anim.exit_out_down);
+                        finishAffinity();
+                    }
+                }, 300);
             }
         });
     }
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        slidingRootNav.openMenu();
+
+        if (slidingRootNav.isMenuOpened()) {
+            slidingRootNav.closeMenu();
+        }
+
+        else {
+            super.onBackPressed();
+            slidingRootNav.openMenu();
+        }
     }
 }
