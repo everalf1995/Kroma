@@ -8,7 +8,7 @@ android:layout_height="match_parent"
 android:background="?attr/colorPrimary"
 android:fitsSystemWindows="true"
 android:orientation="vertical"
-tools:context=".Contact.ContactActivity">
+tools:context=".ContactUs.ContactUsActivity">
 
 <android.support.v7.widget.Toolbar
     android:id="@+id/toolbar_CA"
@@ -26,7 +26,7 @@ tools:context=".Contact.ContactActivity">
         android:layout_gravity="center"
         android:layout_marginTop="4dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="@string/contact"
+        android:text="@string/contact_us"
         android:textAllCaps="true"
         android:textSize="30sp" />
 </android.support.v7.widget.Toolbar>

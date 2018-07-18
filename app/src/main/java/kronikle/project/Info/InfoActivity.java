@@ -16,10 +16,9 @@ import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 
 import java.util.Objects;
 
-import kronikle.project.Contact.ContactActivity;
-import kronikle.project.Dashboard.DashboardActivity;
+import kronikle.project.ContactUs.ContactUsActivity;
+import kronikle.project.Activity.ActivityActivity;
 import kronikle.project.Landing.LandingActivity;
-import kronikle.project.Main.MainActivity;
 import kronikle.project.MyAccount.MyAccountActivity;
 import kronikle.project.R;
 import kronikle.project.Settings.SettingsActivity;
@@ -32,9 +31,9 @@ public class InfoActivity extends AppCompatActivity {
     private ViewPager viewPager;
 
     private LinearLayout layoutHome;
-    private LinearLayout layoutDashboard;
+    private LinearLayout layoutActivity;
     private LinearLayout layoutMyAccount;
-    private LinearLayout layoutContact;
+    private LinearLayout layoutContactUs;
     private LinearLayout layoutInfo;
     private LinearLayout layoutSettings;
     private LinearLayout layoutSignOut;
@@ -84,9 +83,9 @@ public class InfoActivity extends AppCompatActivity {
         }, 100);
 
         layoutHome = findViewById(R.id.layout_home_DM);
-        layoutDashboard = findViewById(R.id.layout_dashboard_DM);
+        layoutActivity = findViewById(R.id.layout_activity_DM);
         layoutMyAccount = findViewById(R.id.layout_my_account_DM);
-        layoutContact = findViewById(R.id.layout_contact_DM);
+        layoutContactUs = findViewById(R.id.layout_contact_us_DM);
         layoutInfo = findViewById(R.id.layout_info_DM);
         layoutSettings = findViewById(R.id.layout_settings_DM);
         layoutSignOut = findViewById(R.id.layout_sign_out_DM);
@@ -109,11 +108,11 @@ public class InfoActivity extends AppCompatActivity {
             }
         });
 
-        layoutDashboard.setOnClickListener(new View.OnClickListener() {
+        layoutActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent DashboardIntent = new Intent(getBaseContext(), DashboardActivity.class);
-                startActivity(DashboardIntent);
+                Intent ActivityIntent = new Intent(getBaseContext(), ActivityActivity.class);
+                startActivity(ActivityIntent);
                 finish();
 
             }
@@ -128,11 +127,11 @@ public class InfoActivity extends AppCompatActivity {
             }
         });
 
-        layoutContact.setOnClickListener(new View.OnClickListener() {
+        layoutContactUs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent ContactIntent = new Intent(getBaseContext(), ContactActivity.class);
-                startActivity(ContactIntent);
+                Intent ContactUsIntent = new Intent(getBaseContext(), ContactUsActivity.class);
+                startActivity(ContactUsIntent);
                 finish();
             }
         });

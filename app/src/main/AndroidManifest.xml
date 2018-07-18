@@ -32,9 +32,9 @@
             android:name=".Main.MainActivity"
             android:theme="@style/NoActionBarTheme" />
 
-        <!-- Dashboard Activity -->
+        <!-- Activity Activity -->
         <activity
-            android:name=".Dashboard.DashboardActivity"
+            android:name=".Activity.ActivityActivity"
             android:theme="@style/NoActionBarTheme" />
 
         <!-- My Account Activity -->
@@ -42,9 +42,9 @@
             android:name=".MyAccount.MyAccountActivity"
             android:theme="@style/NoActionBarTheme" />
 
-        <!-- Contact Activity -->
+        <!-- Contact Us Activity -->
         <activity
-            android:name=".Contact.ContactActivity"
+            android:name=".ContactUs.ContactUsActivity"
             android:theme="@style/NoActionBarTheme" />
 
         <!-- Info Activity -->
