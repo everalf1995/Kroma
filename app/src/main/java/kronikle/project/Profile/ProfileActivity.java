@@ -1,4 +1,4 @@
-package kronikle.project.MyAccount;
+package kronikle.project.Profile;
 
 import android.content.Intent;
 import android.os.Handler;
@@ -23,7 +23,7 @@ import kronikle.project.Landing.LandingActivity;
 import kronikle.project.R;
 import kronikle.project.Settings.SettingsActivity;
 
-public class MyAccountActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity {
 
     private LinearLayout linearLayout;
     private Toolbar toolbar;
@@ -32,14 +32,14 @@ public class MyAccountActivity extends AppCompatActivity {
 
     private LinearLayout layoutHome;
     private LinearLayout layoutActivity;
-    private LinearLayout layoutMyAccount;
+    private LinearLayout layoutProfile;
     private LinearLayout layoutContactUs;
     private LinearLayout layoutInfo;
     private LinearLayout layoutSettings;
     private LinearLayout layoutSignOut;
 
-    private ImageView iconMyAccount;
-    private TextView textViewMyAccount;
+    private ImageView iconProfile;
+    private TextView textViewProfile;
 
     private ImageView iconSignOut;
     private TextView textViewSignOut;
@@ -47,7 +47,7 @@ public class MyAccountActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.my_account_activity);
+        setContentView(R.layout.profile_activity);
 
         initializer();
         toolbarInitializer();
@@ -84,17 +84,17 @@ public class MyAccountActivity extends AppCompatActivity {
 
         layoutHome = findViewById(R.id.layout_home_DM);
         layoutActivity = findViewById(R.id.layout_activity_DM);
-        layoutMyAccount = findViewById(R.id.layout_my_account_DM);
+        layoutProfile = findViewById(R.id.layout_profile_DM);
         layoutContactUs = findViewById(R.id.layout_contact_us_DM);
         layoutInfo = findViewById(R.id.layout_info_DM);
         layoutSettings = findViewById(R.id.layout_settings_DM);
         layoutSignOut = findViewById(R.id.layout_sign_out_DM);
 
-        iconMyAccount = findViewById(R.id.icon_my_account_DM);
-        textViewMyAccount = findViewById(R.id.text_view_my_account_DM);
+        iconProfile = findViewById(R.id.icon_profile_DM);
+        textViewProfile = findViewById(R.id.text_view_profile_DM);
 
-        iconMyAccount.setImageResource(R.drawable.icon_my_account_focused);
-        textViewMyAccount.setTextColor(getResources().getColor(R.color.colorTextLight));
+        iconProfile.setImageResource(R.drawable.icon_profile_focused);
+        textViewProfile.setTextColor(getResources().getColor(R.color.colorTextLight));
 
         iconSignOut = findViewById(R.id.icon_sign_out_DM);
         textViewSignOut = findViewById(R.id.text_view_sign_out_DM);
@@ -117,7 +117,7 @@ public class MyAccountActivity extends AppCompatActivity {
             }
         });
 
-        layoutMyAccount.setOnClickListener(new View.OnClickListener() {
+        layoutProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 slidingRootNav.closeMenu();
@@ -154,8 +154,8 @@ public class MyAccountActivity extends AppCompatActivity {
         layoutSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                iconMyAccount.setImageResource(R.drawable.icon_my_account);
-                textViewMyAccount.setTextColor(getResources().getColor(R.color.colorBaseLight));
+                iconProfile.setImageResource(R.drawable.icon_profile);
+                textViewProfile.setTextColor(getResources().getColor(R.color.colorBaseLight));
 
                 iconSignOut.setImageResource(R.drawable.icon_sign_out_focused);
                 textViewSignOut.setTextColor(getResources().getColor(R.color.colorTextLight));

@@ -19,7 +19,7 @@ import java.util.Objects;
 import kronikle.project.ContactUs.ContactUsActivity;
 import kronikle.project.Info.InfoActivity;
 import kronikle.project.Landing.LandingActivity;
-import kronikle.project.MyAccount.MyAccountActivity;
+import kronikle.project.Profile.ProfileActivity;
 import kronikle.project.R;
 import kronikle.project.Settings.SettingsActivity;
 
@@ -32,7 +32,7 @@ public class ActivityActivity extends AppCompatActivity {
 
     private LinearLayout layoutHome;
     private LinearLayout layoutActivity;
-    private LinearLayout layoutMyAccount;
+    private LinearLayout layoutProfile;
     private LinearLayout layoutContactUs;
     private LinearLayout layoutInfo;
     private LinearLayout layoutSettings;
@@ -84,7 +84,7 @@ public class ActivityActivity extends AppCompatActivity {
 
         layoutHome = findViewById(R.id.layout_home_DM);
         layoutActivity = findViewById(R.id.layout_activity_DM);
-        layoutMyAccount = findViewById(R.id.layout_my_account_DM);
+        layoutProfile = findViewById(R.id.layout_profile_DM);
         layoutContactUs = findViewById(R.id.layout_contact_us_DM);
         layoutInfo = findViewById(R.id.layout_info_DM);
         layoutSettings = findViewById(R.id.layout_settings_DM);
@@ -115,11 +115,11 @@ public class ActivityActivity extends AppCompatActivity {
             }
         });
 
-        layoutMyAccount.setOnClickListener(new View.OnClickListener() {
+        layoutProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent MyAccountIntent = new Intent(getBaseContext(), MyAccountActivity.class);
-                startActivity(MyAccountIntent);
+                Intent ProfileIntent = new Intent(getBaseContext(), ProfileActivity.class);
+                startActivity(ProfileIntent);
                 finish();
             }
         });

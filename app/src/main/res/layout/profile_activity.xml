@@ -8,7 +8,7 @@
     android:background="?attr/colorPrimary"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context=".MyAccount.MyAccountActivity">
+    tools:context=".Profile.ProfileActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_MAA"
@@ -26,7 +26,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/poppins_bold"
-            android:text="@string/my_account"
+            android:text="@string/profile"
             android:textAllCaps="true"
             android:textSize="30sp" />
     </android.support.v7.widget.Toolbar>

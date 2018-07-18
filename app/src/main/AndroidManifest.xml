@@ -37,9 +37,9 @@
             android:name=".Activity.ActivityActivity"
             android:theme="@style/NoActionBarTheme" />
 
-        <!-- My Account Activity -->
+        <!-- Profile Activity -->
         <activity
-            android:name=".MyAccount.MyAccountActivity"
+            android:name=".Profile.ProfileActivity"
             android:theme="@style/NoActionBarTheme" />
 
         <!-- Contact Us Activity -->
