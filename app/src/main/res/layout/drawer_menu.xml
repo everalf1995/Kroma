@@ -1,43 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:background="?attr/android:windowBackground"
-tools:layout_editor_absoluteY="56dp">
-
-<LinearLayout
-    android:id="@+id/layout_top_DM"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="120dp"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
-    app:layout_constraintBottom_toTopOf="@+id/layout_home_DM"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.5"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
-
-    <ImageView
-        android:id="@+id/image_view_profile_picture_DM"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginStart="25dp"
-        android:contentDescription="@string/profile_picture"
-        android:src="@drawable/k_logo" />
+    android:layout_height="match_parent"
+    android:background="?attr/android:windowBackground"
+    tools:layout_editor_absoluteY="56dp">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:id="@+id/layout_top_DM"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/layout_home_DM"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/text_view_profile_full_name_DM"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_light"
+            android:layout_marginStart="25dp"
+            android:fontFamily="@font/roboto_medium"
             android:text="@string/profile_full_name"
             android:textColor="?attr/colorAccent"
             android:textSize="18sp" />
@@ -46,6 +34,7 @@ tools:layout_editor_absoluteY="56dp">
             android:id="@+id/text_view_email_DM"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
             android:layout_marginTop="5dp"
             android:fontFamily="@font/roboto_light"
             android:text="@string/profile_email"
@@ -53,226 +42,224 @@ tools:layout_editor_absoluteY="56dp">
             android:textSize="14sp" />
     </LinearLayout>
 
-</LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_home_DM"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/layout_activity_DM"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_top_DM">
 
-<LinearLayout
-    android:id="@+id/layout_home_DM"
-    android:layout_width="match_parent"
-    android:layout_height="40dp"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
-    app:layout_constraintBottom_toTopOf="@+id/layout_activity_DM"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.5"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/layout_top_DM">
+        <ImageView
+            android:id="@+id/icon_home_DM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="25dp"
+            android:layout_marginStart="25dp"
+            android:contentDescription="@string/home"
+            android:src="@drawable/icon_home" />
 
-    <ImageView
-        android:id="@+id/icon_home_DM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
-        android:layout_marginStart="25dp"
-        android:contentDescription="@string/home"
-        android:src="@drawable/icon_home" />
+        <TextView
+            android:id="@+id/text_view_home_DM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home"
+            android:textColor="@color/colorBaseLight" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/text_view_home_DM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/home"
-        android:textColor="@color/colorBaseLight" />
-</LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_activity_DM"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/layout_profile_DM"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_home_DM">
 
-<LinearLayout
-    android:id="@+id/layout_activity_DM"
-    android:layout_width="match_parent"
-    android:layout_height="40dp"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
-    app:layout_constraintBottom_toTopOf="@+id/layout_profile_DM"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.5"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/layout_home_DM">
+        <ImageView
+            android:id="@+id/icon_activity_DM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="25dp"
+            android:layout_marginStart="25dp"
+            android:contentDescription="@string/activity"
+            android:src="@drawable/icon_activity" />
 
-    <ImageView
-        android:id="@+id/icon_activity_DM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
-        android:layout_marginStart="25dp"
-        android:contentDescription="@string/activity"
-        android:src="@drawable/icon_activity" />
+        <TextView
+            android:id="@+id/text_view_activity_DM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/activity"
+            android:textColor="@color/colorBaseLight" />
 
-    <TextView
-        android:id="@+id/text_view_activity_DM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/activity"
-        android:textColor="@color/colorBaseLight" />
+    </LinearLayout>
 
-</LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_profile_DM"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/layout_contact_us_DM"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_activity_DM">
 
-<LinearLayout
-    android:id="@+id/layout_profile_DM"
-    android:layout_width="match_parent"
-    android:layout_height="40dp"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
-    app:layout_constraintBottom_toTopOf="@+id/layout_contact_us_DM"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.5"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/layout_activity_DM">
+        <ImageView
+            android:id="@+id/icon_profile_DM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="25dp"
+            android:layout_marginStart="25dp"
+            android:contentDescription="@string/profile"
+            android:src="@drawable/icon_profile" />
 
-    <ImageView
-        android:id="@+id/icon_profile_DM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
-        android:layout_marginStart="25dp"
-        android:contentDescription="@string/profile"
-        android:src="@drawable/icon_profile" />
+        <TextView
+            android:id="@+id/text_view_profile_DM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile"
+            android:textColor="@color/colorBaseLight" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/text_view_profile_DM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/profile"
-        android:textColor="@color/colorBaseLight" />
-</LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_contact_us_DM"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/layout_info_DM"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_profile_DM">
 
-<LinearLayout
-    android:id="@+id/layout_contact_us_DM"
-    android:layout_width="match_parent"
-    android:layout_height="40dp"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
-    app:layout_constraintBottom_toTopOf="@+id/layout_info_DM"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.5"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/layout_profile_DM">
+        <ImageView
+            android:id="@+id/icon_contact_us_DM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="25dp"
+            android:layout_marginStart="25dp"
+            android:contentDescription="@string/contact_us"
+            android:src="@drawable/icon_contact_us" />
 
-    <ImageView
-        android:id="@+id/icon_contact_us_DM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
-        android:layout_marginStart="25dp"
-        android:contentDescription="@string/contact_us"
-        android:src="@drawable/icon_contact_us" />
+        <TextView
+            android:id="@+id/text_view_contact_us_DM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/contact_us"
+            android:textColor="@color/colorBaseLight" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/text_view_contact_us_DM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/contact_us"
-        android:textColor="@color/colorBaseLight" />
-</LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_info_DM"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/layout_settings_DM"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_contact_us_DM">
 
-<LinearLayout
-    android:id="@+id/layout_info_DM"
-    android:layout_width="match_parent"
-    android:layout_height="40dp"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
-    app:layout_constraintBottom_toTopOf="@+id/layout_settings_DM"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.5"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/layout_contact_us_DM">
+        <ImageView
+            android:id="@+id/icon_info_DM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="25dp"
+            android:layout_marginStart="25dp"
+            android:contentDescription="@string/info"
+            android:src="@drawable/icon_info" />
 
-    <ImageView
-        android:id="@+id/icon_info_DM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
-        android:layout_marginStart="25dp"
-        android:contentDescription="@string/info"
-        android:src="@drawable/icon_info" />
+        <TextView
+            android:id="@+id/text_view_info_DM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/info"
+            android:textColor="@color/colorBaseLight" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/text_view_info_DM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/info"
-        android:textColor="@color/colorBaseLight" />
-</LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_settings_DM"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/layout_sign_out_DM"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_info_DM">
 
-<LinearLayout
-    android:id="@+id/layout_settings_DM"
-    android:layout_width="match_parent"
-    android:layout_height="40dp"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
-    app:layout_constraintBottom_toTopOf="@+id/layout_sign_out_DM"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.5"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/layout_info_DM">
+        <ImageView
+            android:id="@+id/icon_settings_DM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="25dp"
+            android:layout_marginStart="25dp"
+            android:contentDescription="@string/settings"
+            android:src="@drawable/icon_settings" />
 
-    <ImageView
-        android:id="@+id/icon_settings_DM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
-        android:layout_marginStart="25dp"
-        android:contentDescription="@string/settings"
-        android:src="@drawable/icon_settings" />
+        <TextView
+            android:id="@+id/text_view_settings_DM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings"
+            android:textColor="@color/colorBaseLight" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/text_view_settings_DM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/settings"
-        android:textColor="@color/colorBaseLight" />
-</LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_sign_out_DM"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/layout_bottom_DM"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_settings_DM">
 
-<LinearLayout
-    android:id="@+id/layout_sign_out_DM"
-    android:layout_width="match_parent"
-    android:layout_height="40dp"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
-    app:layout_constraintBottom_toTopOf="@+id/layout_bottom_DM"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.5"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/layout_settings_DM">
+        <ImageView
+            android:id="@+id/icon_sign_out_DM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="25dp"
+            android:layout_marginStart="25dp"
+            android:contentDescription="@string/sign_out"
+            android:src="@drawable/icon_sign_out" />
 
-    <ImageView
-        android:id="@+id/icon_sign_out_DM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
-        android:layout_marginStart="25dp"
-        android:contentDescription="@string/sign_out"
-        android:src="@drawable/icon_sign_out" />
+        <TextView
+            android:id="@+id/text_view_sign_out_DM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_out"
+            android:textColor="@color/colorBaseLight" />
 
-    <TextView
-        android:id="@+id/text_view_sign_out_DM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/sign_out"
-        android:textColor="@color/colorBaseLight" />
-
-</LinearLayout>
+    </LinearLayout>
 
 
-<LinearLayout
-    android:id="@+id/layout_bottom_DM"
-    android:layout_width="match_parent"
-    android:layout_height="120dp"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.5"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/layout_sign_out_DM">
+    <LinearLayout
+        android:id="@+id/layout_bottom_DM"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_sign_out_DM">
 
-</LinearLayout>
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
