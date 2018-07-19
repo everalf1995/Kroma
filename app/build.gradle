@@ -32,6 +32,9 @@ dependencies {
     // Added for CardView
     implementation 'com.android.support:cardview-v7:27.1.1'
 
-    //Added for Sliding Menu
+    // Added for Sliding Menu
     implementation 'com.yarolegovich:sliding-root-nav:1.1.0'
+
+    // Added for vector animation
+    implementation 'com.github.jd-alexander:LikeButton:0.2.3'
 }

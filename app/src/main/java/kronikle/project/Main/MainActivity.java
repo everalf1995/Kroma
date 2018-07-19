@@ -16,6 +16,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.like.LikeButton;
+import com.like.OnLikeListener;
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
     private LinearLayout linearLayout;
     private Toolbar toolbar;
+    private LikeButton iconHeart;
     private SlidingRootNav slidingRootNav;
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -63,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
         initializer();
         toolbarInitializer();
+        heartAnimation();
         drawerMenuInitializer();
         drawerMenuListener();
         tabLayoutInitializer();
@@ -72,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
     private void initializer() {
         linearLayout = findViewById(R.id.linear_layout_MA);
         toolbar = findViewById(R.id.toolbar_MA);
+        iconHeart = findViewById(R.id.icon_heart_MA);
         tabLayout = findViewById(R.id.tab_layout_MA);
         viewPager = findViewById(R.id.view_pager_MA);
     }
@@ -80,6 +85,26 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
+    }
+
+    private void heartAnimation () {
+        iconHeart.setOnLikeListener(new OnLikeListener() {
+            @Override
+            public void liked(LikeButton likeButton) {
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    public void run() {
+                        iconHeart.setLiked(false);
+                    }
+                }, 500);
+            }
+
+            @Override
+            public void unLiked(LikeButton likeButton) {
+                iconHeart.setLiked(true);
+
+            }
+        });
     }
 
     private void drawerMenuInitializer() {

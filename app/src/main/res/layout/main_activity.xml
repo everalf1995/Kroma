@@ -30,16 +30,32 @@
             android:textSize="30sp"
             android:id="@+id/toolbar_title_MA" />
 
-        <ImageView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
+            android:layout_marginEnd="4dp"
             android:layout_marginStart="0dp"
-            android:layout_marginEnd="16dp"
-            android:contentDescription="@string/heart"
-            android:src="@drawable/icon_heart"
-            android:id="@+id/toolbar_heart_MA" />
+            android:orientation="vertical">
 
+            <com.like.LikeButton
+                android:id="@+id/icon_heart_MA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:icon_type="Heart"
+                app:circle_start_color="@color/colorTextLight"
+                app:like_drawable="@drawable/icon_heart_focused"
+                app:unlike_drawable="@drawable/icon_heart"
+                app:dots_primary_color="?attr/colorAccent"
+                app:dots_secondary_color="@color/colorTextLight"
+                app:circle_end_color="?attr/colorAccent"
+                app:icon_size="25dp"
+                app:liked="false"
+                app:anim_scale_factor="2"
+                app:is_enabled="true"/>
+
+        </LinearLayout>
     </android.support.v7.widget.Toolbar>
 
     <android.support.design.widget.TabLayout
@@ -65,5 +81,4 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/view_pager_MA" />
-
 </LinearLayout>

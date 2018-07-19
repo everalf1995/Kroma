@@ -81,7 +81,7 @@
         <Button
             android:id="@+id/button_sign_in_SIF"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/sign_in"
             android:textSize="16sp"
@@ -138,7 +138,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/text_view_or_SIF"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/text_view_or_SIF"
@@ -166,7 +166,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/text_view_or_SIF"
         app:layout_constraintTop_toTopOf="@+id/text_view_or_SIF"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/button_facebook_SIF"
