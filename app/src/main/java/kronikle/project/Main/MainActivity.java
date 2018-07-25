@@ -2,20 +2,25 @@ package kronikle.project.Main;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.support.annotation.ColorInt;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.jinatonic.confetti.CommonConfetti;
 import com.gjiazhe.multichoicescirclebutton.MultiChoicesCircleButton;
 import com.like.LikeButton;
 import com.like.OnLikeListener;
@@ -40,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout linearLayout;
     private Toolbar toolbar;
     private LikeButton iconHeart;
-    private SlidingRootNav slidingRootNav;
+    private RelativeLayout relativeLayout;
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private TextView TasksTab;
@@ -48,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView TimersTab;
     private boolean backButtonPressedTwice = false;
 
+    private SlidingRootNav slidingRootNav;
     private LinearLayout layoutHome;
     private LinearLayout layoutActivity;
     private LinearLayout layoutProfile;
@@ -78,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
         drawerMenuListener();
         tabLayoutInitializer();
         tabLayoutSelected();
+        confettiAnimation();
     }
 
     private void initializer() {
@@ -85,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar_MA);
         iconHeart = findViewById(R.id.icon_heart_MA);
         circleButton = findViewById(R.id.circle_button_MA);
+        relativeLayout = findViewById(R.id.relative_layout_MA);
         tabLayout = findViewById(R.id.tab_layout_MA);
         viewPager = findViewById(R.id.view_pager_MA);
     }
@@ -133,17 +141,19 @@ public class MainActivity extends AppCompatActivity {
         circleButton.setOnSelectedItemListener(new MultiChoicesCircleButton.OnSelectedItemListener() {
             @Override
             public void onSelected(MultiChoicesCircleButton.Item item, int index) {
-                if (index == 0) {
-                    circleButton.hide(true);
-                    Toast.makeText(MainActivity.this, item.getText(), Toast.LENGTH_SHORT).show();
-                }
+                switch(index) {
+                    case 0:
+                        Toast.makeText(MainActivity.this, item.getText(), Toast.LENGTH_SHORT).show();
+                        confettiAnimation();
+                        break;
 
-                else if (index == 1) {
-                    Toast.makeText(MainActivity.this, item.getText(), Toast.LENGTH_SHORT).show();
-                }
+                    case 1:
+                        Toast.makeText(MainActivity.this, item.getText(), Toast.LENGTH_SHORT).show();
+                        break;
 
-                else {
-                    Toast.makeText(MainActivity.this, item.getText(), Toast.LENGTH_SHORT).show();
+                    case 2:
+                        Toast.makeText(MainActivity.this, item.getText(), Toast.LENGTH_SHORT).show();
+                        break;
                 }
             }
         });
@@ -319,6 +329,19 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void confettiAnimation() {
+        TypedValue typedValue = new TypedValue();
+        Resources.Theme theme = getTheme();
+        theme.resolveAttribute(R.attr.colorAccent, typedValue, true);
+        @ColorInt int color = typedValue.data;
+
+        CommonConfetti.rainingConfetti(relativeLayout, new int[] {
+                getResources().getColor(R.color.colorTextLight),
+                getResources().getColor(R.color.colorBackground),
+                color})
+                .stream(3000);
     }
 
     @Override
