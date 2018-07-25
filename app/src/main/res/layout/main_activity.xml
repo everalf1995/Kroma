@@ -30,32 +30,25 @@
             android:textSize="30sp"
             android:id="@+id/toolbar_title_MA" />
 
-        <LinearLayout
+        <com.like.LikeButton
+            android:id="@+id/icon_heart_MA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginEnd="4dp"
             android:layout_marginStart="0dp"
-            android:orientation="vertical">
+            app:icon_type="Heart"
+            app:circle_start_color="@color/colorTextLight"
+            app:like_drawable="@drawable/icon_heart_focused"
+            app:unlike_drawable="@drawable/icon_heart"
+            app:dots_primary_color="?attr/colorAccent"
+            app:dots_secondary_color="@color/colorTextLight"
+            app:circle_end_color="?attr/colorAccent"
+            app:icon_size="25dp"
+            app:liked="false"
+            app:anim_scale_factor="2"
+            app:is_enabled="true"/>
 
-            <com.like.LikeButton
-                android:id="@+id/icon_heart_MA"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                app:icon_type="Heart"
-                app:circle_start_color="@color/colorTextLight"
-                app:like_drawable="@drawable/icon_heart_focused"
-                app:unlike_drawable="@drawable/icon_heart"
-                app:dots_primary_color="?attr/colorAccent"
-                app:dots_secondary_color="@color/colorTextLight"
-                app:circle_end_color="?attr/colorAccent"
-                app:icon_size="25dp"
-                app:liked="false"
-                app:anim_scale_factor="2"
-                app:is_enabled="true"/>
-
-        </LinearLayout>
     </android.support.v7.widget.Toolbar>
 
     <android.support.design.widget.TabLayout
@@ -77,8 +70,31 @@
         android:background="?attr/colorPrimaryDark"
         android:id="@+id/view_divider_MA" />
 
-    <android.support.v4.view.ViewPager
+    <RelativeLayout
+        android:id="@+id/relative_layout_MA"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/view_pager_MA" />
+        android:layout_height="match_parent">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager_MA"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.gjiazhe.multichoicescirclebutton.MultiChoicesCircleButton
+            android:id="@+id/circle_button_MA"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/multi_choices_circle_button_behavior"
+            app:mccb_icon="@drawable/icon_add"
+            app:mccb_buttonColor="?attr/colorAccent"
+            app:mccb_backgroundShadowColor="false"
+            app:mccb_collapseRadius="40dp"
+            app:mccb_expandRadius="120dp"
+            app:mccb_textSize="18sp"
+            app:mccb_textColor="@color/colorTextLight"
+            app:mccb_itemBackgroundColor="@color/colorTextLight"
+            />
+
+    </RelativeLayout>
+
 </LinearLayout>

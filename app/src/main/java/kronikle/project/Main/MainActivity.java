@@ -16,11 +16,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.gjiazhe.multichoicescirclebutton.MultiChoicesCircleButton;
 import com.like.LikeButton;
 import com.like.OnLikeListener;
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import kronikle.project.Adapters.ViewPagerAdapter;
@@ -59,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
     private ImageView iconSignOut;
     private TextView textViewSignOut;
 
+    private MultiChoicesCircleButton circleButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +71,9 @@ public class MainActivity extends AppCompatActivity {
 
         initializer();
         toolbarInitializer();
-        heartAnimation();
+        heartListener();
+        circleButtonInitializer();
+        circleButtonListener();
         drawerMenuInitializer();
         drawerMenuListener();
         tabLayoutInitializer();
@@ -77,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
         linearLayout = findViewById(R.id.linear_layout_MA);
         toolbar = findViewById(R.id.toolbar_MA);
         iconHeart = findViewById(R.id.icon_heart_MA);
+        circleButton = findViewById(R.id.circle_button_MA);
         tabLayout = findViewById(R.id.tab_layout_MA);
         viewPager = findViewById(R.id.view_pager_MA);
     }
@@ -87,7 +95,8 @@ public class MainActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
     }
 
-    private void heartAnimation () {
+    // Needs Code
+    private void heartListener() {
         iconHeart.setOnLikeListener(new OnLikeListener() {
             @Override
             public void liked(LikeButton likeButton) {
@@ -102,7 +111,40 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void unLiked(LikeButton likeButton) {
                 iconHeart.setLiked(true);
+            }
+        });
+    }
 
+    private void circleButtonInitializer () {
+        MultiChoicesCircleButton.Item addTask = new MultiChoicesCircleButton.Item( getString(R.string.add_task), getDrawable(R.drawable.icon_add_task), 30);
+        MultiChoicesCircleButton.Item addHabit = new MultiChoicesCircleButton.Item(getString(R.string.add_habit),getDrawable(R.drawable.icon_add_habit), 90);
+        MultiChoicesCircleButton.Item addTimer = new MultiChoicesCircleButton.Item(getString(R.string.add_timer), getDrawable(R.drawable.icon_add_timer), 150);
+
+        List<MultiChoicesCircleButton.Item> buttonItems = new ArrayList<>();
+        buttonItems.add(addTask);
+        buttonItems.add(addHabit);
+        buttonItems.add(addTimer);
+
+        circleButton.setButtonItems(buttonItems);
+    }
+
+    // Needs Code
+    private void circleButtonListener() {
+        circleButton.setOnSelectedItemListener(new MultiChoicesCircleButton.OnSelectedItemListener() {
+            @Override
+            public void onSelected(MultiChoicesCircleButton.Item item, int index) {
+                if (index == 0) {
+                    circleButton.hide(true);
+                    Toast.makeText(MainActivity.this, item.getText(), Toast.LENGTH_SHORT).show();
+                }
+
+                else if (index == 1) {
+                    Toast.makeText(MainActivity.this, item.getText(), Toast.LENGTH_SHORT).show();
+                }
+
+                else {
+                    Toast.makeText(MainActivity.this, item.getText(), Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

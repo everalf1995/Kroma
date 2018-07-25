@@ -56,6 +56,11 @@
     <string name="timers">Timers</string>
     <string name="heart">Heart</string>
 
+    <!--Circle Button-->]
+    <string name="add_task">Add a Task</string>
+    <string name="add_habit">Add a Habit</string>
+    <string name="add_timer">Add a Timer</string>
+
     <!--Menu-->
     <string name="home">Home</string>
     <string name="activity">Activity</string>

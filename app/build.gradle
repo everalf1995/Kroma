@@ -37,4 +37,11 @@ dependencies {
 
     // Added for vector animation
     implementation 'com.github.jd-alexander:LikeButton:0.2.3'
+
+    // Added for circle button
+    implementation 'com.gjiazhe:MultiChoicesCircleButton:1.0'
+
+    // Added for confetti animation
+    implementation 'nl.dionsegijn:konfetti:1.1.2'
+
 }
