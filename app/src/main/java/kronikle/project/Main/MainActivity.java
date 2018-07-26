@@ -24,6 +24,7 @@ import com.github.jinatonic.confetti.CommonConfetti;
 import com.gjiazhe.multichoicescirclebutton.MultiChoicesCircleButton;
 import com.like.LikeButton;
 import com.like.OnLikeListener;
+import com.muddzdev.styleabletoastlibrary.StyleableToast;
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 
@@ -370,7 +371,16 @@ public class MainActivity extends AppCompatActivity {
             }
 
             else {
-                Toast.makeText(this, getString(R.string.exit_app), Toast.LENGTH_LONG).show();
+
+                new StyleableToast
+                        .Builder(getApplicationContext())
+                        .text(getString(R.string.exit_app))
+                        .textColor(getResources().getColor(R.color.colorTextLight))
+                        .backgroundColor(getResources().getColor(R.color.colorBackground))
+                        .iconStart(R.drawable.icon_warning)
+                        .cornerRadius(2)
+                        .length(4000)
+                        .show();
 
                 backButtonPressedTwice = true;
                 new CountDownTimer(3000, 1000) {

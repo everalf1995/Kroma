@@ -32,10 +32,13 @@ dependencies {
     // Added for CardView
     implementation 'com.android.support:cardview-v7:27.1.1'
 
+    // Added for toasts
+    implementation 'com.muddzdev:styleabletoast:2.1.2'
+
     // Added for Sliding Menu
     implementation 'com.yarolegovich:sliding-root-nav:1.1.0'
 
-    // Added for vector animation
+    // Added for heart vector animation
     implementation 'com.github.jd-alexander:LikeButton:0.2.3'
 
     // Added for circle button

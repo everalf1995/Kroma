@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.muddzdev.styleabletoastlibrary.StyleableToast;
+
 import java.util.Objects;
 
 import kronikle.project.Main.MainActivity;
@@ -79,6 +81,16 @@ public class SignInContinueGuestDialog extends AppCompatDialogFragment {
                 startActivity(MainActivityIntent);
                 Objects.requireNonNull(getActivity()).overridePendingTransition(R.anim.enter_in_up, R.anim.exit_out_up);
                 getActivity().finish();
+
+                new StyleableToast
+                        .Builder(Objects.requireNonNull(getContext()))
+                        .text(getString(R.string.welcome_back))
+                        .textColor(getResources().getColor(R.color.colorTextLight))
+                        .backgroundColor(getResources().getColor(R.color.colorBackground))
+                        .iconStart(R.drawable.icon_user_accepted)
+                        .cornerRadius(2)
+                        .length(4000)
+                        .show();
             }
         });
     }

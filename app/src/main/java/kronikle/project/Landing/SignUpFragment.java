@@ -23,6 +23,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.muddzdev.styleabletoastlibrary.StyleableToast;
+
 import java.util.Objects;
 
 import kronikle.project.Main.MainActivity;
@@ -232,7 +234,15 @@ public class SignUpFragment extends Fragment {
 
         else {
             //Code to check if the given email is already in the database
-            Toast.makeText(getContext(), "Welcome to KORNIKLE!", Toast.LENGTH_SHORT).show();
+            new StyleableToast
+                    .Builder(Objects.requireNonNull(getContext()))
+                    .text(getString(R.string.welcome))
+                    .textColor(getResources().getColor(R.color.colorTextLight))
+                    .backgroundColor(getResources().getColor(R.color.colorBackground))
+                    .iconStart(R.drawable.icon_user_created)
+                    .cornerRadius(2)
+                    .length(4000)
+                    .show();
 
             Intent MainActivityIntent = new Intent(getActivity(), MainActivity.class);
             startActivity(MainActivityIntent);

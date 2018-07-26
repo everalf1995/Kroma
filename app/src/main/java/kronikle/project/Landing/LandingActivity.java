@@ -14,6 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.muddzdev.styleabletoastlibrary.StyleableToast;
+
 import java.util.Objects;
 
 import kronikle.project.R;
@@ -95,7 +97,16 @@ public class LandingActivity extends AppCompatActivity {
         }
 
         else {
-            Toast.makeText(this, getString(R.string.exit_app), Toast.LENGTH_LONG).show();
+
+            new StyleableToast
+                    .Builder(getApplicationContext())
+                    .text(getString(R.string.exit_app))
+                    .textColor(getResources().getColor(R.color.colorTextLight))
+                    .backgroundColor(getResources().getColor(R.color.colorBackground))
+                    .iconStart(R.drawable.icon_warning)
+                    .cornerRadius(2)
+                    .length(4000)
+                    .show();
 
             backButtonPressedTwice = true;
             new CountDownTimer(3000, 1000) {
