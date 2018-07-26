@@ -84,12 +84,12 @@ public class SignInContinueGuestDialog extends AppCompatDialogFragment {
 
                 new StyleableToast
                         .Builder(Objects.requireNonNull(getContext()))
-                        .text(getString(R.string.welcome_back))
+                        .text(getString(R.string.welcome_guest))
                         .textColor(getResources().getColor(R.color.colorTextLight))
                         .backgroundColor(getResources().getColor(R.color.colorBackground))
                         .iconStart(R.drawable.icon_user_accepted)
                         .cornerRadius(2)
-                        .length(4000)
+                        .length(6000)
                         .show();
             }
         });

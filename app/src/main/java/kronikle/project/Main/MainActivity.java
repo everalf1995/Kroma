@@ -379,7 +379,7 @@ public class MainActivity extends AppCompatActivity {
                         .backgroundColor(getResources().getColor(R.color.colorBackground))
                         .iconStart(R.drawable.icon_warning)
                         .cornerRadius(2)
-                        .length(4000)
+                        .length(6000)
                         .show();
 
                 backButtonPressedTwice = true;

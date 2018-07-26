@@ -195,7 +195,7 @@ public class SignInFragment extends Fragment {
                     .backgroundColor(getResources().getColor(R.color.colorBackground))
                     .iconStart(R.drawable.icon_user_accepted)
                     .cornerRadius(2)
-                    .length(4000)
+                    .length(6000)
                     .show();
 
             Intent MainActivityIntent = new Intent(getActivity(), MainActivity.class);

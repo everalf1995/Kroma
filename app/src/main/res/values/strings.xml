@@ -33,6 +33,7 @@
     <string name="continue_guest_dialogue">Your information will be stored locally, if lost you will not be able to recover it unless backed up</string>
     <string name="welcome">Welcome to KORNIKLE!</string>
     <string name="welcome_back">Welcome back to KORNIKLE!</string>
+    <string name="welcome_guest">Hello guest, welcome to KORNIKLE!</string>
 
     <string name="facebook">Facebook</string>
     <string name="google">Google</string>
