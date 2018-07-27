@@ -47,4 +47,6 @@ dependencies {
     // Added for confetti animation
     implementation 'com.github.jinatonic.confetti:confetti:1.1.1'
 
+    //Added for wave animation
+    implementation 'com.scwang.wave:MultiWaveHeader:1.0.0-alpha-1'
 }

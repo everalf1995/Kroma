@@ -109,7 +109,7 @@ public class LandingActivity extends AppCompatActivity {
                     .show();
 
             backButtonPressedTwice = true;
-            new CountDownTimer(3000, 1000) {
+            new CountDownTimer(2000, 1000) {
 
                 @Override
                 public void onTick(long l) {

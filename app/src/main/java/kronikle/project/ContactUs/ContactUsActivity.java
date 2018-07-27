@@ -39,7 +39,7 @@ public class ContactUsActivity extends AppCompatActivity {
     private LinearLayout layoutSignOut;
 
     private ImageView iconContactUs;
-    private TextView textviewContactUs;
+    private TextView textViewContactUs;
 
     private ImageView iconSignOut;
     private TextView textViewSignOut;
@@ -56,9 +56,9 @@ public class ContactUsActivity extends AppCompatActivity {
     }
 
     private void initializer() {
-        linearLayout = findViewById(R.id.linear_layout_CA);
-        toolbar = findViewById(R.id.toolbar_CA);
-        viewPager = findViewById(R.id.view_pager_CA);
+        linearLayout = findViewById(R.id.linear_layout_CUA);
+        toolbar = findViewById(R.id.toolbar_CUA);
+        viewPager = findViewById(R.id.view_pager_CUA);
     }
 
     private void toolbarInitializer() {
@@ -91,10 +91,10 @@ public class ContactUsActivity extends AppCompatActivity {
         layoutSignOut = findViewById(R.id.layout_sign_out_DM);
 
         iconContactUs = findViewById(R.id.icon_contact_us_DM);
-        textviewContactUs = findViewById(R.id.text_view_contact_us_DM);
+        textViewContactUs = findViewById(R.id.text_view_contact_us_DM);
 
         iconContactUs.setImageResource(R.drawable.icon_contact_us_focused);
-        textviewContactUs.setTextColor(getResources().getColor(R.color.colorTextLight));
+        textViewContactUs.setTextColor(getResources().getColor(R.color.colorTextLight));
 
         iconSignOut = findViewById(R.id.icon_sign_out_DM);
         textViewSignOut = findViewById(R.id.text_view_sign_out_DM);
@@ -156,7 +156,7 @@ public class ContactUsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 iconContactUs.setImageResource(R.drawable.icon_contact_us);
-                textviewContactUs.setTextColor(getResources().getColor(R.color.colorBaseLight));
+                textViewContactUs.setTextColor(getResources().getColor(R.color.colorBaseLight));
 
                 iconSignOut.setImageResource(R.drawable.icon_sign_out_focused);
                 textViewSignOut.setTextColor(getResources().getColor(R.color.colorTextLight));

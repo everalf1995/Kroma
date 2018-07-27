@@ -64,6 +64,11 @@
     <string name="add_habit">Add a Habit</string>
     <string name="add_timer">Add a Timer</string>
 
+    <!--Circle Button-->]
+    <string name="new_task">New Task</string>
+    <string name="new_habit">New Habit</string>
+    <string name="new_timer">New Timer</string>
+
     <!--Menu-->
     <string name="home">Home</string>
     <string name="activity">Activity</string>

@@ -37,6 +37,10 @@ import kronikle.project.ContactUs.ContactUsActivity;
 import kronikle.project.Activity.ActivityActivity;
 import kronikle.project.Info.InfoActivity;
 import kronikle.project.Landing.LandingActivity;
+import kronikle.project.Main.Habits.HabitsFragment;
+import kronikle.project.Main.Tasks.NewTaskActivity;
+import kronikle.project.Main.Tasks.TasksFragment;
+import kronikle.project.Main.Timers.TimersFragment;
 import kronikle.project.Profile.ProfileActivity;
 import kronikle.project.R;
 import kronikle.project.Settings.SettingsActivity;
@@ -144,8 +148,15 @@ public class MainActivity extends AppCompatActivity {
             public void onSelected(MultiChoicesCircleButton.Item item, int index) {
                 switch(index) {
                     case 0:
-                        Toast.makeText(MainActivity.this, item.getText(), Toast.LENGTH_SHORT).show();
-                        confettiAnimation();
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            public void run() {
+                                Intent NewTaskActivityIntent = new Intent(getApplication(), NewTaskActivity.class);
+                                startActivity(NewTaskActivityIntent);
+                                overridePendingTransition(R.anim.enter_in_up, R.anim.exit_out_up);
+                            }
+                        }, 100);
+
                         break;
 
                     case 1:
@@ -383,7 +394,7 @@ public class MainActivity extends AppCompatActivity {
                         .show();
 
                 backButtonPressedTwice = true;
-                new CountDownTimer(3000, 1000) {
+                new CountDownTimer(2000, 1000) {
 
                     @Override
                     public void onTick(long l) {

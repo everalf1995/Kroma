@@ -56,9 +56,9 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void initializer() {
-        linearLayout = findViewById(R.id.linear_layout_MAA);
-        toolbar = findViewById(R.id.toolbar_MAA);
-        viewPager = findViewById(R.id.view_pager_MAA);
+        linearLayout = findViewById(R.id.linear_layout_PA);
+        toolbar = findViewById(R.id.toolbar_PA);
+        viewPager = findViewById(R.id.view_pager_PA);
     }
 
     private void toolbarInitializer() {

@@ -1,4 +1,4 @@
-package kronikle.project.Main;
+package kronikle.project.Main.Tasks;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;

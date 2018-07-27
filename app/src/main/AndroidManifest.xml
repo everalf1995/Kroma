@@ -32,6 +32,21 @@
             android:name=".Main.MainActivity"
             android:theme="@style/NoActionBarTheme" />
 
+        <!-- New Task Activity -->
+        <activity
+            android:name=".Main.Tasks.NewTaskActivity"
+            android:theme="@style/NoActionBarTheme" />
+
+        <!-- New Habit Activity -->
+        <activity
+            android:name=".Main.Habits.NewHabitActivity"
+            android:theme="@style/NoActionBarTheme" />
+
+        <!-- New Timer Activity -->
+        <activity
+            android:name=".Main.Timers.NewTimerActivity"
+            android:theme="@style/NoActionBarTheme" />
+
         <!-- Activity Activity -->
         <activity
             android:name=".Activity.ActivityActivity"
@@ -56,6 +71,7 @@
         <activity
             android:name=".Settings.SettingsActivity"
             android:theme="@style/NoActionBarTheme" />
+
     </application>
 
 </manifest>

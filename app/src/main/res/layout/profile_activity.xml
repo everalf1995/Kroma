@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linear_layout_MAA"
+    android:id="@+id/linear_layout_PA"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/colorPrimary"
@@ -11,7 +11,7 @@
     tools:context=".Profile.ProfileActivity">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar_MAA"
+        android:id="@+id/toolbar_PA"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_gravity="top"
@@ -20,7 +20,7 @@
         app:theme="@style/NoActionBarTheme">
 
         <TextView
-            android:id="@+id/toolbar_title_MAA"
+            android:id="@+id/toolbar_title_PA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -32,13 +32,13 @@
     </android.support.v7.widget.Toolbar>
 
     <View
-        android:id="@+id/view_divider_MAA"
+        android:id="@+id/view_divider_PA"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="?attr/colorPrimaryDark" />
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/view_pager_MAA"
+        android:id="@+id/view_pager_PA"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
