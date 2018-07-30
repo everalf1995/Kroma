@@ -23,7 +23,7 @@ import kronikle.project.Profile.ProfileActivity;
 import kronikle.project.R;
 import kronikle.project.Settings.SettingsActivity;
 
-public class InfoActivity extends AppCompatActivity {
+public class InfoActivity extends AppCompatActivity implements View.OnClickListener {
 
     private LinearLayout linearLayout;
     private Toolbar toolbar;
@@ -52,7 +52,6 @@ public class InfoActivity extends AppCompatActivity {
         initializer();
         toolbarInitializer();
         drawerMenuInitializer();
-        drawerMenuListener();
     }
 
     private void initializer() {
@@ -90,6 +89,14 @@ public class InfoActivity extends AppCompatActivity {
         layoutSettings = findViewById(R.id.layout_settings_DM);
         layoutSignOut = findViewById(R.id.layout_sign_out_DM);
 
+        layoutHome.setOnClickListener(this);
+        layoutActivity.setOnClickListener(this);
+        layoutProfile.setOnClickListener(this);
+        layoutContactUs.setOnClickListener(this);
+        layoutInfo.setOnClickListener(this);
+        layoutSettings.setOnClickListener(this);
+        layoutSignOut.setOnClickListener(this);
+
         iconInfo = findViewById(R.id.icon_info_DM);
         textViewInfo = findViewById(R.id.text_view_info_DM);
 
@@ -100,61 +107,42 @@ public class InfoActivity extends AppCompatActivity {
         textViewSignOut = findViewById(R.id.text_view_sign_out_DM);
     }
 
-    private void drawerMenuListener() {
-        layoutHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id. layout_home_DM:
                 finish();
-            }
-        });
+                break;
 
-        layoutActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.layout_activity_DM:
                 Intent ActivityIntent = new Intent(getBaseContext(), ActivityActivity.class);
                 startActivity(ActivityIntent);
                 finish();
+                break;
 
-            }
-        });
-
-        layoutProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.layout_profile_DM:
                 Intent ProfileIntent = new Intent(getBaseContext(), ProfileActivity.class);
                 startActivity(ProfileIntent);
                 finish();
-            }
-        });
+                break;
 
-        layoutContactUs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.layout_contact_us_DM:
                 Intent ContactUsIntent = new Intent(getBaseContext(), ContactUsActivity.class);
                 startActivity(ContactUsIntent);
                 finish();
-            }
-        });
+                break;
 
-        layoutInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.layout_info_DM:
                 slidingRootNav.closeMenu();
-            }
-        });
+                break;
 
-        layoutSettings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.layout_settings_DM:
                 Intent SettingsIntent = new Intent(getBaseContext(), SettingsActivity.class);
                 startActivity(SettingsIntent);
                 finish();
-            }
-        });
+                break;
 
-        layoutSignOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.layout_sign_out_DM:
                 iconInfo.setImageResource(R.drawable.icon_info);
                 textViewInfo.setTextColor(getResources().getColor(R.color.colorBaseLight));
 
@@ -171,9 +159,9 @@ public class InfoActivity extends AppCompatActivity {
                         overridePendingTransition(R.anim.enter_in_down, R.anim.exit_out_down);
                         finishAffinity();
                     }
-                }, 300);
-            }
-        });
+                }, 200);
+                break;
+        }
     }
 
     @Override

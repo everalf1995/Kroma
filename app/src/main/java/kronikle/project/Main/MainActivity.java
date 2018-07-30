@@ -45,9 +45,8 @@ import kronikle.project.Profile.ProfileActivity;
 import kronikle.project.R;
 import kronikle.project.Settings.SettingsActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private LinearLayout linearLayout;
     private Toolbar toolbar;
     private LikeButton iconHeart;
     private RelativeLayout relativeLayout;
@@ -86,14 +85,12 @@ public class MainActivity extends AppCompatActivity {
         circleButtonInitializer();
         circleButtonListener();
         drawerMenuInitializer();
-        drawerMenuListener();
         tabLayoutInitializer();
         tabLayoutSelected();
         confettiAnimation();
     }
 
     private void initializer() {
-        linearLayout = findViewById(R.id.linear_layout_MA);
         toolbar = findViewById(R.id.toolbar_MA);
         iconHeart = findViewById(R.id.icon_heart_MA);
         circleButton = findViewById(R.id.circle_button_MA);
@@ -155,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
                                 startActivity(NewTaskActivityIntent);
                                 overridePendingTransition(R.anim.enter_in_up, R.anim.exit_out_up);
                             }
-                        }, 100);
+                        }, 130);
 
                         break;
 
@@ -187,6 +184,14 @@ public class MainActivity extends AppCompatActivity {
         layoutSettings = findViewById(R.id.layout_settings_DM);
         layoutSignOut = findViewById(R.id.layout_sign_out_DM);
 
+        layoutHome.setOnClickListener(this);
+        layoutActivity.setOnClickListener(this);
+        layoutProfile.setOnClickListener(this);
+        layoutContactUs.setOnClickListener(this);
+        layoutInfo.setOnClickListener(this);
+        layoutSettings.setOnClickListener(this);
+        layoutSignOut.setOnClickListener(this);
+
         iconHome = findViewById(R.id.icon_home_DM);
         textViewHome = findViewById(R.id.text_view_home_DM);
 
@@ -197,57 +202,39 @@ public class MainActivity extends AppCompatActivity {
         textViewSignOut = findViewById(R.id.text_view_sign_out_DM);
     }
 
-    private void drawerMenuListener() {
-        layoutHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id. layout_home_DM:
                 slidingRootNav.closeMenu();
-            }
-        });
+                break;
 
-        layoutActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.layout_activity_DM:
                 Intent ActivityIntent = new Intent(getBaseContext(), ActivityActivity.class);
                 startActivity(ActivityIntent);
-            }
-        });
+                break;
 
-        layoutProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.layout_profile_DM:
                 Intent ProfileIntent = new Intent(getBaseContext(), ProfileActivity.class);
                 startActivity(ProfileIntent);
-            }
-        });
+                break;
 
-        layoutContactUs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.layout_contact_us_DM:
                 Intent ContactUsIntent = new Intent(getBaseContext(), ContactUsActivity.class);
                 startActivity(ContactUsIntent);
-            }
-        });
+                break;
 
-        layoutInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.layout_info_DM:
                 Intent InfoIntent = new Intent(getBaseContext(), InfoActivity.class);
                 startActivity(InfoIntent);
-            }
-        });
+                break;
 
-        layoutSettings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.layout_settings_DM:
                 Intent SettingsIntent = new Intent(getBaseContext(), SettingsActivity.class);
                 startActivity(SettingsIntent);
-            }
-        });
+                break;
 
-        layoutSignOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.layout_sign_out_DM:
                 iconHome.setImageResource(R.drawable.icon_home);
                 textViewHome.setTextColor(getResources().getColor(R.color.colorBaseLight));
 
@@ -264,9 +251,9 @@ public class MainActivity extends AppCompatActivity {
                         overridePendingTransition(R.anim.enter_in_down, R.anim.exit_out_down);
                         finish();
                     }
-                }, 300);
-            }
-        });
+                }, 200);
+                break;
+        }
     }
 
     @SuppressLint("InflateParams")
@@ -302,43 +289,46 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                if (tab.getPosition() == 0) {
-                    TasksTab.setTextColor(getResources().getColor(R.color.colorTextLight));
-                    TasksTab.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_tasks_focused, 0, 0, 0);
-                }
+                switch (tab.getPosition()) {
+                    case 0:
+                        TasksTab.setTextColor(getResources().getColor(R.color.colorTextLight));
+                        TasksTab.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_tasks_focused, 0, 0, 0);
+                        break;
 
-                else if (tab.getPosition() == 1) {
-                    HabitsTab.setTextColor(getResources().getColor(R.color.colorTextLight));
-                    HabitsTab.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_habits_focused, 0, 0, 0);
-                }
+                    case 1:
+                        HabitsTab.setTextColor(getResources().getColor(R.color.colorTextLight));
+                        HabitsTab.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_habits_focused, 0, 0, 0);
+                        break;
 
-                else if (tab.getPosition() == 2) {
-                    TimersTab.setTextColor(getResources().getColor(R.color.colorTextLight));
-                    TimersTab.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_timers_focused, 0, 0, 0);
+                    case 2:
+                        TimersTab.setTextColor(getResources().getColor(R.color.colorTextLight));
+                        TimersTab.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_timers_focused, 0, 0, 0);
+                        break;
                 }
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-                if (tab.getPosition() == 0) {
-                    TasksTab.setTextColor(getResources().getColor(R.color.colorBaseLight));
-                    TasksTab.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_tasks_not_focused, 0, 0, 0);
-                }
+                switch (tab.getPosition()) {
+                    case 0:
+                        TasksTab.setTextColor(getResources().getColor(R.color.colorBaseLight));
+                        TasksTab.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_tasks_not_focused, 0, 0, 0);
+                        break;
 
-                else if (tab.getPosition() == 1) {
-                    HabitsTab.setTextColor(getResources().getColor(R.color.colorBaseLight));
-                    HabitsTab.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_habits_not_focused, 0, 0, 0);
-                }
+                    case 1:
+                        HabitsTab.setTextColor(getResources().getColor(R.color.colorBaseLight));
+                        HabitsTab.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_habits_not_focused, 0, 0, 0);
+                        break;
 
-                else if (tab.getPosition() == 2) {
-                    TimersTab.setTextColor(getResources().getColor(R.color.colorBaseLight));
-                    TimersTab.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_timers_not_focused, 0, 0, 0);
+                    case 2:
+                        TimersTab.setTextColor(getResources().getColor(R.color.colorBaseLight));
+                        TimersTab.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_timers_not_focused, 0, 0, 0);
+                        break;
                 }
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
             }
         });
     }

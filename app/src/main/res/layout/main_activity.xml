@@ -13,21 +13,21 @@
     android:id="@+id/linear_layout_MA">
 
     <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_MA"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_gravity="top"
-        android:background="?attr/colorPrimary"
-        android:id="@+id/toolbar_MA" >
+        android:background="?attr/colorPrimary">
 
         <TextView
+            android:id="@+id/toolbar_title_MA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/poppins_bold"
             android:text="@string/app_name_upper"
-            android:textSize="30sp"
-            android:id="@+id/toolbar_title_MA" />
+            android:textSize="30sp" />
 
         <com.like.LikeButton
             android:id="@+id/icon_heart_MA"
@@ -51,6 +51,7 @@
     </android.support.v7.widget.Toolbar>
 
     <android.support.design.widget.TabLayout
+        android:id="@+id/tab_layout_MA"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
@@ -60,14 +61,13 @@
         app:tabIndicatorColor="@color/colorTransparent"
         app:tabMode="fixed"
         app:tabSelectedTextColor="?attr/android:textColor"
-        app:tabTextColor="?attr/colorPrimaryDark"
-        android:id="@+id/tab_layout_MA" />
+        app:tabTextColor="?attr/colorPrimaryDark" />
 
     <View
+        android:id="@+id/view_divider_MA"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="?attr/colorPrimaryDark"
-        android:id="@+id/view_divider_MA" />
+        android:background="?attr/colorPrimaryDark" />
 
     <RelativeLayout
         android:id="@+id/relative_layout_MA"
