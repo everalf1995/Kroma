@@ -14,48 +14,20 @@
     tools:context=".Landing.LandingActivity"
     android:id="@+id/linear_layout_LA">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/app_bar_layout_LA"
+    <TextView
+        android:id="@+id/text_view_kronikle_LA"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorTransparent"
-        android:gravity="center"
-        app:elevation="0dp">
-
-        <TextView
-            android:id="@+id/text_view_kronikle_LA"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:fontFamily="@font/poppins_bold"
-            android:text="@string/app_name_upper"
-            android:textAlignment="center"
-            android:textSize="50sp"
-            android:typeface="normal"
-            android:shadowColor="?attr/colorPrimary"
-            android:shadowDx="-20"
-            android:shadowDy="-20"
-            android:shadowRadius="1"/>
-
-        <TextView
-            android:id="@+id/text_view_your_personal_LA"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/hype"
-            android:text="@string/your_personal"
-            android:textAlignment="center"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/text_view_features_LA"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:fontFamily="@font/hype"
-            android:text="@string/string_6"
-            android:textAlignment="center"
-            android:textColor="?attr/colorAccent"
-            android:textSize="20sp" />
-    </android.support.design.widget.AppBarLayout>
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppins_bold"
+        android:shadowColor="?attr/colorPrimary"
+        android:shadowDx="-20"
+        android:shadowDy="-20"
+        android:shadowRadius="1"
+        android:text="@string/app_name_upper"
+        android:textAlignment="center"
+        android:textSize="50sp"
+        android:typeface="normal" />
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tab_layout_LA"
@@ -64,20 +36,21 @@
         app:tabGravity="fill"
         app:tabMode="fixed"
         app:tabIndicatorColor="@color/colorTransparent"
-        app:tabTextColor="?attr/colorPrimaryDark"
-        app:tabSelectedTextColor="?attr/android:textColor"
+        app:tabTextColor="@color/colorBaseLight"
+        app:tabSelectedTextColor="@color/colorTextLight"
         app:background="@color/colorTransparent"
-        app:tabBackground="@android:color/transparent" />
+        app:tabBackground="@color/colorTransparent" />
 
     <View
         android:id="@+id/view_divider_LA"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="?attr/colorPrimaryDark" />
+        android:background="@color/colorBaseLight" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/view_pager_LA"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:overScrollMode="never" />
 
 </LinearLayout>

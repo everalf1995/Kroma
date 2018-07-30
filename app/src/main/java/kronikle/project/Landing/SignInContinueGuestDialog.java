@@ -2,16 +2,16 @@ package kronikle.project.Landing;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.support.v4.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatDialogFragment;
-import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.muddzdev.styleabletoastlibrary.StyleableToast;
 
@@ -20,13 +20,10 @@ import java.util.Objects;
 import kronikle.project.Main.MainActivity;
 import kronikle.project.R;
 
-public class SignInContinueGuestDialog extends AppCompatDialogFragment {
+public class SignInContinueGuestDialog extends DialogFragment {
 
     private View view;
-    private CardView cardView;
     private ImageView imageViewClose;
-    private TextView textViewTitle;
-    private TextView textViewMessage;
     private Button buttonContinue;
 
     @SuppressLint("InflateParams")
@@ -48,14 +45,12 @@ public class SignInContinueGuestDialog extends AppCompatDialogFragment {
     @Override
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
+        Objects.requireNonNull(getDialog().getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         Objects.requireNonNull(getDialog().getWindow()).getAttributes().windowAnimations = R.style.DialogAnimation;
     }
 
     private void initializer() {
-        cardView = view.findViewById(R.id.card_view_SICGD);
         imageViewClose = view.findViewById(R.id.image_view_close_SICGD);
-        textViewTitle = view.findViewById(R.id.text_view_title_SICGD);
-        textViewMessage = view.findViewById(R.id.text_view_message_SICGD);
         buttonContinue = view.findViewById(R.id.button_continue_SICGD);
     }
 
@@ -83,7 +78,7 @@ public class SignInContinueGuestDialog extends AppCompatDialogFragment {
                 getActivity().finish();
 
                 new StyleableToast
-                        .Builder(Objects.requireNonNull(getContext()))
+                        .Builder(Objects.requireNonNull(getActivity()))
                         .text(getString(R.string.welcome_guest))
                         .textColor(getResources().getColor(R.color.colorTextLight))
                         .backgroundColor(getResources().getColor(R.color.colorBackground))

@@ -32,6 +32,9 @@ dependencies {
     // Added for CardView
     implementation 'com.android.support:cardview-v7:27.1.1'
 
+    // Added for expandable CardView
+    implementation 'com.alespero:expandable-cardview:0.8'
+
     // Added for toasts
     implementation 'com.muddzdev:styleabletoast:2.1.2'
 

@@ -4,15 +4,15 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.annotation.Nullable;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
@@ -21,7 +21,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.muddzdev.styleabletoastlibrary.StyleableToast;
 
@@ -40,11 +39,11 @@ public class SignInFragment extends Fragment {
     private TextInputEditText editTextPassword;
     private Button buttonSignIn;
     private Button buttonForgotPassword;
-    private SignInForgotPasswordDialog signInForgotPasswordDialog;
+    private SignInForgotPasswordDialog signInForgotPasswordDialog ;
     private Button buttonContinueGuest;
     private SignInContinueGuestDialog signInContinueGuestDialog;
-    private Button buttonFacebook;
-    private Button buttonGoogle;
+    private FloatingActionButton buttonFacebook;
+    private FloatingActionButton buttonGoogle;
 
 
     public SignInFragment() {}
@@ -57,7 +56,6 @@ public class SignInFragment extends Fragment {
         initializer();
         layoutFocus();
         buttonSignInListener();
-        ediTextChangeListener();
         buttonForgotPasswordListener();
         buttonContinueGuestListener();
 
@@ -88,7 +86,7 @@ public class SignInFragment extends Fragment {
                 inputMethod.hideSoftInputFromWindow(Objects.requireNonNull(getView()).getWindowToken(), 0);
                 inputMethod.hideSoftInputFromWindow(Objects.requireNonNull(getActivity().getCurrentFocus()).getWindowToken(), 0);
             } catch (Exception e) {
-                Log.e("Keyboard fragment", "Changing fragment causes crash");
+                Log.e("Keyboard fragment", "Changing fragment might cause crash");
             }
         }
     }
@@ -109,51 +107,44 @@ public class SignInFragment extends Fragment {
         });
     }
 
+    // Modify when having a working database
     private void buttonSignInListener() {
         buttonSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validateInformation();
+                if (!validateEmail()) {
+                    focusEditText(editTextEmail);
+                }
+
+                else if (!validatePassword()) {
+                    focusEditText(editTextPassword);
+                }
+
+                else {
+                    //Code to check if the given email is in the database
+                    new StyleableToast
+                            .Builder(Objects.requireNonNull(getContext()))
+                            .text(getString(R.string.welcome_back))
+                            .textColor(getResources().getColor(R.color.colorTextLight))
+                            .backgroundColor(getResources().getColor(R.color.colorBackground))
+                            .iconStart(R.drawable.icon_user_accepted)
+                            .cornerRadius(2)
+                            .length(6000)
+                            .show();
+
+                    Intent MainActivityIntent = new Intent(getActivity(), MainActivity.class);
+                    startActivity(MainActivityIntent);
+                    Objects.requireNonNull(getActivity()).overridePendingTransition(R.anim.enter_in_up, R.anim.exit_out_up);
+                    getActivity().finish();
+                }
             }
         });
-    }
-
-    public void ediTextChangeListener() {
-        editTextEmail.addTextChangedListener(new textWatcher(editTextEmail));
-        editTextPassword.addTextChangedListener(new textWatcher(editTextPassword));
-    }
-
-    private class textWatcher implements TextWatcher {
-
-        private View view;
-
-        private textWatcher(View view) {
-            this.view = view;
-        }
-
-        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-        }
-
-        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-        }
-
-        public void afterTextChanged(Editable editable) {
-            switch (view.getId()) {
-                case R.id.edit_text_email_SIF:
-                    validateEmail();
-                    break;
-                case R.id.edit_text_password_SIF:
-                    validatePassword();
-                    break;
-            }
-        }
     }
 
     private boolean validateEmail() {
         String email = editTextEmail.getText().toString().trim();
 
         if (email.isEmpty() || !(!TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches())) {
-            textInputLayoutEmail.setError(getString(R.string.error_email_sif));
             return false;
         }
 
@@ -165,43 +156,12 @@ public class SignInFragment extends Fragment {
 
     private boolean validatePassword() {
         if (editTextPassword.getText().toString().trim().isEmpty() || editTextPassword.getText().toString().trim().length() < 8) {
-            textInputLayoutPassword.setError(getString(R.string.error_password_sif));
             return false;
         }
 
         else {
             textInputLayoutPassword.setErrorEnabled(false);
             return true;
-        }
-    }
-
-    // Modify when having a working database
-    public void validateInformation() {
-
-        if (!validateEmail()) {
-            focusEditText(editTextEmail);
-        }
-
-        else if (!validatePassword()) {
-            focusEditText(editTextPassword);
-        }
-
-        else {
-            //Code to check if the given email is in the database
-            new StyleableToast
-                    .Builder(Objects.requireNonNull(getContext()))
-                    .text(getString(R.string.welcome_back))
-                    .textColor(getResources().getColor(R.color.colorTextLight))
-                    .backgroundColor(getResources().getColor(R.color.colorBackground))
-                    .iconStart(R.drawable.icon_user_accepted)
-                    .cornerRadius(2)
-                    .length(6000)
-                    .show();
-
-            Intent MainActivityIntent = new Intent(getActivity(), MainActivity.class);
-            startActivity(MainActivityIntent);
-            Objects.requireNonNull(getActivity()).overridePendingTransition(R.anim.enter_in_up, R.anim.exit_out_up);
-            getActivity().finish();
         }
     }
 
@@ -216,9 +176,17 @@ public class SignInFragment extends Fragment {
         buttonForgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                buttonForgotPassword.setClickable(false);
                 signInForgotPasswordDialog = new SignInForgotPasswordDialog();
                 signInForgotPasswordDialog.show(getChildFragmentManager(), getString(R.string.forgot_password));
                 signInForgotPasswordDialog.setCancelable(true);
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        buttonForgotPassword.setClickable(true);
+                    }
+                }, 500);
             }
         });
     }
@@ -227,9 +195,18 @@ public class SignInFragment extends Fragment {
         buttonContinueGuest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                buttonContinueGuest.setClickable(false);
+
                 signInContinueGuestDialog = new SignInContinueGuestDialog();
                 signInContinueGuestDialog.show(getChildFragmentManager(), getString(R.string.continue_guest));
                 signInContinueGuestDialog.setCancelable(true);
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        buttonContinueGuest.setClickable(true);
+                    }
+                }, 500);
             }
         });
     }

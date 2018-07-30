@@ -9,16 +9,6 @@
     <string name="empty"></string>
     <string name="exit_app">Press BACK again to exit.</string>
 
-
-    <!--Strings for the apps intro-->
-    <string name="your_personal">Your Personal</string>
-    <string name="string_1">Task Manager</string>
-    <string name="string_2">Habit Tracker</string>
-    <string name="string_3">Time Manager</string>
-    <string name="string_4">To-Do List</string>
-    <string name="string_5">Project Manager</string>
-    <string name="string_6">Goal Tracker</string>
-
     <!--Strings for Sign In & Sign Up-->
     <string name="or_sign_in_with">or sign in with</string>
 
@@ -29,8 +19,9 @@
     <string name="forgot_password_dialogue">Enter your email address below to reset it</string>
     <string name="email_submitted">Email Submitted</string>
     <string name="email_submitted_dialogue">If your email address is in our database you will get an email to reset your password</string>
+    <string name="no_account_continue_guest">Dont want an account? Continue as a Guest</string>
     <string name="continue_guest">Continue as a Guest</string>
-    <string name="continue_guest_dialogue">Your information will be stored locally, if lost you will not be able to recover it unless backed up</string>
+    <string name="continue_guest_dialogue">Your information will be stored locally, if lost you will not be able to recover it unless you back it up</string>
     <string name="welcome">Welcome to KORNIKLE!</string>
     <string name="welcome_back">Welcome back to KORNIKLE!</string>
     <string name="welcome_guest">Hello guest, welcome to KORNIKLE!</string>
@@ -45,13 +36,14 @@
     <string name="password">PASSWORD</string>
 
     <!--Error Messages for Sign In & Sign Up-->
-    <string name="error_email_sif">Enter a valid email address</string>
-    <string name="error_password_sif">Enter a valid password</string>
+    <string name="error_invalid_email">Invalid email address format</string>
+    <string name="error_invalid_password">Invalid password format</string>
+    <string name="error_empty_field">Field cannot be empty</string>
 
-    <string name="error_first_name_suf">First Name can only be made up of letters</string>
-    <string name="error_last_name_suf">Last Name can only be made up of letters</string>
-    <string name="error_email_suf">Email must have a valid format</string>
-    <string name="error_password_suf">Password must have 8+ characters</string>
+    <string name="error_first_name">First Name can only be made up of letters</string>
+    <string name="error_last_name">Last Name can only be made up of letters</string>
+    <string name="error_email">Email must have a valid format</string>
+    <string name="error_password">Password must have 8+ characters</string>
 
     <!--Main Activity-->
     <string name="tasks">Tasks</string>

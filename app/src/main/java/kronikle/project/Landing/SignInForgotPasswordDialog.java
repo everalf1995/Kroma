@@ -3,33 +3,33 @@ package kronikle.project.Landing;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatDialogFragment;
-import android.support.v7.widget.CardView;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.util.Patterns;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.Objects;
 
 import kronikle.project.R;
 
-public class SignInForgotPasswordDialog extends AppCompatDialogFragment {
+public class SignInForgotPasswordDialog extends DialogFragment {
 
     private View view;
-    private CardView cardView;
+    private LinearLayout linearLayout;
     private ImageView imageViewClose;
     private TextView textViewTitle;
     private TextView textViewMessage;
@@ -46,10 +46,9 @@ public class SignInForgotPasswordDialog extends AppCompatDialogFragment {
         builder.setView(view);
 
         initializer();
-        cardViewFocus();
+        linearLayoutFocus();
         imageViewCloseListener();
         buttonSubmitListener();
-        ediTextChangeListener();
 
         return builder.create();
     }
@@ -58,11 +57,12 @@ public class SignInForgotPasswordDialog extends AppCompatDialogFragment {
     @Override
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
+        Objects.requireNonNull(getDialog().getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         Objects.requireNonNull(getDialog().getWindow()).getAttributes().windowAnimations = R.style.DialogAnimation;
     }
 
     private void initializer() {
-        cardView = view.findViewById(R.id.card_view_SIFPD);
+        linearLayout = view.findViewById(R.id.linear_layout_SIFPD);
         imageViewClose = view.findViewById(R.id.image_view_close_SIFPD);
         textViewTitle = view.findViewById(R.id.text_view_title_SIFPD);
         textViewMessage = view.findViewById(R.id.text_view_message_SIFPD);
@@ -73,8 +73,8 @@ public class SignInForgotPasswordDialog extends AppCompatDialogFragment {
 
     // Hides Keyboard when user clicks outside EditText
     @SuppressLint("ClickableViewAccessibility")
-    private void cardViewFocus() {
-        cardView.setOnTouchListener(new View.OnTouchListener() {
+    private void linearLayoutFocus() {
+        linearLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 InputMethodManager inputMethod = (InputMethodManager) Objects.requireNonNull(getActivity()).getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -99,80 +99,52 @@ public class SignInForgotPasswordDialog extends AppCompatDialogFragment {
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validateInformation();
+                InputMethodManager inputMethod = (InputMethodManager) Objects.requireNonNull(getActivity()).getSystemService(Context.INPUT_METHOD_SERVICE);
+                assert inputMethod != null;
+                Objects.requireNonNull(inputMethod).hideSoftInputFromWindow(Objects.requireNonNull(getDialog().getCurrentFocus()).getWindowToken(), 0);
+
+                if (!validateEmail()) {
+                    focusEditText(editTextEmail);
+                }
+
+                else {
+                    //Code to check if the given email is in the database
+                    textViewTitle.setText(R.string.email_submitted);
+                    textViewMessage.setText(R.string.email_submitted_dialogue);
+                    imageViewClose.setVisibility(View.GONE);
+                    textInputLayoutEmail.setVisibility(View.GONE);
+                    editTextEmail.setVisibility(View.GONE);
+                    buttonSubmit.setVisibility(View.GONE);
+
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (getDialog() != null && getDialog().isShowing()) {
+                                getDialog().dismiss();
+                            }
+                        }
+                    }, 6000);
+                }
             }
         });
-    }
-
-    public void ediTextChangeListener() {
-        editTextEmail.addTextChangedListener(new textWatcher(editTextEmail));
-    }
-
-    private class textWatcher implements TextWatcher {
-
-        private View view;
-
-        private textWatcher(View view) {
-            this.view = view;
-        }
-
-        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-        }
-
-        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-        }
-
-        public void afterTextChanged(Editable editable) {
-            switch (view.getId()) {
-                case R.id.edit_text_email_SIFPD:
-                    validateEmail();
-                    break;
-            }
-        }
     }
 
     private boolean validateEmail() {
         String email = editTextEmail.getText().toString().trim();
 
-        if (email.isEmpty() || !(!TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches())) {
-            textInputLayoutEmail.setError(getString(R.string.error_email_sif));
+        if (email.isEmpty()) {
+            textInputLayoutEmail.setError(getString(R.string.error_empty_field));
+            return false;
+        }
+
+        else if (!(!TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches())){
+            textInputLayoutEmail.setError(getString(R.string.error_invalid_email));
             return false;
         }
 
         else {
             textInputLayoutEmail.setErrorEnabled(false);
             return true;
-        }
-    }
-
-    // Modify when having a working database
-    public void validateInformation() {
-
-        InputMethodManager inputMethod = (InputMethodManager) Objects.requireNonNull(getActivity()).getSystemService(Context.INPUT_METHOD_SERVICE);
-        assert inputMethod != null;
-        Objects.requireNonNull(inputMethod).hideSoftInputFromWindow(Objects.requireNonNull(getDialog().getCurrentFocus()).getWindowToken(), 0);
-
-        if (!validateEmail()) {
-            focusEditText(editTextEmail);
-        }
-
-        else {
-            //Code to check if the given email is in the database
-            textViewTitle.setText(R.string.email_submitted);
-            textViewMessage.setText(R.string.email_submitted_dialogue);
-            imageViewClose.setVisibility(View.GONE);
-            textInputLayoutEmail.setVisibility(View.GONE);
-            editTextEmail.setVisibility(View.GONE);
-            buttonSubmit.setVisibility(View.GONE);
-
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    if (getDialog() != null && getDialog().isShowing()) {
-                        getDialog().dismiss();
-                    }
-                }
-            }, 6000);
         }
     }
 

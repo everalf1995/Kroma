@@ -1,50 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-app:layout_behavior="@string/appbar_scrolling_view_behavior"
-xmlns:tools="http://schemas.android.com/tools"
-android:id="@+id/scroll_view_NTA"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:background="?attr/colorPrimary"
-android:fitsSystemWindows="true"
-android:orientation="vertical"
-tools:context=".Main.Tasks.NewTaskActivity">
-
-<android.support.v7.widget.Toolbar
-    android:id="@+id/toolbar_NTA"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:theme="@style/NoActionBarTheme"
     android:layout_width="match_parent"
-    android:layout_height="?attr/actionBarSize"
-    android:layout_gravity="top"
-    android:background="?attr/colorAccent"
-    android:elevation="0dp"
-    app:theme="@style/NoActionBarTheme">
-
-    <TextView
-        android:id="@+id/toolbar_title_NTA"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/poppins_bold"
-        android:text="@string/new_task"
-        android:textAllCaps="true"
-        android:textSize="30sp" />
-</android.support.v7.widget.Toolbar>
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimary"
+    android:focusableInTouchMode="true"
+    tools:context=".Main.Tasks.NewTaskActivity"
+    android:id="@+id/linear_layout_NTA">
 
     <com.scwang.wave.MultiWaveHeader
         android:id="@+id/wave_NTA"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleY="1"
-        app:mwhVelocity="2"
-        app:mwhProgress="0.15"
-        app:mwhIsRunning="true"
-        app:mwhGradientAngle="90"
-        app:mwhWaveHeight="20dp"
-        app:mwhColorAlpha=".95"
-        app:mwhStartColor="?attr/colorAccent"
         app:mwhCloseColor="?attr/colorAccent"
-        app:mwhWaves="90,25,1.4,1.4,-70 420,0,1.15,1,40" />
+        app:mwhColorAlpha=".95"
+        app:mwhGradientAngle="90"
+        app:mwhIsRunning="true"
+        app:mwhProgress="0.15"
+        app:mwhStartColor="?attr/colorAccent"
+        app:mwhVelocity="2"
+        app:mwhWaveHeight="20dp"
+        app:mwhWaves="90,25,1.4,1.4,-70 420,0,1.15,1,40">
+    </com.scwang.wave.MultiWaveHeader>
 
-</LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:fitsSystemWindows="true"
+            android:clipChildren="false"
+            android:background="@color/colorTransparent">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar_NTA"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_gravity="top"
+                android:background="@color/colorTransparent"
+                android:elevation="0dp" >
+
+                <TextView
+                    android:id="@+id/toolbar_title_NTA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="@string/new_task"
+                    android:textAllCaps="true"
+                    android:textSize="30sp" />
+
+            </android.support.v7.widget.Toolbar>
+
+
+            <com.alespero.expandablecardview.ExpandableCardView
+                android:id="@+id/profile"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:title="Passengers"
+                app:icon="@drawable/icon_user_accepted"
+                app:inner_view="@layout/passengers"
+                app:expandOnClick="true" />
+
+            <com.alespero.expandablecardview.ExpandableCardView
+                android:id="@+id/profeile"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:title="Passengers"
+                app:icon="@drawable/icon_user_accepted"
+                app:inner_view="@layout/passengers"
+                app:expandOnClick="true" />
+
+            <com.alespero.expandablecardview.ExpandableCardView
+                android:id="@+id/pyrofiele"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:title="Passengers"
+                app:icon="@drawable/icon_user_accepted"
+                app:inner_view="@layout/passengers"
+                app:expandOnClick="true" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

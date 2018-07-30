@@ -10,9 +10,7 @@ import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.annotation.Nullable;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
@@ -21,7 +19,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.muddzdev.styleabletoastlibrary.StyleableToast;
 
@@ -54,7 +51,6 @@ public class SignUpFragment extends Fragment {
         initializer();
         layoutFocus();
         buttonSignUpListener();
-        editTextChangeListener();
 
         return view;
     }
@@ -110,58 +106,53 @@ public class SignUpFragment extends Fragment {
         buttonSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validateInformation();
+                if (!validateFirstName()) {
+                    focusEditText(editTextFirstName);
+                }
+
+                else if (!validateLastName()) {
+                    focusEditText(editTextLastName);
+                }
+
+                else if (!validateEmail()) {
+                    focusEditText(editTextEmail);
+                }
+
+                else if (!validatePassword()) {
+                    focusEditText(editTextPassword);
+                }
+
+                else {
+                    //Code to check if the given email is already in the database
+                    new StyleableToast
+                            .Builder(Objects.requireNonNull(getContext()))
+                            .text(getString(R.string.welcome))
+                            .textColor(getResources().getColor(R.color.colorTextLight))
+                            .backgroundColor(getResources().getColor(R.color.colorBackground))
+                            .iconStart(R.drawable.icon_user_created)
+                            .cornerRadius(2)
+                            .length(6000)
+                            .show();
+
+                    Intent MainActivityIntent = new Intent(getActivity(), MainActivity.class);
+                    startActivity(MainActivityIntent);
+                    Objects.requireNonNull(getActivity()).overridePendingTransition(R.anim.enter_in_up, R.anim.exit_out_up);
+                    getActivity().finish();
+                }
             }
         });
-    }
-
-    public void editTextChangeListener() {
-        editTextFirstName.addTextChangedListener(new SignUpFragment.textWatcher(editTextFirstName));
-        editTextLastName.addTextChangedListener(new SignUpFragment.textWatcher(editTextLastName));
-        editTextEmail.addTextChangedListener(new SignUpFragment.textWatcher(editTextEmail));
-        editTextPassword.addTextChangedListener(new SignUpFragment.textWatcher(editTextPassword));
-    }
-
-    private class textWatcher implements TextWatcher {
-
-        private View view;
-
-        private textWatcher(View view) {
-            this.view = view;
-        }
-
-        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-        }
-
-        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-        }
-
-        public void afterTextChanged(Editable editable) {
-            switch (view.getId()) {
-                case R.id.edit_text_first_name_SUF:
-                    validateFirstName();
-                    break;
-
-                case R.id.edit_text_last_name_SUF:
-                    validateLastName();
-                    break;
-
-                case R.id.edit_text_email_SUF:
-                    validateEmail();
-                    break;
-
-                case R.id.edit_text_password_SUF:
-                    validatePassword();
-                    break;
-            }
-        }
     }
 
     private boolean validateFirstName() {
         String firstName = editTextFirstName.getText().toString().trim();
 
-        if (firstName.isEmpty() || !firstName.matches("^[ A-Za-z'-]+$")) {
-            textInputLayoutFirstName.setError(getString(R.string.error_first_name_suf));
+        if (firstName.isEmpty()) {
+            textInputLayoutFirstName.setError(getString(R.string.error_empty_field));
+            return false;
+        }
+
+        else if (!firstName.matches("^[ A-Za-z'-]+$")) {
+            textInputLayoutFirstName.setError(getString(R.string.error_first_name));
             return false;
         }
 
@@ -174,8 +165,13 @@ public class SignUpFragment extends Fragment {
     private boolean validateLastName() {
         String lastName = editTextLastName.getText().toString().trim();
 
-        if (lastName.isEmpty() || !lastName.matches("^[ A-Za-z'-]+$")) {
-            textInputLayoutLastName.setError(getString(R.string.error_last_name_suf));
+        if (lastName.isEmpty()) {
+            textInputLayoutLastName.setError(getString(R.string.error_empty_field));
+            return false;
+        }
+
+        else if (!lastName.matches("^[ A-Za-z'-]+$")) {
+            textInputLayoutLastName.setError(getString(R.string.error_last_name));
             return false;
         }
 
@@ -188,8 +184,13 @@ public class SignUpFragment extends Fragment {
     private boolean validateEmail() {
         String email = editTextEmail.getText().toString().trim();
 
-        if (email.isEmpty() || !(!TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches())) {
-            textInputLayoutEmail.setError(getString(R.string.error_email_suf));
+        if (email.isEmpty()) {
+            textInputLayoutEmail.setError(getString(R.string.error_empty_field));
+            return false;
+        }
+
+        else if (!(!TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches())) {
+            textInputLayoutEmail.setError(getString(R.string.error_email));
             return false;
         }
 
@@ -202,52 +203,19 @@ public class SignUpFragment extends Fragment {
     private boolean validatePassword() {
         String password = editTextPassword.getText().toString();
 
-        if (password.isEmpty() || password.length() < 8) {
-            textInputLayoutPassword.setError(getString(R.string.error_password_suf));
+        if (password.isEmpty()) {
+            textInputLayoutPassword.setError(getString(R.string.error_empty_field));
+            return false;
+        }
+
+        else if (password.length() < 8) {
+            textInputLayoutPassword.setError(getString(R.string.error_password));
             return false;
         }
 
         else {
             textInputLayoutPassword.setErrorEnabled(false);
             return true;
-        }
-    }
-
-    // Modify when having a working database
-    public void validateInformation() {
-
-        if (!validateFirstName()) {
-            focusEditText(editTextFirstName);
-        }
-
-        else if (!validateLastName()) {
-            focusEditText(editTextLastName);
-        }
-
-        else if (!validateEmail()) {
-            focusEditText(editTextEmail);
-        }
-
-        else if (!validatePassword()) {
-            focusEditText(editTextPassword);
-        }
-
-        else {
-            //Code to check if the given email is already in the database
-            new StyleableToast
-                    .Builder(Objects.requireNonNull(getContext()))
-                    .text(getString(R.string.welcome))
-                    .textColor(getResources().getColor(R.color.colorTextLight))
-                    .backgroundColor(getResources().getColor(R.color.colorBackground))
-                    .iconStart(R.drawable.icon_user_created)
-                    .cornerRadius(2)
-                    .length(6000)
-                    .show();
-
-            Intent MainActivityIntent = new Intent(getActivity(), MainActivity.class);
-            startActivity(MainActivityIntent);
-            Objects.requireNonNull(getActivity()).overridePendingTransition(R.anim.enter_in_up, R.anim.exit_out_up);
-            getActivity().finish();
         }
     }
 
