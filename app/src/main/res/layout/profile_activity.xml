@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linear_layout_PA"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/colorPrimary"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context=".Profile.ProfileActivity">
+    tools:context=".Profile.ProfileActivity"
+    android:id="@+id/linear_layout_PA" >
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_PA"

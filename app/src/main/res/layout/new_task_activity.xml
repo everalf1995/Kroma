@@ -9,7 +9,7 @@
     android:background="?attr/colorPrimary"
     android:focusableInTouchMode="true"
     tools:context=".Main.Tasks.NewTaskActivity"
-    android:id="@+id/linear_layout_NTA">
+    android:id="@+id/relative_layout_NTA">
 
     <com.scwang.wave.MultiWaveHeader
         android:id="@+id/wave_NTA"
@@ -28,82 +28,49 @@
     </com.scwang.wave.MultiWaveHeader>
 
     <ScrollView
+        android:id="@+id/scroll_view_NTA"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:overScrollMode="never"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <LinearLayout
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linear_layout_2_NTA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorTransparent"
+        android:clipChildren="false"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_NTA"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:fitsSystemWindows="true"
-            android:clipChildren="false"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="top"
             android:background="@color/colorTransparent">
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar_NTA"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:layout_gravity="top"
-                android:background="@color/colorTransparent"
-                android:elevation="0dp" >
-
-                <TextView
-                    android:id="@+id/toolbar_title_NTA"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="4dp"
-                    android:fontFamily="@font/poppins_bold"
-                    android:text="@string/new_task"
-                    android:textAllCaps="true"
-                    android:textSize="30sp" />
-
-            </android.support.v7.widget.Toolbar>
-
-
-            <com.alespero.expandablecardview.ExpandableCardView
-                android:id="@+id/profile"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="60dp"
-                android:layout_marginBottom="10dp"
+            <TextView
+                android:id="@+id/toolbar_title_NTA"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:title="Passengers"
-                app:icon="@drawable/icon_user_accepted"
-                app:inner_view="@layout/passengers"
-                app:expandOnClick="true" />
+                android:layout_gravity="center"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/new_task"
+                android:textAllCaps="true"
+                android:textSize="30sp" />
 
-            <com.alespero.expandablecardview.ExpandableCardView
-                android:id="@+id/profeile"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:title="Passengers"
-                app:icon="@drawable/icon_user_accepted"
-                app:inner_view="@layout/passengers"
-                app:expandOnClick="true" />
+        </android.support.v7.widget.Toolbar>
 
-            <com.alespero.expandablecardview.ExpandableCardView
-                android:id="@+id/pyrofiele"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:title="Passengers"
-                app:icon="@drawable/icon_user_accepted"
-                app:inner_view="@layout/passengers"
-                app:expandOnClick="true" />
+        <LinearLayout
+            android:id="@+id/linear_layout_1_NTA"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" />
 
-        </LinearLayout>
-
-    </ScrollView>
+    </LinearLayout>
 
 </RelativeLayout>

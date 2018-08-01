@@ -159,7 +159,7 @@ public class InfoActivity extends AppCompatActivity implements View.OnClickListe
                         overridePendingTransition(R.anim.enter_in_down, R.anim.exit_out_down);
                         finishAffinity();
                     }
-                }, 200);
+                }, 230);
                 break;
         }
     }

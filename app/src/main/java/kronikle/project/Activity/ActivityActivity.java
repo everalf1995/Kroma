@@ -159,7 +159,7 @@ public class ActivityActivity extends AppCompatActivity implements View.OnClickL
                         overridePendingTransition(R.anim.enter_in_down, R.anim.exit_out_down);
                         finishAffinity();
                     }
-                }, 200);
+                }, 230);
                 break;
         }
     }
