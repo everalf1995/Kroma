@@ -41,6 +41,11 @@ public class SignUpFragment extends Fragment {
     private TextInputEditText editTextPassword;
     private Button buttonSignUp;
 
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String password;
+
     public SignUpFragment() {}
 
     @Nullable
@@ -144,7 +149,7 @@ public class SignUpFragment extends Fragment {
     }
 
     private boolean validateFirstName() {
-        String firstName = editTextFirstName.getText().toString().trim();
+        firstName = editTextFirstName.getText().toString().trim();
 
         if (firstName.isEmpty()) {
             textInputLayoutFirstName.setError(getString(R.string.error_empty_field));
@@ -163,7 +168,7 @@ public class SignUpFragment extends Fragment {
     }
 
     private boolean validateLastName() {
-        String lastName = editTextLastName.getText().toString().trim();
+        lastName = editTextLastName.getText().toString().trim();
 
         if (lastName.isEmpty()) {
             textInputLayoutLastName.setError(getString(R.string.error_empty_field));
@@ -182,7 +187,7 @@ public class SignUpFragment extends Fragment {
     }
 
     private boolean validateEmail() {
-        String email = editTextEmail.getText().toString().trim();
+        email = editTextEmail.getText().toString().trim();
 
         if (email.isEmpty()) {
             textInputLayoutEmail.setError(getString(R.string.error_empty_field));
@@ -201,7 +206,7 @@ public class SignUpFragment extends Fragment {
     }
 
     private boolean validatePassword() {
-        String password = editTextPassword.getText().toString();
+        password = editTextPassword.getText().toString();
 
         if (password.isEmpty()) {
             textInputLayoutPassword.setError(getString(R.string.error_empty_field));

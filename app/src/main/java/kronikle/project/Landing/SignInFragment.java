@@ -45,6 +45,8 @@ public class SignInFragment extends Fragment {
     private FloatingActionButton buttonFacebook;
     private FloatingActionButton buttonGoogle;
 
+    private String email;
+    private String password;
 
     public SignInFragment() {}
 
@@ -142,25 +144,25 @@ public class SignInFragment extends Fragment {
     }
 
     private boolean validateEmail() {
-        String email = editTextEmail.getText().toString().trim();
+        email = editTextEmail.getText().toString().trim();
 
         if (email.isEmpty() || !(!TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches())) {
             return false;
         }
 
         else {
-            textInputLayoutEmail.setErrorEnabled(false);
             return true;
         }
     }
 
     private boolean validatePassword() {
-        if (editTextPassword.getText().toString().trim().isEmpty() || editTextPassword.getText().toString().trim().length() < 8) {
+        password = editTextPassword.getText().toString().trim();
+
+        if (password.isEmpty() || password.length() < 8) {
             return false;
         }
 
         else {
-            textInputLayoutPassword.setErrorEnabled(false);
             return true;
         }
     }

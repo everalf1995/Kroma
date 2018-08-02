@@ -37,6 +37,8 @@ public class SignInForgotPasswordDialog extends DialogFragment {
     private TextInputEditText editTextEmail;
     private Button buttonSubmit;
 
+    private String email;
+
     @SuppressLint("InflateParams")
     @NonNull
     @Override
@@ -130,7 +132,7 @@ public class SignInForgotPasswordDialog extends DialogFragment {
     }
 
     private boolean validateEmail() {
-        String email = editTextEmail.getText().toString().trim();
+        email = editTextEmail.getText().toString().trim();
 
         if (email.isEmpty()) {
             textInputLayoutEmail.setError(getString(R.string.error_empty_field));
