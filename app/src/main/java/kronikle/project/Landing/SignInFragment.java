@@ -146,25 +146,13 @@ public class SignInFragment extends Fragment {
     private boolean validateEmail() {
         email = editTextEmail.getText().toString().trim();
 
-        if (email.isEmpty() || !(!TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches())) {
-            return false;
-        }
-
-        else {
-            return true;
-        }
+        return !(email.isEmpty() || !(!TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches()));
     }
 
     private boolean validatePassword() {
         password = editTextPassword.getText().toString().trim();
 
-        if (password.isEmpty() || password.length() < 8) {
-            return false;
-        }
-
-        else {
-            return true;
-        }
+        return !(password.isEmpty() || password.length() < 8);
     }
 
     private void focusEditText(View view) {
