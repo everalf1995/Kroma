@@ -18,6 +18,9 @@ import android.widget.TextView;
 
 import com.scwang.wave.MultiWaveHeader;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 import kronikle.project.R;
@@ -89,9 +92,15 @@ public class NewTaskActivity extends AppCompatActivity {
 
     private void spinnerTaskTypeListener() {
         String[] spinnerTaskTypeItems = new String[] {getString(R.string.add_new_entry)};
-        ArrayAdapter<String> spinnerTaskTypeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, spinnerTaskTypeItems);
+        final List<String> spinnerTaskTypeList = new ArrayList<>(Arrays.asList(spinnerTaskTypeItems));
+        ArrayAdapter<String> spinnerTaskTypeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, spinnerTaskTypeList);
         spinnerTaskTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerTaskType.setAdapter(spinnerTaskTypeAdapter);
+
+        // TESTING ADDING NEW STRINGS TO SPINNER
+        spinnerTaskTypeList.add("Apple");
+        spinnerTaskTypeAdapter.notifyDataSetChanged();
+
     }
 
     private void waveListener() {
