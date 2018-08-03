@@ -2,6 +2,8 @@ package kronikle.project.Main.Tasks;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -12,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.scwang.wave.MultiWaveHeader;
 
@@ -27,6 +30,12 @@ public class NewTaskActivity extends AppCompatActivity {
 
     private LinearLayout card1;
     private LinearLayout linearLayoutCard1;
+    private TextInputLayout textInputLayoutTaskTitle;
+    private TextInputEditText editTextTaskTitle;
+    private TextInputLayout textInputLayoutTaskDescription;
+    private TextInputEditText editTextTaskDescription;
+    private TextView textViewTaskType;
+    private Spinner spinnerTaskType;
 
 
     @Override
@@ -38,7 +47,7 @@ public class NewTaskActivity extends AppCompatActivity {
         cardsInitializer();
         toolbarInitializer();
         waveListener();
-        spinnerListener();
+        spinnerTaskTypeListener();
         layoutFocus();
 
     }
@@ -52,8 +61,14 @@ public class NewTaskActivity extends AppCompatActivity {
     private void cardsInitializer() {
         card1 = findViewById(R.id.card_holder_1_NTA);
         getLayoutInflater().inflate(R.layout.new_task_card_1, card1);
-        linearLayoutCard1 = findViewById(R.id.linear_layout_NTC1);
 
+        linearLayoutCard1 = findViewById(R.id.linear_layout_NTC1);
+        textInputLayoutTaskTitle = findViewById(R.id.text_input_layout_task_title_NTC1);
+        editTextTaskTitle = findViewById(R.id.edit_text_task_title_NTC1);
+        textInputLayoutTaskTitle = findViewById(R.id.text_input_layout_task_description_NTC1);
+        editTextTaskTitle = findViewById(R.id.edit_text_task_description_NTC1);
+        textViewTaskType = findViewById(R.id.text_view_task_type_NTC1);
+        spinnerTaskType = findViewById(R.id.spinner_task_type_NTC1);
 
     }
 
@@ -72,12 +87,11 @@ public class NewTaskActivity extends AppCompatActivity {
         });
     }
 
-    private void spinnerListener() {
-        String[] items = new String[] {"School", "Work", "Leisure"};
-        Spinner spinner = findViewById(R.id.spinner_task_type_NTC1);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, items);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+    private void spinnerTaskTypeListener() {
+        String[] spinnerTaskTypeItems = new String[] {getString(R.string.add_new_entry)};
+        ArrayAdapter<String> spinnerTaskTypeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, spinnerTaskTypeItems);
+        spinnerTaskTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerTaskType.setAdapter(spinnerTaskTypeAdapter);
     }
 
     private void waveListener() {

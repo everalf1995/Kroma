@@ -80,7 +80,6 @@
 
     <!--Shared-->
     <string name="description">Description</string>
-
-
+    <string name="add_new_entry">Add New Entry +</string>
 
 </resources>

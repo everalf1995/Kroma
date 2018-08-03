@@ -19,6 +19,8 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.CycleInterpolator;
+import android.view.animation.TranslateAnimation;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 
@@ -116,10 +118,12 @@ public class SignInFragment extends Fragment {
             public void onClick(View v) {
                 if (!validateEmail()) {
                     focusEditText(editTextEmail);
+                    editTextEmail.startAnimation(shakeAnimation());
                 }
 
                 else if (!validatePassword()) {
                     focusEditText(editTextPassword);
+                    editTextPassword.startAnimation(shakeAnimation());
                 }
 
                 else {
@@ -199,5 +203,12 @@ public class SignInFragment extends Fragment {
                 }, 500);
             }
         });
+    }
+
+    private TranslateAnimation shakeAnimation() {
+        TranslateAnimation shake = new TranslateAnimation(0, 20, 0, 0);
+        shake.setInterpolator(new CycleInterpolator(4));
+        shake.setDuration(500);
+        return shake;
     }
 }
