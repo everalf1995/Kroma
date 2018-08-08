@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp"
+    android:layout_marginTop="20dp"
+    android:background="@drawable/round_dialog"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:id="@+id/relative_layout_NTC2">
+
+    <com.scwang.wave.MultiWaveHeader
+        android:id="@+id/wave_NTA"
+        android:layout_width="match_parent"
+        android:layout_height="93dp"
+        android:scaleY="1"
+        app:mwhColorAlpha="1"
+        app:mwhGradientAngle="90"
+        app:mwhIsRunning="true"
+        app:mwhProgress="0.90"
+        app:mwhStartColor="?attr/colorAccent"
+        app:mwhCloseColor="?attr/colorAccent"
+        app:mwhVelocity="2"
+        app:mwhWaveHeight="20dp"
+        app:mwhWaves="90,40,1.4,1.4,-70">
+    </com.scwang.wave.MultiWaveHeader>
+
+    <LinearLayout
+        android:id="@+id/linear_layout_NTC2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_view_importance_NTC2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/importance"
+            android:textColor="?attr/colorAccent"
+            android:textSize="12sp" />
+
+        <RadioGroup
+            android:id="@+id/radio_group_importance_NTC2"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radio_button_not_important"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:checked="true"
+                android:textColor="@color/colorTextLight"
+                android:text="@string/important_exclamation" />
+
+            <RadioButton
+                android:id="@+id/radio_button_somewhat_important"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:checked="false"
+                android:textColor="@color/colorTextLight"
+                android:text="@string/important_exclamation" />
+
+            <RadioButton
+                android:id="@+id/radio_button_important"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:checked="false"
+                android:textColor="@color/colorTextLight"
+                android:text="@string/important_exclamation" />
+
+            <RadioButton
+                android:id="@+id/radio_button_very_important"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/colorTextLight"
+                android:text="@string/important_exclamation" />
+
+            <RadioButton
+                android:id="@+id/radio_button_really_important"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:textColor="@color/colorTextLight"
+                android:text="@string/important_exclamation" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+</RelativeLayout>

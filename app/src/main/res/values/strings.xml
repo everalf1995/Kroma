@@ -75,11 +75,29 @@
     <string name="profile_email">everalf1995@gmail.com</string>
 
     <!--Task-->
-    <string name="task_title">Task Title</string>
-    <string name="task_type">Type of Task</string>
+    <string name="task_title">Task title</string>
+    <string name="task_type">Type of task</string>
+    <string name="add_task_type">Enter a new type of task</string>
+
+    <string name="create_task">Create Task</string>
+    <string name="task_created">Task Created</string>
+
+
+    <!--Importance-->
+    <string name="importance">Importance</string>
+    <string name="important_exclamation">!!!!!</string>
+    <string name="not_important">Not Important</string>
+    <string name="somewhat_important">Somewhat Important</string>
+    <string name="important">Important</string>
+    <string name="very_important">Very Important</string>
+    <string name="really_important">Really Important</string>
+
 
     <!--Shared-->
     <string name="description">Description</string>
     <string name="add_new_entry">Add New Entry +</string>
+    <string name="make_a_selection">Make a Selection</string>
+    <string name="save">Save</string>
+    <string name="trash">Trash</string>
 
 </resources>

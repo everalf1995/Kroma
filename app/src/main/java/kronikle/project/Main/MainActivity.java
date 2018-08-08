@@ -79,8 +79,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
-        initializer();
         toolbarInitializer();
+        initializer();
         heartListener();
         circleButtonInitializer();
         circleButtonListener();
@@ -90,19 +90,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         confettiAnimation();
     }
 
-    private void initializer() {
+    private void toolbarInitializer() {
         toolbar = findViewById(R.id.toolbar_MA);
+
+        setSupportActionBar(toolbar);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
+    }
+
+    private void initializer() {
         iconHeart = findViewById(R.id.icon_heart_MA);
         circleButton = findViewById(R.id.circle_button_MA);
         relativeLayout = findViewById(R.id.relative_layout_MA);
         tabLayout = findViewById(R.id.tab_layout_MA);
         viewPager = findViewById(R.id.view_pager_MA);
-    }
-
-    private void toolbarInitializer() {
-        setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
     }
 
     // Needs Code

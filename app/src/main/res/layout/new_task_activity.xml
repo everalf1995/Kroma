@@ -16,12 +16,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleY="1"
-        app:mwhCloseColor="?attr/colorAccent"
         app:mwhColorAlpha=".95"
         app:mwhGradientAngle="90"
         app:mwhIsRunning="true"
         app:mwhProgress="0.15"
         app:mwhStartColor="?attr/colorAccent"
+        app:mwhCloseColor="?attr/colorAccent"
         app:mwhVelocity="2"
         app:mwhWaveHeight="20dp"
         app:mwhWaves="90,25,1.4,1.4,-70 420,0,1.15,1,40">
@@ -70,6 +70,22 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical" />
+
+        <RelativeLayout
+            android:id="@+id/card_holder_2_NTA"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/button_create_task_NTA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="13dp"
+            android:text="@string/create_task"
+            android:textSize="16sp" />
+
 
     </LinearLayout>
 

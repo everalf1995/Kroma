@@ -206,7 +206,7 @@ public class SignInFragment extends Fragment {
     }
 
     private TranslateAnimation shakeAnimation() {
-        TranslateAnimation shake = new TranslateAnimation(0, 20, 0, 0);
+        TranslateAnimation shake = new TranslateAnimation(0, 15, 0, 0);
         shake.setInterpolator(new CycleInterpolator(4));
         shake.setDuration(500);
         return shake;
