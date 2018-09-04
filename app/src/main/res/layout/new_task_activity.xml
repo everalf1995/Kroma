@@ -8,85 +8,54 @@
     android:layout_height="match_parent"
     android:background="?attr/colorPrimary"
     android:focusableInTouchMode="true"
+    android:fitsSystemWindows="true"
     tools:context=".Main.Tasks.NewTaskActivity"
     android:id="@+id/relative_layout_NTA">
+
+    <LinearLayout
+        android:id="@+id/linear_layout_NTA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="56dp"
+        android:background="@color/colorTransparent"
+        android:clipChildren="false"
+        android:orientation="vertical">
+
+    </LinearLayout>
 
     <com.scwang.wave.MultiWaveHeader
         android:id="@+id/wave_NTA"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleY="1"
+        app:mwhCloseColor="?attr/colorAccent"
         app:mwhColorAlpha=".95"
         app:mwhGradientAngle="90"
         app:mwhIsRunning="true"
-        app:mwhProgress="0.15"
+        app:mwhProgress="0.12"
         app:mwhStartColor="?attr/colorAccent"
-        app:mwhCloseColor="?attr/colorAccent"
         app:mwhVelocity="2"
         app:mwhWaveHeight="20dp"
-        app:mwhWaves="90,25,1.4,1.4,-70 420,0,1.15,1,40">
-    </com.scwang.wave.MultiWaveHeader>
+        app:mwhWaves="90,25,1.4,1.4,-70 420,0,1.15,1,40"></com.scwang.wave.MultiWaveHeader>
 
-    <ScrollView
-        android:id="@+id/scroll_view_NTA"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_NTA"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:overScrollMode="never"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="top"
+        android:background="@color/colorTransparent">
 
-    </ScrollView>
-
-    <LinearLayout
-        android:id="@+id/linear_layout_2_NTA"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorTransparent"
-        android:clipChildren="false"
-        android:fitsSystemWindows="true"
-        android:orientation="vertical">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar_NTA"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:layout_gravity="top"
-            android:background="@color/colorTransparent">
-
-            <TextView
-                android:id="@+id/toolbar_title_NTA"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="4dp"
-                android:fontFamily="@font/poppins_bold"
-                android:text="@string/new_task"
-                android:textAllCaps="true"
-                android:textSize="30sp" />
-
-        </android.support.v7.widget.Toolbar>
-
-        <LinearLayout
-            android:id="@+id/card_holder_1_NTA"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" />
-
-        <RelativeLayout
-            android:id="@+id/card_holder_2_NTA"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <Button
-            android:id="@+id/button_create_task_NTA"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/toolbar_title_NTA"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="13dp"
-            android:text="@string/create_task"
-            android:textSize="16sp" />
+            android:layout_gravity="center"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/new_task"
+            android:textAllCaps="true"
+            android:textSize="30sp" />
 
-
-    </LinearLayout>
+    </android.support.v7.widget.Toolbar>
 
 </RelativeLayout>

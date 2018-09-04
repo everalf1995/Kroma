@@ -10,7 +10,6 @@
     android:focusable="true"
     android:focusableInTouchMode="true"
     tools:context=".Landing.SignInFragment"
-    tools:layout_editor_absoluteY="56dp"
     android:id="@+id/constraint_layout_SIF">
 
     <android.support.design.widget.TextInputLayout

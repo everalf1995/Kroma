@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Toolbar toolbar;
     private LikeButton iconHeart;
+    private MainActivitySupportDialog mainActivitySupportDialog ;
+
     private RelativeLayout relativeLayout;
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -111,10 +113,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         iconHeart.setOnLikeListener(new OnLikeListener() {
             @Override
             public void liked(LikeButton likeButton) {
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
+
+                iconHeart.setClickable(false);
+                mainActivitySupportDialog = new MainActivitySupportDialog();
+                mainActivitySupportDialog.show(getSupportFragmentManager(), getString(R.string.support));
+                mainActivitySupportDialog.setCancelable(true);
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
                     public void run() {
+                        iconHeart.setClickable(true);
                         iconHeart.setLiked(false);
+
                     }
                 }, 500);
             }
@@ -158,6 +168,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         break;
 
                     case 1:
+                        confettiAnimation();
                         Toast.makeText(MainActivity.this, item.getText(), Toast.LENGTH_SHORT).show();
                         break;
 

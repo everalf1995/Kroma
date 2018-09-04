@@ -19,7 +19,7 @@
     <string name="forgot_password_dialogue">Enter your email address below to reset it</string>
     <string name="email_submitted">Email Submitted</string>
     <string name="email_submitted_dialogue">If your email address is in our database you will get an email to reset your password</string>
-    <string name="no_account_continue_guest">Dont want an account? Continue as a Guest</string>
+    <string name="no_account_continue_guest">Do not want an account? Continue as a Guest</string>
     <string name="continue_guest">Continue as a Guest</string>
     <string name="continue_guest_dialogue">Your information will be stored locally, if lost you will not be able to recover it unless you back it up</string>
     <string name="welcome">Welcome to KORNIKLE!</string>
@@ -51,6 +51,14 @@
     <string name="timers">Timers</string>
     <string name="heart">Heart</string>
 
+    <!--Support Dialog-->
+    <string name="support">Help us maintain Kronikle</string>
+    <string name="support_dialog">We created Kronikle with love and want you to enjoy it without ads, whether you choose to help us or not. If you would like to help us maintain the app please consider watching an ad or making a donation. If you cannot or do not want to no worries, you have our blessing to continue using our app.</string>
+    <string name="watch_add">Watch an add</string>
+    <string name="watch_add_thanks">Thank you for watching an add!</string>
+    <string name="donate">Make a donation</string>
+    <string name="donate_thanks">Thank you for donating!</string>
+
     <!--Circle Button-->]
     <string name="add_task">Add a Task</string>
     <string name="add_habit">Add a Habit</string>
@@ -75,16 +83,24 @@
     <string name="profile_email">everalf1995@gmail.com</string>
 
     <!--Task-->
-    <string name="task_title">Task title</string>
+    <string name="title_hint">Task Title</string>
+    <string name="description_hint">Enter a description for your task (option)</string>
+
+
+    <string name="title">Title</string>
+    <string name="description">Description</string>
     <string name="task_type">Type of task</string>
-    <string name="add_task_type">Enter a new type of task</string>
+    <string name="relevance">Relevance</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="reminder">Reminder</string>
+
 
     <string name="create_task">Create Task</string>
     <string name="task_created">Task Created</string>
 
 
-    <!--Importance-->
-    <string name="importance">Importance</string>
+    <!--Relevance-->
     <string name="important_exclamation">!!!!!</string>
     <string name="not_important">Not Important</string>
     <string name="somewhat_important">Somewhat Important</string>
@@ -94,7 +110,6 @@
 
 
     <!--Shared-->
-    <string name="description">Description</string>
     <string name="add_new_entry">Add New Entry +</string>
     <string name="make_a_selection">Make a Selection</string>
     <string name="save">Save</string>
